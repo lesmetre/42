@@ -6,9 +6,11 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 02:25:56 by mpressen          #+#    #+#             */
-/*   Updated: 2015/11/28 02:44:15 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/02 23:50:49 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

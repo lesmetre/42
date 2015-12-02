@@ -6,9 +6,11 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 01:29:59 by mpressen          #+#    #+#             */
-/*   Updated: 2015/11/28 02:12:53 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/02 23:50:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
