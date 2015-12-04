@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/04 04:56:48 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/04 05:52:52 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -68,34 +68,34 @@ SRC_NAME = 	ft_strdup.c		\		#part I
 			ft_strmap.c		\
 			ft_strmapi.c
 
-INC_PATH = ./
+INC_PATH = -I./
 
 INC_NAME = libft.h
+
+OBJ_PATH = ./
 
 #STANDART VARIABLES
 CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
 
-#AUTOMATIC 
+#AUTOMATIC
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-INC = $(addprefix -I, (addprefix $(INC_PATH), $(INC_NAME))) # WARNING ?
+OBJ = $(addprefix $(OBJ_PATH), $(SRC_NAME:.c=.o))
+INC = $(addprefix $(INC_PATH), $(INC_NAME)))
 
 #STANDART RULES
 all: $(NAME)
 
-$(OBJ):
-	$(CC) $(CFLAGS) -c $(SRC)	#compilation
-
-$(NAME): $(OBJ)
+$(NAME): $(OBJ)	#compilation
 	ar rc $(NAME) $(INC) $(OBJ)	#linkage
 	ranlib $(NAME)
 
 clean:
-	rm $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
