@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/04 05:52:52 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/04 21:46:50 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -80,16 +80,23 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
 
 #AUTOMATIC
+OBJ_NAME = $(SRC_NAME:.c=.o)
+
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH), $(SRC_NAME:.c=.o))
+
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+
 INC = $(addprefix $(INC_PATH), $(INC_NAME)))
 
 #STANDART RULES
 all: $(NAME)
 
-$(NAME): $(OBJ)	#compilation
+$(OBJ):	#compilation
+	gcc -c $(SRC)
+
+$(NAME): $(OBJ)
 	ar rc $(NAME) $(INC) $(OBJ)	#linkage
-	ranlib $(NAME)
+	ranlib $(NAME) #indexage
 
 clean:
 	rm -rf $(OBJ)
