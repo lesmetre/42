@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 23:58:49 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 21:35:51 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/04 21:37:34 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 			count1++;
 			count2++;
 		}
-		if (!( src[count2]))
+		if (!(src[count2]))
 			dst[count1] = '\0';
 	}
 	return (count1);
