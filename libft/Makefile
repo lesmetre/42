@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/04 21:58:43 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/04 22:16:57 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,8 +17,8 @@ SRC_PATH = ./
 
 SRC_NAME = $(SRC_PART_I) $(SRC_PART_II)
 
-SRC_PART_I = ft_strdup.c		\
-				ft_strrchr.c	\
+SRC_PART_I = ft_strrchr.c		\
+				ft_strdup.c		\
 				ft_memccpy.c	\
 				ft_memchr.c		\
 				ft_strstr.c		\
