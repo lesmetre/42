@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:17:46 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/01 23:36:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/04 23:24:37 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*sub;
 	size_t	count;
 
-	s1 = s;
+	s1 = (char *)s;
 	count = 0;
 	sub = (char *)malloc(sizeof(*sub) * (len + 1));
 	if (sub)

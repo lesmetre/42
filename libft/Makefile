@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/04 22:53:31 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/04 23:15:20 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -73,14 +73,14 @@ SRC2 = ft_putstr.c		\
 		ft_strmap.c		\
 		ft_strmapi.c
 
-INC_PATH = ./
+INC_PATH = -I./
 
 INC_NAME = libft.h
 
 OBJ_PATH = ./
 
 #STANDART VARIABLES
-CC = gcc -c
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
 
@@ -91,7 +91,7 @@ SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-INC = $(addprefix -I$(INC_PATH), $(INC_NAME)))
+INC = $(addprefix $(INC_PATH), $(INC_NAME)))
 
 #STANDART RULES
 all: $(NAME)
