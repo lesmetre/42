@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/04 23:15:20 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/05 02:04:20 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -73,7 +73,7 @@ SRC2 = ft_putstr.c		\
 		ft_strmap.c		\
 		ft_strmapi.c
 
-INC_PATH = -I./
+INC_PATH = -I ./
 
 INC_NAME = libft.h
 
@@ -91,24 +91,22 @@ SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-INC = $(addprefix $(INC_PATH), $(INC_NAME)))
+INC = $(addprefix $(INC_PATH), $(INC_NAME))
 
 #STANDART RULES
 all: $(NAME)
 
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(INC) $(SRC) 
-	ar rc $@ $^	#linkage
-	ranlib $(NAME) #indexage
-
-
+$(NAME):
+	$(CC) -c $(CFLAGS) $(INC) $(SRC)	#COMPILATION
+	ar rc $@ $(OBJ)	#LINKAGE
+	ranlib $@	#INDEXATION
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ)	# .O EFFACES
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME)	# $(NAME) EFFACE
 
 re: fclean all
 
