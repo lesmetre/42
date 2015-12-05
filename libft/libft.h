@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 22:55:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/05 01:15:37 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s);
 char	**ft_strsplit(char const *s, char c);
 char	*ft_itoa(int n);
-
 void	ft_striter(char *s, void (*f) (char *));
 void	ft_striteri(char *s, void (*f) (unsigned int, char *));
 char	*ft_strmap(char const *s, char (*f) (char));
