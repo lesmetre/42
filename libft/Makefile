@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/05 02:04:20 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/05 02:14:18 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -73,7 +73,7 @@ SRC2 = ft_putstr.c		\
 		ft_strmap.c		\
 		ft_strmapi.c
 
-INC_PATH = -I ./
+INC_PATH = ./
 
 INC_NAME = libft.h
 
@@ -106,7 +106,7 @@ clean:
 	rm -rf $(OBJ)	# .O EFFACES
 
 fclean: clean
-	rm -rf $(NAME)	# $(NAME) EFFACE
+	rm -rf $(NAME)	# PROJET EFFACE
 
 re: fclean all
 
