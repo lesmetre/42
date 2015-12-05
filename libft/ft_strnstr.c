@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 00:58:00 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/02 23:55:18 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/05 05:52:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 
 	count1 = 0;
 	count2 = 0;
-	if (!(*s2))
+	if (!(*s2) || !(*s1))
 		return ((char *)s1);
 	while (s1[count1] && count1 < n)
 	{

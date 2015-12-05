@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 00:58:00 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/02 23:55:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/05 05:53:51 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,16 @@ char	*ft_strstr(const char *s1, const char *s2)
 
 	count1 = 0;
 	count2 = 0;
-	if (!(*s2))
+	if (!(*s2) || !(*s1))
 		return ((char *)s1);
 	while (s1[count1])
 	{
 		if (s1[count1] == s2[count2])
 		{
 			while (s1[count1 + count2] == s2[count2])
-			{
 				count2++;
-			}
 			if (s2[count2] == '\0')
-			{
 				return ((char *)s1 + count1);
-			}
 		}
 		count2 = 0;
 		count1++;
