@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/05 02:14:18 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/05 02:32:20 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -84,6 +84,20 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
 
+# COLORS
+RESET =		\033[0m
+DARK =		\033[1;32m
+RED =		\033[31m
+GREEN =		\033[32m
+YELLOW =	\033[33m
+BLUE =		\033[34m
+MAGENTA =	\033[35m
+CYAN =		\033[36m
+WHITE =		\033[37m
+BOLDBLACK =	\033[1m\033[30m
+BOLDRED =	\033[1m\033[31m
+BOLDWHITE =	\033[1m\033[37m
+
 #AUTOMATIC
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -98,15 +112,23 @@ all: $(NAME)
 
 
 $(NAME):
-	$(CC) -c $(CFLAGS) $(INC) $(SRC)	#COMPILATION
-	ar rc $@ $(OBJ)	#LINKAGE
-	ranlib $@	#INDEXATION
+	@echo "$(YELLOW)compilating ...$(RESET)"
+	$(CC) -c $(CFLAGS) $(INC) $(SRC)
+	@echo "$(YELLOW)linking...$(RESET)"
+	ar rc $@ $(OBJ)
+	@echo "$(YELLOW)creating index...$(RESET)"
+	ranlib $@
+	@echo "$(CYAN)$(NAME) IS BUILT !$(RESET)"
 
 clean:
-	rm -rf $(OBJ)	# .O EFFACES
+	@echo "$(YELLOW)ERASING OBJECTS ...$(RESET)"
+	rm -rf $(OBJ)
+	@echo "$(CYAN) REPERTORY CLEANED !$(RESET)"
 
 fclean: clean
-	rm -rf $(NAME)	# PROJET EFFACE
+	@echo "$(YELLOW)ERASING $(NAME) ...$(RESET)"
+	rm -rf $(NAME)
+	@echo "$(CYAN)$(NAME) ERASED !(RESET)"
 
 re: fclean all
 
