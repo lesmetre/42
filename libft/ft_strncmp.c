@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/05 06:03:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/07 00:36:01 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	count;
+	size_t s1len;
+	size_t s2len;
+	unsigned char	*s11;
+	unsigned char	*s22;
 
-	count = 0;
-	while ((s1[count] || s2[count]) && count < n)
-	{
-		if ((int)s1[count] != (int)s2[count])
-			return ((int)(s1[count] - s2[count]));
-		count++;
-	}
-	return (0);
+	s11 = (unsigned char *)s1;
+	s22 = (unsigned char *)s2;
+
+	s1len = ft_strlen(s1);
+	s2len = ft_strlen(s2);
+	if (s1len <= n)
+		n = s1len;
+	if (s2len <= n)
+		n = s2len;
+	return (memcmp(s11, s22, n));
 }
