@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 02:14:05 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/07 06:48:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/07 06:53:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	{
 		dst1[i] = tmp[i];
 		i++;
-		}
+	}
 	return (dst);
 }
