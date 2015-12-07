@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/02 00:24:26 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/07 02:32:19 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,25 @@
 size_t		ft_strlentrim(char const *s)
 {
 	size_t	len;
+	size_t	i;
 	size_t	begin;
 
 	begin = 1;
+	i = 0;
 	len = 0;
-	while (*s)
+	while (s[i])
 	{
-		if ((*s == ' ' || *s == '\n' || *s == '\t') && begin == 1)
-			s++;
-		else
-		{
-			begin = 0;
-			len++;
-			s++;
-		}
+		while ((s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && begin == 1)
+			i++;
+		begin = 0;
+		len++;
+		i++;
 	}
-	while (*--s == ' ' || *s == '\n' || *s == '\t')
+	i--;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
 	{
 		len--;
+		i--;
 	}
 	return (len);
 }
@@ -42,26 +43,25 @@ char		*ft_strtrim(char const *s)
 {
 	char	*trim;
 	size_t	len;
+	size_t	i;
+	size_t	j;
 	size_t	begin;
 
 	begin = 1;
+	i = 0;
+	j = 0;
 	len = ft_strlentrim(s);
 	trim = (char *)malloc(sizeof(*trim) * (len + 1));
 	if (trim)
 	{
-		while (len > 0)
+		while (j < len)
 		{
-			if ((*s == ' ' || *s == '\n' || *s == '\t') && begin == 1)
-				s++;
-			else
-			{
-				begin = 0;
-				*trim = *s;
-				trim++;
-				s++;
-			}
+			while ((s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && begin == 1)
+				i++;
+			begin = 0;
+			trim[j++] = s[i++];
 		}
-		*trim = '\0';
+		trim[j] = '\0';
 		return (trim);
 	}
 	return (NULL);
