@@ -80,7 +80,7 @@ INC_NAME = libft.h
 OBJ_PATH = ./
 
 #STANDART VARIABLES
-CC = gcc
+CC = gcc -c
 
 CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
 
@@ -113,7 +113,7 @@ all: $(NAME)
 
 $(NAME):
 	@echo "$(YELLOW)compilating ...$(RESET)"
-	$(CC) -c $(CFLAGS) $(INC) $(SRC)
+	$(CC) $(CFLAGS) $(INC) $(SRC)
 	@echo "$(YELLOW)linking...$(RESET)"
 	ar rc $@ $(OBJ)
 	@echo "$(YELLOW)creating index...$(RESET)"
@@ -137,4 +137,4 @@ norme:
 	norminette $(SRC)
 	norminette $(INC)
 
-.PHONY: re fclean clean all
+.PHONY: re fclean clean all norme
