@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 02:14:05 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/07 06:53:17 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/08 01:14:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*src1;
 	size_t	i;
 
-	if (!(dst) || !(src))
-		return (NULL);
 	dst1 = (char *)dst;
 	src1 = (char *)src;
 	tmp = (char *)malloc(sizeof(*tmp) * len);
