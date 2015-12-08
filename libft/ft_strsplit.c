@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 00:30:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/07 04:13:33 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/08 05:48:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,9 @@ char	**ft_strsplit(char const *s, char c)
 	size_t	end;
 	size_t	bits;
 
-	split = NULL;
 	bits = 0;
 	i = 0;
-	if ((split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
+	if (s && (split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
 	{
 		while (s[i])
 		{
@@ -63,7 +62,8 @@ char	**ft_strsplit(char const *s, char c)
 			if (end > start)
 				split[bits++] = ft_strsub(s, start, end - start);
 		}
+		split[bits] = NULL;
+		return (split);
 	}
-	split[bits] = NULL;
-	return (split);
+	return (NULL);
 }
