@@ -50,7 +50,7 @@ char	**ft_strsplit(char const *s, char c)
 	split = NULL;
 	bits = 0;
 	i = 0;
-	if (s && (split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
+	if ((split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
 	{
 		while (s[i])
 		{
