@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/08 06:19:22 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/10 23:42:14 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -15,7 +15,7 @@ NAME = libft.a
 
 SRC_PATH = ./
 
-SRC_NAME = $(SRC1) $(SRC2)
+SRC_NAME = $(SRC1) $(SRC2) $(SRC3)
 
 #libft part I
 SRC1 = ft_strrchr.c		\
@@ -73,6 +73,14 @@ SRC2 = ft_putstr.c		\
 		ft_strmap.c		\
 		ft_strmapi.c
 
+#libft part bonus
+SRC3 = ft_lstnew.c
+		ft_lstdelone.c	\
+		ft_lstdel.c		\
+		ft_lstadd.c		\
+		ft_lstiter.c	\
+		ft_lstmap.c
+
 INC_PATH = ./
 
 INC_NAME = libft.h
@@ -112,7 +120,7 @@ all: $(NAME)
 
 
 $(NAME):
-	@echo "$(YELLOW)compilating ...$(RESET)"
+	@echo "$(YELLOW)compiling ...$(RESET)"
 	$(CC) $(CFLAGS) $(INC) $(SRC)
 	@echo "$(YELLOW)linking...$(RESET)"
 	ar rc $@ $(OBJ)
