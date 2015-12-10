@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 10:17:46 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/10 10:20:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 00:11:34 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_lstadd(t_list **alst, t_list *new)
 {
-	t_list	*list;
-
-	list = *alst;
-	list = new;
-	new->next = list;
+	new->next = *alst;
+	*alst = new;
 }
