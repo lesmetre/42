@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 07:08:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/10 08:42:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void				ft_striter(char *s, void (*f) (char *));
 void				ft_striteri(char *s, void (*f) (unsigned int, char *));
 char				*ft_strmap(char const *s, char (*f) (char));
 char				*ft_strmapi(char const *s, char (*f) (unsigned int, char));
-
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
