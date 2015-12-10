@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 23:08:34 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/10 09:33:11 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/10 09:53:02 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		str1[n - 1] = str2[n - 1];
 		n--;
 	}
-	return (str1);
+	return (dst);
 }
