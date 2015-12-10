@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/10 23:42:14 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/10 23:56:35 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -74,7 +74,7 @@ SRC2 = ft_putstr.c		\
 		ft_strmapi.c
 
 #libft part bonus
-SRC3 = ft_lstnew.c
+SRC3 = ft_lstnew.c		\
 		ft_lstdelone.c	\
 		ft_lstdel.c		\
 		ft_lstadd.c		\
