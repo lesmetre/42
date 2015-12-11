@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsplit.c                                      :+:      :+:    :+:   */
+/*   ft_bits.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/02 00:30:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 00:59:55 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/11 00:58:50 by mpressen          #+#    #+#             */
+/*   Updated: 2015/12/11 00:59:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 size_t	ft_bits(const char *s, char c)
 {
@@ -37,33 +36,4 @@ size_t	ft_bits(const char *s, char c)
 			i++;
 	}
 	return (bits);
-}
-
-char	**ft_strsplit(char const *s, char c)
-{
-	char	**split;
-	size_t	i;
-	size_t	start;
-	size_t	end;
-	size_t	bits;
-
-	bits = 0;
-	i = 0;
-	if (s && (split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
-	{
-		while (s[i])
-		{
-			while (s[i] && s[i] == c)
-				i++;
-			start = i;
-			while (s[i] && s[i] != c)
-				i++;
-			end = i;
-			if (end > start)
-				split[bits++] = ft_strsub(s, start, end - start);
-		}
-		split[bits] = NULL;
-		return (split);
-	}
-	return (NULL);
 }

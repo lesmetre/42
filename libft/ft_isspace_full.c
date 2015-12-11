@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_isspace_full.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/11 00:51:50 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 00:51:56 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/11 01:00:39 by mpressen          #+#    #+#             */
+/*   Updated: 2015/12/11 01:06:44 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdel(t_list **alst, void (*del) (void*, size_t))
+int		ft_isspace_full(int c)
 {
-	t_list	*tmp;
-
-	while (*alst)
-	{
-		tmp = (*alst)->next;
-		del((*alst)->content, (*alst)->content_size);
-		ft_memdel((void **)alst);
-		*alst = tmp;
-	}
-	free(tmp);
+	if (str[count] == '\n' || str[count] == '\f' || str[count] == '\r'
+            || str[count] == '\v' || str[count] == ' ' || str[count] == '\t')
+		return (1);
+	return (0);
 }

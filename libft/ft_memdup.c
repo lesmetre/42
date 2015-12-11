@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_memdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 01:32:38 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/10 08:44:49 by mpressen          #+#    #+#             */
+/*   Updated: 2015/12/11 00:53:45 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
+#include <stdlib.h>
 
-char		*ft_strtrim(char const *s)
+void	*ft_memdup(const void *src, size_t n)
 {
-	char	*trim;
-	size_t	len;
-	size_t	i;
-	size_t	j;
-	size_t	begin;
+	void	*ret;
 
-	begin = 1;
-	i = 0;
-	j = 0;
-	len = ft_strlentrim(s);
-	trim = (char *)malloc(sizeof(*trim) * (len + 1));
-	if (trim)
-	{
-		while (j < len)
-		{
-			while ((s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && begin == 1)
-				i++;
-			begin = 0;
-			trim[j++] = s[i++];
-		}
-		trim[j] = '\0';
-		return (trim);
-	}
-	return (NULL);
+	ret = NULL;
+	if (!(ret = (void *)malloc(sizeof(*src) * n)))
+		return (NULL);
+	ft_memcpy(ret, src, n);
+	return (ret);
 }
