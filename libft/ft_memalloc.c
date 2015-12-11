@@ -23,5 +23,5 @@ void	*ft_memalloc(size_t size)
 		ft_bzero(mem, size);
 		return (mem);
 	}
-	return (NULL);
+	return (ft_error_malloc("ft_memalloc"));
 }
