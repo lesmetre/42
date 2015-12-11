@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 22:26:35 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 03:39:53 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 02:36:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);
-	*ap = NULL;
+	if (!(ap))
+		ft_putendl("\033[31merror : ft_memdel : null parameter\033[0m");
+	else
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

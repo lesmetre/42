@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 23:25:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 03:03:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 void	ft_putendl(char const *s)
 {
-	while (*s)
-		write(1, s++, 1);
-	write(1, "\n", 1);
+	if (!(s))
+		ft_putendl("\033[31merror : ft_putstr.c : null parameter\033[0m");
+	else
+	{
+		while (*s)
+			write(1, s++, 1);
+		write(1, "\n", 1);
+	}
 }
