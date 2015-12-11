@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-int		ft_itoa_len(int n)
+static int		ft_itoa_len(int n)
 {
 	int		len;
 
