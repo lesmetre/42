@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 01:07:19 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 01:12:28 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 01:38:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_isspace(int c)
 {
-	if (str[count] == '\n' || str[count] == ' ' || str[count] == '\t')
+	if (c == '\n' || c == ' ' || c == '\t')
 		return (1);
 	return (0);
 }

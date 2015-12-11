@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 01:32:38 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 01:51:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char		*ft_strtrim(char const *s)
 	{
 		while (j < len)
 		{
-			while ((s[i] == ' ' || s[i] == '\n' || s[i] == '\t') && begin == 1)
+			while (ft_isspace((int)s[i]) && begin == 1)
 				i++;
 			begin = 0;
 			trim[j++] = s[i++];
