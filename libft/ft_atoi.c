@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 03:27:06 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 01:57:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 05:33:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int		ft_atoi(const char *str)
 	count = 0;
 	res = 0;
 	sign = 1;
-	while (str[count] == '\n' || str[count] == '\f' || str[count] == '\r'
-			|| str[count] == '\v' || str[count] == ' ' || str[count] == '\t')
+	while (ft_isspace_full(str[count]))
 		count++;
 	if (str[count] == '-' || str[count] == '+')
 	{
