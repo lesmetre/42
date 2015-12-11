@@ -81,7 +81,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				*ft_memdup(const void *src, size_t n);
-size_t				ft_bits(const char *s, char c);
+size_t				ft_countbits(const char *s, char c);
 int					ft_isspace_full(int c);
 int					ft_isspace(int c);
 size_t				ft_strlentrim(char const *s);
