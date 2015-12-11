@@ -23,7 +23,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	bits = 0;
 	i = 0;
-	if (s && (split = (char **)malloc(sizeof(*split) * (ft_bits(s, c) + 1))))
+	if (s && (split = (char **)malloc(sizeof(*split) * (ft_countbits(s, c) + 1))))
 	{
 		while (s[i])
 		{
