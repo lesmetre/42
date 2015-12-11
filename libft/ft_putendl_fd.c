@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:07:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:36:41 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ft_putendl_fd(char const *s, int fd)
 {
 	if (!(s))
-		ft_putendl("\033[31merror : ft_putendl_fd : null parameter\033[0m");
+		ft_error_null("ft_putendl_fd");
 	else
 	{
 		while (*s)

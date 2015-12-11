@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:42:05 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:39:54 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ static char	*ft_strtrim2(char const *s, size_t i, size_t j, size_t begin)
 	size_t	len;
 
 	if (!(s))
-	{
-		ft_putendl("\033[31merror : ft_strtrim : null parameter\033[0m");
-		return (NULL);
-	}
+		return (ft_error_null("ft_strtrim"));
 	len = ft_strlentrim(s);
 	if ((trim = (char *)malloc(sizeof(*trim) * (len + 1))))
 	{
@@ -36,8 +33,7 @@ static char	*ft_strtrim2(char const *s, size_t i, size_t j, size_t begin)
 		trim[j] = '\0';
 		return (trim);
 	}
-	ft_putendl("\033[31merror : ft_strtrim : malloc failed\033[0m");
-	return (NULL);
+	return (ft_error_malloc("ft_strtrim"));
 }
 
 char		*ft_strtrim(char const *s)

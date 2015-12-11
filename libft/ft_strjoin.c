@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:38:30 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:41:42 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:41:41 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ static char	*ft_strjoin2(char const *s1, char const *s2, size_t i, size_t j)
 	char *str;
 
 	if (!(s1) || !(s2))
-	{
-		ft_putendl("\033[31merror : ft_strjoin : null parameter\033[0m");
-		return (NULL);
-	}
+		return (ft_error_null("ft_strjoin"));
 	str = (char *)malloc(sizeof(*str) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (str)
 	{
@@ -35,8 +32,7 @@ static char	*ft_strjoin2(char const *s1, char const *s2, size_t i, size_t j)
 		str[i] = '\0';
 		return (str);
 	}
-	ft_putendl("\033[31merror : ft_strjoin : malloc failed\033[0m");
-	return (NULL);
+	return (ft_error_malloc("ft_strjoin"));
 }
 
 char		*ft_strjoin(char const *s1, char const *s2)

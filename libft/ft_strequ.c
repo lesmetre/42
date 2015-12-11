@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:51:53 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 02:41:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:49:18 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int		ft_strequ(char const *s1, char const *s2)
 
 	count = 0;
 	if (!(s1) || !(s2))
-	{
-		ft_putendl("\033[31merror : ft_strequ : null parameter\033[0m");
-		return (0);
-	}
+		return ((int)ft_error_null("ft_strequ"));
 	while (s1[count] && s2[count])
 	{
 		if (s1[count] != s2[count])

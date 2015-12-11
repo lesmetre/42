@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/05 00:16:26 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:02:34 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:46:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_striter(char *s, void (*f)(char *))
 {
 	if (!(s) || !(f))
-		ft_putendl("\033[31merror : ft_striter : null parameter\033[0m");
+		ft_error_null("ft_striter");
 	else
 		while (*s)
 			f((s++));

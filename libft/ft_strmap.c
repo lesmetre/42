@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/05 00:38:44 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:46:34 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:44:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ char	*ft_strmap(char const *s, char (*f)(char))
 
 	i = 0;
 	if (!(s) || !(f) || !(*s) || !(*f))
-	{
-		ft_putendl("\033[31merror : ft_strmap : null parameter\033[0m");
-		return (NULL);
-	}
+		return (ft_error_null("ft_strmap"));
 	str = (char *)malloc(sizeof(*str) * (ft_strlen(s) + 1));
 	if (str)
 	{
@@ -35,6 +32,5 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		str[i] = '\0';
 		return (str);
 	}
-	ft_putendl("\033[31merror : ft_strmap : malloc failed\033[0m");
-	return (NULL);
+	return (ft_error_malloc("ft_strmap"));
 }

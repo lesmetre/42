@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:02:32 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 02:36:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 06:53:09 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_strclr(char *s)
 
 	count = 0;
 	if (!(s))
-		ft_putendl("\033[31merror : ft_strclr : null parameter\033[0m");
+		ft_error_null("ft_strclr");
 	else
 		while (s[count])
 		{
