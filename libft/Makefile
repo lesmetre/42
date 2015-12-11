@@ -83,7 +83,7 @@ SRC3 = ft_lstnew.c			\
 
 #libft part perso
 SRC4 = ft_memdup.c			\
-		ft_bits.c			\
+		ft_countbits.c			\
 		ft_isspace_full.c	\
 		ft_isspace.c		\
 		ft_strlentrim.c
