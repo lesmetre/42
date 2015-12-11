@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl.c                                       :+:      :+:    :+:   */
+/*   ft_error_null.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 05:48:37 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/11 06:04:15 by mpressen          #+#    #+#             */
+/*   Updated: 2015/12/11 06:24:05 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putendl(char const *s)
+void	*ft_error_null(char const *str)
 {
-	if (!(s))
-		ft_putendl("\033[31merror : ft_putstr.c : null parameter\033[0m");
-	else
-	{
-		while (*s)
-			write(1, s++, 1);
-		write(1, "\n", 1);
-	}
+	ft_putstr("\033[31merror : ");
+	ft_putstr(str);
+	ft_putendl(" : null parameter\033[0m");
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/11 01:35:03 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/11 06:17:42 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -83,10 +83,12 @@ SRC3 = ft_lstnew.c			\
 
 #libft part perso
 SRC4 = ft_memdup.c			\
-		ft_countbits.c			\
+		ft_countbits.c		\
 		ft_isspace_full.c	\
 		ft_isspace.c		\
-		ft_strlentrim.c
+		ft_strlentrim.c		\
+		ft_error_null.c		\
+		ft_error_malloc.c	\
 
 INC_PATH = ./
 
