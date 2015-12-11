@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 02:42:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 05:23:51 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/11 07:19:12 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ char			*ft_itoa(int n)
 			str[0] = '-';
 		return (str);
 	}
-	return (NULL);
+	return (ft_error_malloc("ft_itoa"));
 }
