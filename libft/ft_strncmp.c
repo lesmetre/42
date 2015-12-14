@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 01:22:29 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:05:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		else
 			n = s2len;
 	}
-	return (memcmp(s11, s22, n));
+	return (ft_memcmp(s11, s22, n));
 }
