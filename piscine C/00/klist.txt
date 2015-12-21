@@ -1,0 +1,5 @@
+Credentials cache: API:15309
+        Principal: mpressen@42.FR
+
+  Issued                Expires               Principal
+Nov 25 10:35:05 2015  Nov 25 20:35:05 2015  krbtgt/42.FR@42.FR
