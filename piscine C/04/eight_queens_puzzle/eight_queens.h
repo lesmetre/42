@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:43:07 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 14:02:56 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 18:02:44 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 void	resolution(char **tab, int queens);
 char	**backtracking(char **tab);
-void	free_tab(char **tab);
 int		no_queen_check(int line, int column, char **tab);
 int		no_queen_diagonale_right(int line, int column, char **tab);
 int		no_queen_diagonale_left(int line, int column, char **tab);
