@@ -6,12 +6,11 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:55:28 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 19:48:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 23:30:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eight_queens.h"
-#include <stdio.h>
 
 int		resolution(char **tab, int queens)
 {

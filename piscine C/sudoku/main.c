@@ -6,35 +6,34 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 20:01:13 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 23:01:27 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 23:34:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "sudoku.h"
 #include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
 
 void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
 
 void	print_tab(char **tab)
 {
-    int	l;
-    int	c;
+	int	l;
+	int	c;
 
-    l = -1;
-    while (tab[++l])
-    {
-        c = -1;
-        while (tab[l][++c])
-        {
-            ft_putchar(tab[l][c]);
-            ft_putchar(' ');
-        }
-        ft_putchar('\n');
-    }
+	l = -1;
+	while (tab[++l])
+	{
+		c = -1;
+		while (tab[l][++c])
+		{
+			ft_putchar(tab[l][c]);
+			ft_putchar(' ');
+		}
+		ft_putchar('\n');
+	}
 }
 
 int		main(int ac, char **av)
@@ -74,7 +73,7 @@ int		main(int ac, char **av)
 			}
 			tab[line] = 0;
 		}
-		print_tab(tab);
+		printf("Il y a %d solutions !\n", resolution(tab, 0));
 	}
 	else
 		printf("erreur\n");
