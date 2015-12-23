@@ -6,11 +6,12 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 18:58:39 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 14:39:40 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 18:39:27 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eight_queens.h"
+#include <stdio.h>
 
 int		main(void)
 {
@@ -35,6 +36,6 @@ int		main(void)
         }
         tab[line] = 0;
 	}
-	resolution(tab, 0);
+	printf("Il y a %d solutions !\n", resolution(tab, 0));
 	return (0);
 }

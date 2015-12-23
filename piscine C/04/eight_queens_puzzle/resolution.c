@@ -6,24 +6,27 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:55:28 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 17:55:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 18:38:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "eight_queens.h"
 #include <stdio.h>
 
-void    resolution(char **tab, int queens)
+int    resolution(char **tab, int queens)
 {
     int		column;
 	int		queen_on_line;
+	int		solutions;
 
+	solutions = 0;
 	column = -1;
 	if (queens == 8)				//condition d'arret
 	{
 		print_tab(tab);
+		solutions++;
 		ft_putchar('\n');
-		return;
+		return (solutions);
 	}
     while (++column < 8)            //resolution complexe
     {
@@ -31,7 +34,7 @@ void    resolution(char **tab, int queens)
         {
             tab[queens][column] = '1';
 			queen_on_line = 1;
-            resolution(tab, queens + 1);
+            solutions += resolution(tab, queens + 1);
             tab[queens][column] = '.';
         }
     }
@@ -49,12 +52,12 @@ void    resolution(char **tab, int queens)
 						if (no_queen_check(queens, column, tab))
 						{
 							tab[queens][column] = '1';
-							resolution(tab, queens + 1);
-							return;
+							solutions += resolution(tab, queens + 1);
 						}
 					column = 0;
 				}
 			}
 		}
 	}
+	return(solutions);
 }

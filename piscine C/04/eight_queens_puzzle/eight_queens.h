@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:43:07 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 18:02:44 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 18:36:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-void	resolution(char **tab, int queens);
+int		resolution(char **tab, int queens);
 char	**backtracking(char **tab);
 int		no_queen_check(int line, int column, char **tab);
 int		no_queen_diagonale_right(int line, int column, char **tab);
