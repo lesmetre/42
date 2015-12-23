@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:53:08 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/22 15:04:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 14:32:29 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void    print_tab(char **tab)
     {
         c = -1;
         while (tab[l][++c])
+		{
             ft_putchar(tab[l][c]);
+            ft_putchar(' ');
+		}
         ft_putchar('\n');
     }
 }
