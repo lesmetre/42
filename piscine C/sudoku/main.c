@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 20:01:13 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 23:34:08 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/24 00:20:34 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,46 +36,55 @@ void	print_tab(char **tab)
 	}
 }
 
-int		main(int ac, char **av)
+int		valid_grid(int ac, char **av)
 {
+	int		column;
+	
+	while (--ac)
+	{
+		column = 0;
+		while ((av[ac][column] >= '0' && av[ac][column] <= '9') || av[ac][column] == '.')
+			column++;
+		if (column != 9)
+			return (0);
+	}
+	return (1);
+}
+
+char	**create_tab(int ac, char **av)
+{
+	char	**tab;
 	int		line;
 	int		column;
-	char	**tab;
 
-	line = 0;
-	if (ac == 10)
+	tab = NULL;
+	if ((tab = (char **)malloc(sizeof(*tab) * 10)))
 	{
-		while (av[++line])
+		line = -1;
+		while (++line < (ac - 1))
 		{
-			column = 0;
-			while ((av[line][column] >= '0' && av[line][column] <= '9') || av[line][column] == '.')
-				column++;
-			if (column != 9)
+			if ((tab[line] = (char *)malloc(sizeof(**tab) * 10)))
 			{
-				printf("erreur\n");
-				return (0);
+				column = -1;
+				while (++column < 9)
+					tab[line][column] = av[line + 1][column];
+				tab[line][column] = '\0';
 			}
+			else
+				tab[line] = NULL;
 		}
-		if ((tab = (char **)malloc(sizeof(*tab) * 10)))
-		{
-			line = -1;
-			while (++line < 9)
-			{
-				if ((tab[line] = (char *)malloc(sizeof(**tab) * 10)))
-				{
-					column = -1;
-					while (++column < 9)
-						tab[line][column] = av[line + 1][column];
-					tab[line][column] = '\0';
-				}
-				else
-					tab[line] = NULL;
-			}
-			tab[line] = 0;
-		}
-		printf("Il y a %d solutions !\n", resolution(tab, 0));
+		tab[line] = 0;
 	}
-	else
-		printf("erreur\n");
+	return (tab);
+}
+
+int		main(int ac, char **av)
+{
+	if (ac != 10 || !(valid_grid(ac, av)))
+	{
+		printf("Erreur\n");
+		return (0);
+	}
+	print_tab(create_tab(ac, av));
 	return (0);
 }

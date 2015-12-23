@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 20:01:37 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 23:27:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 23:50:29 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,20 @@ int		check_block(int line, int column, char c, char **tab)
 	return (1);
 }
 
+int		check_emptycase(int line, int column, char c, char **tab)
+{
+	if (tab[line][column] != '.')
+		return (0);
+	return (1);
+
+}
+
 int		check(int line, int column, char c, char **tab)
 {
 	if (check_line(line, column, c, tab) &&
 			check_column(line, column, c, tab) &&
-			check_block(line, column, c, tab))
+			check_block(line, column, c, tab) &&
+			check_emptycase(line, column, c, tab))
 		return (1);
 	return (0);
 }
