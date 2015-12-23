@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:55:00 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 14:09:14 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/23 16:23:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void    free_tab(char **tab)
 
 	i = -1;
 	while (++i < 9)
+	{
 		free(tab[i]);
+		tab[i] = NULL;
+	}
 	free(tab);
+	tab = NULL;
 }
