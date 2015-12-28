@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 20:01:13 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/24 00:20:34 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/28 21:51:30 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	print_tab(char **tab)
 int		valid_grid(int ac, char **av)
 {
 	int		column;
-	
+
 	while (--ac)
 	{
 		column = 0;
@@ -85,6 +85,6 @@ int		main(int ac, char **av)
 		printf("Erreur\n");
 		return (0);
 	}
-	print_tab(create_tab(ac, av));
+	resolution(create_tab(ac, av));
 	return (0);
 }
