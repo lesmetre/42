@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/22 14:55:28 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/23 23:30:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/28 19:33:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		resolution(char **tab, int queens)
 			tab[queens][column] = '.';
 		}
 	}
+//	free_tab(tab);
 	return (solutions);
 }

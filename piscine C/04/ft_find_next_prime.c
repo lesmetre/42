@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 01:51:46 by mpressen          #+#    #+#             */
-/*   Updated: 2015/11/27 02:11:44 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/21 19:38:27 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		ft_find_next_prime(int nb)
 {
 	int i;
 
-	while (2)
+	while (1)
 	{
 		i = 2;
 		while ( nb % i != 0)
