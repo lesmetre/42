@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 20:00:59 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/28 23:01:31 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/28 23:33:11 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		resolution(char **tab)
 	else
 	{ 
 		print_tab(tab);
+		free_tab(tab);
 		return (1);
 	}
 }
