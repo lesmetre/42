@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/23 23:20:06 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/28 23:26:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/29 01:26:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_putchar(char c);
 void	print_tab(char **tab);
 int		resolution(char **tab);
 void	free_tab(char **tab);
+int		count_solutions(char **tab);
 #endif
