@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/31 00:32:42 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/31 00:36:16 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
+/*   Updated: 2015/12/31 00:35:27 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,29 @@
 #include "get_next_line.h"
 //#include "libft.h"
 
-int     main(int ac, char **av)
+void    ft_putstr_fd(int fd, char *str)
 {
-    int     fd;
-    char    *buf;
+    while (*str)
+        write(fd, str++, 1);
+}
 
-    buf = (char *)malloc(sizeof(*buf) * BUF_SIZE + 1);
-    if (ac == 2)
-    {
-        fd = open(av[1], O_RDONLY);
-        if (fd == -1)
-            return (1);
-        while (get_next_line(fd, &buf))
-            ft_putstr_fd(1, "\n");
-        close (fd);
-    }
-    free(buf);
-    return (0);
+int		get_next_line(int const fd, char **line)
+{
+	int		in_line;
+	int		ret;
+	
+	in_line = 1;
+	while (in_line && (ret = read (fd, *line, BUF_SIZE)) >= 1)
+	{
+		if (**line == '\n')
+			in_line = 0;
+		else
+			ft_putstr_fd(1, *line);
+	}
+	if (ret == -1)
+		return (-1);
+	if (ret > 0)
+		return (1);
+	else
+		return (0);
 }

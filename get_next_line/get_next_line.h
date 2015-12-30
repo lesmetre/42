@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 00:21:08 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/31 00:25:03 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/31 00:36:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 # define BUF_SIZE	1
 
 int		get_next_line(int const fd, char **line);
+void	ft_putstr_fd(int fd, char *str);
 
 #endif
