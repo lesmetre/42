@@ -6,11 +6,11 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/29 23:03:19 by mpressen         ###   ########.fr        #
+#    Updated: 2015/12/30 00:47:55 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME = ft_tail
+NAME = ft_hexdump
 
 SRC_PATH = ./
 

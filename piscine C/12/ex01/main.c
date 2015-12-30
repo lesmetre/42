@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/29 20:56:13 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/29 22:48:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/30 21:20:14 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ int		main(int ac, char **av)
 	else
 		while (++i < ac)
 		{
-			fd = open(av[i], O_RDONLY);
+//			fd = open(av[i], O_RDONLY);
 			if (fd >= 0)
 			{
 				while (read(fd, &buf, 1))
 					ft_putstr_fd(1, &buf);
-				close(fd);
+//				close(fd);
 			}
 			else
 			{
