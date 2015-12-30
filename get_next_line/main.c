@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/30 23:49:40 by mpressen         ###   ########.fr       */
+/*   Updated: 2015/12/31 00:20:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,22 @@ void    ft_putstr_fd(int fd, char *str)
 int		get_next_line(int const fd, char **line)
 {
 	int		in_line;
-
+	int		ret;
+	
 	in_line = 1;
-	while (in_line && read (fd, *line, BUF_SIZE))
+	while (in_line && (ret = read (fd, *line, BUF_SIZE)) >= 1)
 	{
 		if (**line == '\n')
 			in_line = 0;
 		else
 			ft_putstr_fd(1, *line);
 	}
-	if (in_line == 0)
-		return (1);
-	if (in_line == 1)
-		return (0);
-	else
+	if (ret == -1)
 		return (-1);
+	if (ret > 0)
+		return (1);
+	else
+		return (0);
 }
 
 int		main(int ac, char **av)
