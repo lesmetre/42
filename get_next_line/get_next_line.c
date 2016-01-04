@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/04 23:14:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/04 23:36:49 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int		get_next_line(int const fd, char **line)
 //		printf("le read retourne %d", ret);
 //		ft_putendl("on rentre dans la boucle principale du read");
 		(*line)[ret] = '\0';
-		split = ft_strsplit(*line, '\n');
-		if (split[0][0])
+		if ((*line)[0] != '\n' || BUF_SIZE > 1)
 		{
+			split = ft_strsplit(*line, '\n');
 			ft_putstr(split[0]);
 			if (split[1])
 			{
 //				ft_putendl("on rentre dan la condition ou il y a un retour-ligne dans le buffer");
-				return (1);
+				in_line = 0;
 			}
 		}
 		else

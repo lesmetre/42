@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 00:32:42 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/04 23:16:14 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/04 23:42:12 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int		main(int ac, char **av)
 			ft_putstr_fd("\n", 1);
 		close(fd);
 	}
-	free(stock);
 	free(buf);
 	return (0);
 }
