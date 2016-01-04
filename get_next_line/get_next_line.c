@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/31 00:35:27 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/04 21:19:24 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,51 @@
 #include <sys/stat.h>
 #include <stdlib.h>
 #include "get_next_line.h"
-//#include "libft.h"
-
-void    ft_putstr_fd(int fd, char *str)
-{
-    while (*str)
-        write(fd, str++, 1);
-}
+#include "libft.h"
+#include <stdio.h>
 
 int		get_next_line(int const fd, char **line)
 {
-	int		in_line;
-	int		ret;
-	
-	in_line = 1;
-	while (in_line && (ret = read (fd, *line, BUF_SIZE)) >= 1)
+	int				ret;
+	char			**split;
+	static char		*stock = NULL;
+	int				in_line;
+
+	in_line = 1; 
+	if (stock)
 	{
-		if (**line == '\n')
-			in_line = 0;
+		split = ft_strsplit(stock, '\n');
+		ft_putstr_fd(split[0], 1);
+		if (strncmp(split[0], stock, ft_strlen(stock)) != 0)
+			stock = ft_strchr(stock, '\n');
 		else
-			ft_putstr_fd(1, *line);
+			stock = NULL;
+		return (1);
 	}
+	else
+	{
+		while (in_line && (ret = read (fd, *line, BUF_SIZE)) >= 1)
+		{
+			(*line)[ret] = '\0';
+			split = ft_strsplit(*line, '\n');
+			ft_putstr_fd(split[0], 1);
+			if (strncmp(split[0], *line, BUF_SIZE) != 0)
+			{
+				stock = ft_strchr(*line, '\n');
+				in_line = 0;
+			}
+		}
+	}
+//	free_tab(split);
 	if (ret == -1)
 		return (-1);
 	if (ret > 0)
 		return (1);
+//	if(ret == 0 && stock)
+//		return (1);
 	else
+	{
+//		free(stock);
 		return (0);
+	}
 }

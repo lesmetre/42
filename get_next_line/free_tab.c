@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/31 00:21:08 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/04 20:53:20 by mpressen         ###   ########.fr       */
+/*   Created: 2015/12/28 23:10:03 by mpressen          #+#    #+#             */
+/*   Updated: 2016/01/04 20:08:33 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# define BUF_SIZE	150
+#include "get_next_line.h"
+#include <stdlib.h>
 
-int		get_next_line(int const fd, char **line);
-void	free_tab(char **tab);
+void	free_tab(char **tab)
+{
+	int i;
 
-#endif
+	i = -1;
+	while (tab[++i])
+	{
+		free(tab[i]);
+		tab[i] = NULL;
+	}
+	free(tab);
+	tab = NULL;
+}
