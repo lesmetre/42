@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 00:32:42 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/04 23:42:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/05 02:04:49 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int ac, char **av)
 	int		i;
 
 	i = 0;
-	buf = (char *)malloc(sizeof(*buf) * BUF_SIZE + 1);
+	buf = (char *)malloc(sizeof(*buf) * BUFF_SIZE + 1);
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
