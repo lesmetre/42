@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/06 21:56:49 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/06 23:16:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,16 +76,21 @@ int		get_next_line(int const fd, char **line)
 //				ft_putstr("read lit ");
 //				ft_putnbr(ret);
 //				ft_putendl(" caracteres");
-				split = (char **)malloc(sizeof(*split) * 1);
-				split[0] = *line;
-				i = -1;
-				return (1);
+				if ((split = (char **)malloc(sizeof(*split) * 1)))
+				{
+//					ft_putendl("malloc reussi");
+					split[0] = *line;
+					split[1] = NULL;
+					i = -1;
+					return (1);
+				}
+				return (-1);
 			}
 		}
 	}
 //	ft_putendl("Il n'y a plus de ligne a lire");
 //	ft_putstr("get next line retourne ");
 //	ft_putnbr(ret);
-//	ft_putendl(" .");
+//	ft_putendl(".");
 	return (ret);
 }
