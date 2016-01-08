@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 00:32:42 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/05 02:04:49 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/08 02:02:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <stdlib.h>
 #include "get_next_line.h"
 #include "libft.h"
-#include <stdio.h>
 
 int		main(int ac, char **av)
 {
@@ -33,8 +32,9 @@ int		main(int ac, char **av)
 		if (fd == -1)
 			return (1);
 		while (get_next_line(fd, &buf))
-			ft_putstr_fd("\n", 1);
-		close(fd);
+			ft_putstr("\n");
+		if (close(fd))
+			return (1);
 	}
 	free(buf);
 	return (0);
