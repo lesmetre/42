@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/08 04:01:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/09 02:43:21 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,16 @@ int		buffer_full_return_line(char **line)
 int		get_next_line(int const fd, char **line)
 {
 	int				ret;
-	static char		**split = NULL;
-	static int		i = 0;
+	static t_struct	t_stock = {NULL, 0};
 	int				line_to_skip;
 
 //	ft_putendl("on rentre dans get next line ---------------------");
-	if (split && split[i + 1])
+	if (t_stock.split && t_stock.split[t_stock.i + 1])
 	{
 //		ft_putendl("on rentre dans la condition ou split stock une chaine");
-		ft_putstr(split[i + 1]);
-		i++;
-		if (split[i + 1])
+		ft_putstr(t_stock.split[t_stock.i + 1]);
+		t_stock.i++;
+		if (t_stock.split[t_stock.i + 1])
 			return (1);
 	}
 	while ((ret = read(fd, *line, BUFF_SIZE)) > 0)
@@ -71,34 +70,34 @@ int		get_next_line(int const fd, char **line)
 				else
 					return (-1);
 			}
-			if (ret == BUFF_SIZE && i != -1)
+			if (ret == BUFF_SIZE && t_stock.i != -1)
 			{
-				split = ft_strsplit(*line, '\n');
-				i = -1;
+				t_stock.split = ft_strsplit(*line, '\n');
+				t_stock.i = -1;
 				return (1);
 			}
 		}
 //		ft_putendl("on peut effectue un split");
-		split = ft_strsplit(*line, '\n');
-		if (!split)
+		t_stock.split = ft_strsplit(*line, '\n');
+		if (!t_stock.split)
 			return (-1);
-		if (line_to_skip && (*line)[0] == '\n' && i != -1)
+		if (line_to_skip && (*line)[0] == '\n' && t_stock.i != -1)
 		{
 //			ft_putendl("on rentre dans la condition ou ce quon veut split commence par un retour ligne");
-			i = -1;
+			t_stock.i = -1;
 			return (1);
 		}
-		i = 0;
-		ft_putstr(split[0]);
-		if (split[1])
+		t_stock.i = 0;
+		ft_putstr(t_stock.split[0]);
+		if (t_stock.split[1])
 			return (1);
 		if ((*line)[ret - 1] == '\n')
 		{
 			if ((ret = read(fd, *line, BUFF_SIZE)) > 0)
 			{
 //				ft_putendl("on rentre dans la condition ou ce quon split finit par un retour ligne et que le fichier continue");
-				split = ft_strsplit(*line, '\n');
-				i = -1;
+				t_stock.split = ft_strsplit(*line, '\n');
+				t_stock.i = -1;
 				return (1);
 			}
 //			ft_putendl("Il n'y a plus de ligne a lire");
