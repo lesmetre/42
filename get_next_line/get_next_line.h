@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/31 00:21:08 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/09 02:45:03 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/09 02:47:01 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct	s_struct
 	int			i;
 }				t_struct;
 
-int		get_next_line(int const fd, char **line);
-void	free_tab(char **tab);
+int				get_next_line(int const fd, char **line);
+void			free_tab(char **tab);
 
 #endif
