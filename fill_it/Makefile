@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/11 23:36:14 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/12 07:26:50 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -16,8 +16,10 @@ SRC_PATH = ./
 
 SRC_NAME = $(SRC1)
 
-SRC1 = main.c		\
-		check.c
+SRC1 = main.c				\
+		check.c				\
+		stock_tetriminos.c	\
+		free_tab.c
 
 INC_PATH = ./
 
