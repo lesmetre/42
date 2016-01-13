@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/12 07:27:00 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/13 02:02:39 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,9 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-/*typedef struct		s_point
-{
-	int				i;
-	int				j;
-	}					t_point;*/
-
 typedef struct      s_chain
 {
 	struct  s_chain *next;
-	struct	s_chain	*prev;
 	char			**tetrimino;
 }                   t_chain;
 
@@ -36,5 +29,6 @@ int		tetrimino_valid(char *str);
 t_chain	*stock_tetriminos(char *str);
 t_chain	*create_new_struct(t_chain *list);
 void	free_tab(char **str);
+//char	**fillit(t_chain *list);
 
 #endif

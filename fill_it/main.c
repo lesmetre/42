@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/12 07:32:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/13 02:12:12 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ int		main(int ac, char **av)
 			i = -1;
 			while (list->tetrimino[++i])
 				ft_putendl(list->tetrimino[i]);
-//			ft_putstr("\n");
 			free_tab(list->tetrimino);
-			free(list->prev);
 			if (!(list = list->next))
 				free(list);
+			else
+				ft_putstr("\n");
 			
 		}
 		if((close(fd)) == -1)
