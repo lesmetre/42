@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 02:54:36 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/13 02:49:34 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/13 08:46:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_chain		*create_new_struct(t_chain *list)
 {
 	t_chain		*new_struct;
-	
+
 	if (!(new_struct = (t_chain*)malloc(sizeof(*new_struct))))
 		return (NULL);
 	if (list == NULL)
@@ -31,36 +31,21 @@ t_chain		*create_new_struct(t_chain *list)
 	return (list);
 }
 
-t_chain		*stock_tetriminos(char *str)
+t_chain		*s_t2(char *str, t_chain *list, t_chain *begin_list, char *tmp)
 {
-	t_chain		*list;
-	t_chain		*begin_list;
-	char		*tmp;
-	int			i;
 	int			tetriminos;
+	int			i;
 
 	i = 0;
-	list = NULL;
-	tmp = NULL;
 	tetriminos = 1;
-	list = create_new_struct(list);
-	begin_list = list;
 	while (list)
 	{
 		if (!(tmp = (char *)malloc(sizeof(*tmp) * 22)))
 			return (NULL);
 		tmp[21] = '\0';
-		if (str[i] == '#')
-			tmp[0] = '@' + tetriminos;
-		else
-			tmp[0] = str[i];
+		tmp[0] = (str[i] == '#') ? '@' + tetriminos : str[i];
 		while (++i % 21)
-		{
-			if (str[i] == '#')
-				tmp[i % 21] = '@' + tetriminos;
-			else
-				tmp[i % 21] = str[i];
-		}
+			tmp[i % 21] = (str[i] == '#') ? '@' + tetriminos : str[i];
 		list->tetrimino = ft_strsplit(tmp, '\n');
 		free(tmp);
 		if (str[i] && str[i + 1])
@@ -71,4 +56,17 @@ t_chain		*stock_tetriminos(char *str)
 		list = list->next;
 	}
 	return (begin_list);
+}
+
+t_chain		*stock_tetriminos(char *str)
+{
+	t_chain		*list;
+	t_chain		*begin_list;
+	char		*tmp;
+
+	list = NULL;
+	tmp = NULL;
+	list = create_new_struct(list);
+	begin_list = list;
+	return (s_t2(str, list, begin_list, tmp));
 }

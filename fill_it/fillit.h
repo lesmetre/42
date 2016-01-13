@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/13 02:02:39 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/13 05:07:13 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@
 # include <fcntl.h>
 # include <unistd.h>
 
-typedef struct      s_chain
+typedef struct		s_chain
 {
-	struct  s_chain *next;
+	struct s_chain	*next;
 	char			**tetrimino;
-}                   t_chain;
+}					t_chain;
 
-int		list_valid(char *str);
-int		tetrimino_valid(char *str);
-t_chain	*stock_tetriminos(char *str);
-t_chain	*create_new_struct(t_chain *list);
-void	free_tab(char **str);
-//char	**fillit(t_chain *list);
+int					list_valid(char *str);
+int					tetrimino_valid(char *str);
+t_chain				*stock_tetriminos(char *str);
+t_chain				*create_new_struct(t_chain *list);
+void				free_tab(char **str);
 
 #endif

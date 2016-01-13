@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/13 02:12:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/13 05:00:44 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,8 @@ int		main(int ac, char **av)
 				free(list);
 			else
 				ft_putstr("\n");
-			
 		}
-		if((close(fd)) == -1)
+		if ((close(fd)) == -1)
 			return (1);
 	}
 	return (0);

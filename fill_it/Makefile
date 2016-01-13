@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/13 01:28:14 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/13 05:21:55 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -56,4 +56,8 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: re fclean clean all
+norme:
+	norminette $(SRC)
+	norminette $(INC)
+
+.PHONY: norme re fclean clean all
