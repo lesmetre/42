@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 04:15:22 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 06:55:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int					list_valid(char *str);
 int					tetrimino_valid(char *str);
 t_chain				*stock_tetriminos(char *str);
 void				free_tab(char **str);
-char				**fillit(t_chain *list);
+void				fillit(t_chain *list);
+char				**resolution(char **tab, t_chain list, int tetriminos);
 
 #endif
