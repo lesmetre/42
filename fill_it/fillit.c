@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:48 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 13:04:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:05:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,25 @@ static int		count_tetriminos(t_chain *list)
 		tetriminos++;
 		list = list->next;
 	}
+	ft_putstr("count_tetriminos renvoie ");
+	ft_putnbr(tetriminos);
+	ft_putstr(".\n");
 	return (tetriminos);
+}
+
+static void     print_tab(char **tab)
+{
+	int i;
+	int j;
+
+	i = -1;
+	while (tab[++i])
+	{
+		j = -1;
+		while (tab[++j])
+			ft_putchar(tab[i][j]);
+		ft_putchar('\n');
+	}
 }
 
 static char		**create_tab(int tetriminos, int more)
@@ -32,44 +50,32 @@ static char		**create_tab(int tetriminos, int more)
 	int		x;
 	int		i;
 	int		j;
-
+	
 	ft_putendl("on rentre dans create_tab");
 	x = 0;
 	i = -1;
 	while (x * x < tetriminos * 4)
 		x++;
 	x += more;
+	ft_putstr("le cote du carre cree est de ");
+	ft_putnbr(x);
+	ft_putstr(".\n");
 	if (!(tab = (char **)malloc(sizeof(*tab) * x + 1)))
 		return (NULL);
-	while (++i < x)
+	tab[x] = NULL;
+	while (tab[++i])
 	{
 		j = -1;
 		if (!(tab[i] = (char *)malloc(sizeof(**tab) * x + 1)))
 			return (NULL);
+		tab[i][x] = '\0';
 		while (++j < x)
-		{
 			tab[i][j] = '.';
-		}
-		tab[i][j] = '\0';
 	}
-	tab[i] = NULL;
+	ft_putendl("create_tab renvoie :");
+	print_tab(tab);
+	ft_putstr("\n");
 	return (tab);
-}
-
-static void		print_tab(char **tab)
-{
-	int i;
-	int j;
-
-	ft_putendl("on rentre dans print_tab");
-	i = -1;
-	while (tab[++i])
-	{
-		j = -1;
-		while (tab[i][++j])
-			ft_putchar(tab[i][j]);
-		ft_putchar('\n');
-	}
 }
 
 void			fillit(t_chain *list)
@@ -84,6 +90,9 @@ void			fillit(t_chain *list)
 	solution = NULL;
 	more = 0;
 	tetriminos = count_tetriminos(list);
+	tab = create_tab(tetriminos, more);
+//	if ((solution = resolution(tab, list, tetriminos)))
+//		print_tab(solution);
 	while (!(solution))
 	{
 		ft_putendl("on rentre dans la boucle du fillit");
@@ -98,6 +107,6 @@ void			fillit(t_chain *list)
 			free_tab(tab);
 			more++;
 		}
-	}
+		}
 }
 	
