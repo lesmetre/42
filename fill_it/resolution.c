@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 06:32:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 15:58:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:37:49 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char		**insert_tetrimino(char **tab, char **tetrimino, int line, int colu
 					block_placed++;
 					if (block_placed == 4)
 					{
-						ft_putendl("on a placer le tetrimino sur la grille de solution");
+						ft_putendl("on a place le tetrimino sur la grille de solution");
 						return (tab);
 					}
 				}
@@ -80,11 +80,6 @@ static char		**insert_tetrimino(char **tab, char **tetrimino, int line, int colu
 		}
 		i++;
 	}
-/*	if (block_placed == 4)
-	{
-		ft_putendl("on a placer le tetrimino sur la grille de solution"); 
-		return (tab);
-		}*/
 	ft_putendl("on a pas pu placer le tetrimino");
 	return (NULL);
 }

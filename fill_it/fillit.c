@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:48 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 16:05:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 16:34:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void			fillit(t_chain *list)
 	solution = NULL;
 	more = 0;
 	tetriminos = count_tetriminos(list);
-	tab = create_tab(tetriminos, more);
+//	tab = create_tab(tetriminos, more);
 //	if ((solution = resolution(tab, list, tetriminos)))
 //		print_tab(solution);
 	while (!(solution))
@@ -101,12 +101,15 @@ void			fillit(t_chain *list)
 		ft_putstr(".\n");
 		tab = create_tab(tetriminos, more);
 		if ((solution = resolution(tab, list, tetriminos)))
+		{
 			print_tab(solution);
+			free_tab(solution);
+		}
 		else
 		{
-			free_tab(tab);
 			more++;
+			free_tab(tab);
 		}
-		}
+	}
 }
 	
