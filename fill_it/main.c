@@ -6,11 +6,27 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/13 05:00:44 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 02:06:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+void	print_list(t_chain *list)
+{
+	int i;
+
+	while (list)
+	{
+		i = -1;
+		while (list->tetrimino[++i])
+			ft_putendl(list->tetrimino[i]);
+		free_tab(list->tetrimino);
+		free(list);
+		if ((list = list->next))
+			ft_putstr("\n");
+	}
+}
 
 int		main(int ac, char **av)
 {
@@ -18,7 +34,6 @@ int		main(int ac, char **av)
 	char	*buf;
 	char	*stock;
 	t_chain	*list;
-	int		i;
 
 	list = NULL;
 	stock = (char *)malloc(sizeof(*stock));
@@ -35,17 +50,7 @@ int		main(int ac, char **av)
 		if (list_valid(stock) && tetrimino_valid(stock))
 			list = stock_tetriminos(stock);
 		free(stock);
-		while (list)
-		{
-			i = -1;
-			while (list->tetrimino[++i])
-				ft_putendl(list->tetrimino[i]);
-			free_tab(list->tetrimino);
-			if (!(list = list->next))
-				free(list);
-			else
-				ft_putstr("\n");
-		}
+		print_list(list);
 		if ((close(fd)) == -1)
 			return (1);
 	}
