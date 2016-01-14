@@ -6,20 +6,20 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:15:54 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/13 09:17:31 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 03:17:21 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-int		ft_error(void)
+static int		ft_error(void)
 {
 	ft_putendl("error");
 	return (0);
 }
 
-int		list_valid2(char *str, int i, int tetrimino, int count_blocks)
+static int		list_valid2(char *str, int i, int tetrimino, int count_blocks)
 {
 	while (str[i])
 	{
@@ -47,7 +47,7 @@ int		list_valid2(char *str, int i, int tetrimino, int count_blocks)
 	return (1);
 }
 
-int		list_valid(char *str)
+int				list_valid(char *str)
 {
 	int i;
 	int tetrimino;
@@ -59,12 +59,12 @@ int		list_valid(char *str)
 	return (list_valid2(str, i, tetrimino, count_blocks));
 }
 
-int		tetrimino_valid2(char *str, int i, int tetrimino, int connections)
+static int		tetrimino_valid2(char *str, int i, int tetris, int connections)
 {
 	while (str[i])
 	{
 		connections = 0;
-		while (i < tetrimino * 21)
+		while (i < tetris * 21)
 		{
 			if (str[i] == '#')
 			{
@@ -72,9 +72,9 @@ int		tetrimino_valid2(char *str, int i, int tetrimino, int connections)
 					connections++;
 				if (i % 21 < 15 && str[i + 5] == '#')
 					connections++;
-				if (i % 5 - tetrimino + 1 != 0 && str[i - 1] == '#')
+				if (i % 5 - tetris + 1 != 0 && str[i - 1] == '#')
 					connections++;
-				if (i % 5 - tetrimino + 1 != 3 && str[i + 1] == '#')
+				if (i % 5 - tetris + 1 != 3 && str[i + 1] == '#')
 					connections++;
 				if (!connections)
 					return (ft_error());
@@ -83,12 +83,12 @@ int		tetrimino_valid2(char *str, int i, int tetrimino, int connections)
 		}
 		if (connections < 6)
 			return (ft_error());
-		tetrimino++;
+		tetris++;
 	}
 	return (1);
 }
 
-int		tetrimino_valid(char *str)
+int				tetrimino_valid(char *str)
 {
 	int i;
 	int tetrimino;

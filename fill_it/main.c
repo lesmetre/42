@@ -6,13 +6,13 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 02:06:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 04:39:19 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	print_list(t_chain *list)
+static void	print_list(t_chain *list)
 {
 	int i;
 
@@ -28,7 +28,7 @@ void	print_list(t_chain *list)
 	}
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
 	int		fd;
 	char	*buf;
@@ -50,6 +50,8 @@ int		main(int ac, char **av)
 		if (list_valid(stock) && tetrimino_valid(stock))
 			list = stock_tetriminos(stock);
 		free(stock);
+		fillit(list);
+		ft_putstr("---------------------\n");
 		print_list(list);
 		if ((close(fd)) == -1)
 			return (1);

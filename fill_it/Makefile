@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/13 05:21:55 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/14 03:19:40 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,6 +20,7 @@ SRC1 = main.c				\
 		check.c				\
 		stock_tetriminos.c	\
 		free_tab.c			\
+		fillit.c
 #fillit.c
 
 INC_PATH = ./
