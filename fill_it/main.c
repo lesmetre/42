@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 04:39:19 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/14 11:35:59 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void	print_list(t_chain *list)
 		i = -1;
 		while (list->tetrimino[++i])
 			ft_putendl(list->tetrimino[i]);
-		free_tab(list->tetrimino);
-		free(list);
+//		free_tab(list->tetrimino);
+//		free(list);
 		if ((list = list->next))
 			ft_putstr("\n");
 	}
@@ -50,9 +50,9 @@ int			main(int ac, char **av)
 		if (list_valid(stock) && tetrimino_valid(stock))
 			list = stock_tetriminos(stock);
 		free(stock);
-		fillit(list);
-		ft_putstr("---------------------\n");
 		print_list(list);
+		ft_putstr("---------------------\n");
+		fillit(list);
 		if ((close(fd)) == -1)
 			return (1);
 	}
