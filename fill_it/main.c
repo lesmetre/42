@@ -6,52 +6,22 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 23:27:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 16:32:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/22 21:04:23 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*static void	print_list(t_chain *list)
-{
-	int i;
-
-	while (list)
-	{
-		i = -1;
-		while (list->tetrimino[++i])
-			ft_putendl(list->tetrimino[i]);
-		free_tab(list->tetrimino);
-		free(list);
-		if ((list = list->next))
-			ft_putstr("\n");
-	}
-	}*/
-
-static void free_list(t_chain *list)
-{
-	t_chain *tmp;
-
-	while (list)
-	{
-		tmp = list->next;
-		free(list);
-		list = tmp;
-	}
-	free(tmp);
-}
-
 int			main(int ac, char **av)
 {
-	int		fd;
-	char	*buf;
-	char	*stock;
-	t_chain	*list;
+	int				fd;
+	char			*buf;
+	char			*stock;
+	t_chain			*list;
 
 	list = NULL;
-	stock = (char *)malloc(sizeof(*stock));
-	stock[0] = '\0';
-	buf = (char *)malloc(sizeof(*buf) * BUFF_SIZE + 1);
+	stock = ft_memalloc(1);
+	buf = ft_memalloc(BUFF_SIZE + 1);
 	if (ac == 2)
 	{
 		fd = open(av[1], O_RDONLY);
@@ -59,14 +29,17 @@ int			main(int ac, char **av)
 			return (1);
 		while (read(fd, buf, BUFF_SIZE))
 			stock = ft_strjoin(stock, buf);
-		free(buf);
+		ft_strdel(&buf);
 		if (list_valid(stock) && tetrimino_valid(stock))
+		{
 			list = stock_tetriminos(stock);
-		free(stock);
-//		print_list(list);
-//		ft_putstr("---------------------\n");
-		fillit(list);
-		free_list(list);
+			ft_strdel(&stock);
+//			ft_putendl("on affiche les tableau de string stocke dans la liste chaine");
+//			print_list(list);
+//			ft_putstr("---------------------\n");
+			fillit(list);
+//			free_list(&list);
+		}
 		if ((close(fd)) == -1)
 			return (1);
 	}

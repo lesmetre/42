@@ -6,13 +6,13 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 02:54:36 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/14 03:15:46 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/22 20:53:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static t_chain		*create_new_struct(t_chain *list)
+t_chain		*create_new_struct(t_chain *list)
 {
 	t_chain		*new_struct;
 
@@ -31,7 +31,7 @@ static t_chain		*create_new_struct(t_chain *list)
 	return (list);
 }
 
-static t_chain		*s_t2(char *str, t_chain *list, t_chain *begin, char *tmp)
+t_chain		*s_t2(char *str, t_chain *list, t_chain *begin, char *tmp)
 {
 	int			tetriminos;
 	int			i;

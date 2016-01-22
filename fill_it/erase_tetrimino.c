@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_tab.c                                         :+:      :+:    :+:   */
+/*   erase_tetrimino.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/28 23:10:03 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 18:44:43 by mpressen         ###   ########.fr       */
+/*   Created: 2016/01/22 02:05:57 by mpressen          #+#    #+#             */
+/*   Updated: 2016/01/22 21:03:18 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-/*void	free_tab(char ***add_tab)
+void	erase_tetrimino(char ***addr_square, char letter)
 {
 	int i;
+	int j;
 
 	i = -1;
-	while ((*add_tab)[++i])
-		ft_strdel(&(*add_tab)[i]);
-	free(*add_tab);
-	*add_tab = NULL;
-	
-	}*/
-void	free_tab(char **tab)
-{
-	int i;
-
-	i = -1;
-	while (tab[++i])
-		ft_strdel(&tab[i]);
-	free(&tab);
-	tab = NULL;
+//	ft_putendl("on rentre dans erase_tetrimino");
+	while ((*addr_square)[++i])
+	{
+		j = -1;
+		while ((*addr_square)[i][++j])
+		{
+			if ((*addr_square)[i][j] == letter)
+				(*addr_square)[i][j] = '.';
+		}
+	}
 }
-
