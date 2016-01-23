@@ -6,14 +6,14 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/23 01:01:40 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/23 23:37:12 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 # define BUFF_SIZE	1
-# include "libft.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>

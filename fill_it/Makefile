@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/22 21:12:44 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/23 23:23:29 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,28 +14,14 @@ NAME = fillit
 
 SRC_PATH = ./
 
-SRC_NAME = $(SRC1)
-
-SRC1 = main.c				\
-		check.c				\
-		stock_tetriminos.c	\
-		fillit.c			\
-		resolution.c		\
-		print_tab.c			\
-		erase_tetrimino.c	\
-		insert_tetrimino.c
-#		free_tab.c
-#		free_list.c			
-#		print_list.c		
-
-INC_PATH = ./
-
-INC_NAME = fillit.h	\
-			libft.h
-
-LIB_PATH = ~/Desktop/
-
-LIB_NAME = libft.a
+SRC_NAME = main.c				\
+			check.c				\
+			stock_tetriminos.c	\
+			fillit.c			\
+			resolution.c		\
+			print_tab.c			\
+			erase_tetrimino.c	\
+			insert_tetrimino.c
 
 OBJ_PATH = ./
 
@@ -43,21 +29,22 @@ OBJ_PATH = ./
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
-INC = $(addprefix $(INC_PATH), $(INC_NAME))
-LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 all: $(NAME)
 
 $(NAME):
+	make -C ./libft/	
 	gcc -c -Wall -Wextra -Werror $(SRC)
-	gcc -o $(NAME) $(OBJ) $(LIB)
+	gcc -o $(NAME) $(OBJ) -I./ -Ilibft/ -lft -Llibft/
 
 
 clean:
+	make -C libft/ clean
 	rm -rf $(OBJ)
 
 fclean: clean
+	make -C libft/ fclean
 	rm -rf $(NAME)
 
 re: fclean all

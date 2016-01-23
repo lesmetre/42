@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:48 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 23:03:14 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/23 23:06:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,14 @@ static void		create_square(char ***addr_square, int size)
 
 	stop = 0;
 	if (!(*addr_square = (char **)malloc(sizeof(**addr_square) * (size + 1))))
-	{
-		ft_error_malloc("create_square");
-		stop = 1;
-	}
+		exit(EXIT_FAILURE);
 	(*addr_square)[size] = NULL;
 	i = -1;
 	while (!stop && ++i < size)
 	{
 		j = -1;
 		if (!((*addr_square)[i] = ft_memalloc(size + 1)))
-		{
-			ft_error_malloc("create_square");
-			stop = 1;
-		}
+			exit(EXIT_FAILURE);
 		while (!stop && ++j < size)
 			(*addr_square)[i][j] = '.';
 	}
