@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2015/12/11 06:17:42 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/23 23:55:42 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -130,9 +130,9 @@ all: $(NAME)
 
 $(NAME):
 	@echo "$(YELLOW)compiling ...$(RESET)"
-	$(CC) $(CFLAGS) $(INC) $(SRC)
+	$(CC) $(CFLAGS) $(SRC)
 	@echo "$(YELLOW)linking...$(RESET)"
-	ar rc $@ $(OBJ)
+	ar rc $@ $(OBJ) $(INC)
 	@echo "$(YELLOW)creating index...$(RESET)"
 	ranlib $@
 	@echo "$(CYAN)$(NAME) IS BUILT !$(RESET)"
