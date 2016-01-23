@@ -130,9 +130,9 @@ all: $(NAME)
 
 $(NAME):
 	@echo "$(YELLOW)compiling ...$(RESET)"
-	$(CC) $(CFLAGS) $(INC) $(SRC)
+	$(CC) $(CFLAGS) $(SRC)
 	@echo "$(YELLOW)linking...$(RESET)"
-	ar rc $@ $(OBJ)
+	ar rc $@ $(OBJ) $(INC)
 	@echo "$(YELLOW)creating index...$(RESET)"
 	ranlib $@
 	@echo "$(CYAN)$(NAME) IS BUILT !$(RESET)"
