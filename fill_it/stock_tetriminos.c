@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 02:54:36 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 20:53:17 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/23 01:03:31 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ t_chain		*s_t2(char *str, t_chain *list, t_chain *begin, char *tmp)
 	return (begin);
 }
 
-t_chain				*stock_tetriminos(char *str)
+t_chain		*stock_tetriminos(char *str)
 {
 	t_chain		*list;
 	t_chain		*begin_list;

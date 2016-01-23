@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/22 02:11:41 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/22 21:12:44 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -19,14 +19,14 @@ SRC_NAME = $(SRC1)
 SRC1 = main.c				\
 		check.c				\
 		stock_tetriminos.c	\
-		free_tab.c			\
 		fillit.c			\
 		resolution.c		\
-		free_list.c			\
-		print_list.c		\
 		print_tab.c			\
 		erase_tetrimino.c	\
 		insert_tetrimino.c
+#		free_tab.c
+#		free_list.c			
+#		print_list.c		
 
 INC_PATH = ./
 

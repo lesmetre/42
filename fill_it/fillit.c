@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:48 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 19:36:47 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/22 23:03:14 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int		count_tetriminos(t_chain *list)
 	return (tetriminos);
 }
 
-void			create_square(char ***addr_square, int size)
+static void		create_square(char ***addr_square, int size)
 {
 	int		i;
 	int		j;
@@ -58,7 +58,7 @@ void			fillit(t_chain *list)
 	int		size;
 	int		solution;
 	int		tetriminos;
-	
+
 	solution = 0;
 	size = 1;
 	tetriminos = count_tetriminos(list);
@@ -71,12 +71,10 @@ void			fillit(t_chain *list)
 		{
 			solution = 1;
 			print_tab(square);
-//			free_tab(square);
 		}
 		else
 		{
 			size++;
-//			free_tab(square);
 		}
 	}
 }

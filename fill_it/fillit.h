@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 10:07:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 19:06:32 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/23 01:01:40 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,22 @@ typedef struct		s_chain
 	char			**tetrimino;
 }					t_chain;
 
+typedef struct		s_stock
+{
+	int				i;
+	int				j;
+	int				s_l;
+	int				s_c;
+	int				x;
+}					t_stock;
+
 int					list_valid(char *str);
 int					tetrimino_valid(char *str);
 t_chain				*stock_tetriminos(char *str);
-void				free_tab(char **square);
 void				fillit(t_chain *list);
-int					resolution(char ***addr_square, t_chain *list, int tetriminos);
-void				free_list(t_chain **add_list);
-void				print_list(t_chain *list);
+int					resolution(char ***addr, t_chain *list, int t);
 void				print_tab(char **square);
-void				create_square(char ***addr_square, int size);
 void				erase_tetrimino(char ***addr_square, char letter);
-int					insert_tetrimino(char ***addr_square, char **tetrimino, int line, int column);
+int					insert_tetrimino(char ***addr, char **t, int l, int c);
 
 #endif

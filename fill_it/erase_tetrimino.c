@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/22 02:05:57 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/22 21:03:18 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/22 23:01:21 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	erase_tetrimino(char ***addr_square, char letter)
 	int j;
 
 	i = -1;
-//	ft_putendl("on rentre dans erase_tetrimino");
 	while ((*addr_square)[++i])
 	{
 		j = -1;
