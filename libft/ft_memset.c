@@ -6,11 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:06:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 02:07:46 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 03:08:54 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The memset() function writes len bytes of value c to the string b.
+** The memset() function returns its first argument.
+*/
 
 void	*ft_memset(void *b, int c, size_t len)
 {

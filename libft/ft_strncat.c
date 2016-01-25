@@ -6,11 +6,20 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 23:58:49 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 23:15:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 02:48:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The strncat() functions append a copy of the null-terminated string s2
+** to the end of the null-terminated string s1, then add a terminating `\0'.
+** The string s1 must have sufficient space to hold the result.
+** The strncat() function appends not more than n characters from s2,
+** and then adds a terminating `\0'.
+** The strncat() function return the pointer s1.
+*/
 
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {

@@ -6,31 +6,42 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 00:58:00 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/07 02:25:58 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 00:15:47 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+/*
+** The strnstr() function locates the first occurrence
+** of the null-terminated string little in the string big,
+** where not more than len characters are searched.
+** Characters that appear after a `\0' character are not searched.
+** If little is an empty string, big is returned;
+** if little occurs nowhere in big, NULL is returned;
+** otherwise a pointer to the first character
+** of the first occurrence of little is returned.
+*/
+
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	size_t	count1;
 	size_t	count2;
 	char	*s11;
 	char	*s22;
 
-	s11 = (char *)s1;
-	s22 = (char *)s2;
+	s11 = (char *)big;
+	s22 = (char *)little;
 	count1 = 0;
 	count2 = 0;
 	if (!(*s22))
 		return (s11);
-	while (s11[count1] && count1 < n)
+	while (s11[count1] && count1 < len)
 	{
 		if (s11[count1] == s22[count2])
 		{
 			while (s22[count2] && s11[count1 + count2] == s22[count2]
-					&& count1 + count2 < n)
+					&& count1 + count2 < len)
 				count2++;
 			if (s22[count2] == '\0')
 				return (s11 + count1);

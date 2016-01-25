@@ -6,11 +6,19 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 02:24:17 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/02 23:56:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 02:59:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The toupper() function converts a lower-case letter
+** to the corresponding upper-case letter.
+** If the argument is a lower-case letter, the toupper() function returns
+** the corresponding upper-case letter if there is one;
+** otherwise, the argument is returned unchanged.
+*/
 
 int		ft_toupper(int c)
 {
