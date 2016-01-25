@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:22:33 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:45:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,7 @@ int					ft_isspace(int c);
 size_t				ft_strlentrim(char const *s);
 void				*ft_error_malloc(char const *str);
 void				*ft_error_null(char const *str);
+int					ft_isupper(int c);
+int					ft_islower(int c);
+
 #endif

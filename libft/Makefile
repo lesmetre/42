@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/25 08:44:33 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/25 20:44:49 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -89,6 +89,8 @@ SRC4 = ft_memdup.c			\
 		ft_strlentrim.c		\
 		ft_error_null.c		\
 		ft_error_malloc.c	\
+		ft_isupper.c		\
+		ft_islower.c
 
 INC_PATH = ./
 
