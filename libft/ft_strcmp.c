@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:07:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 21:03:09 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The strcmp() function lexicographically compares
+** The ft_strcmp() function lexicographically compares
 ** the null-terminated strings s1 and s2.
 ** The function returns an integer greater than, equal to,
 ** or less than 0, according as the string s1 is greater than, equal to,

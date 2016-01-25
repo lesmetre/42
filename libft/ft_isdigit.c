@@ -6,15 +6,15 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:59:43 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:06:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:52:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The isdigit() function tests for a decimal digit character.
-** The isdigit() function returns zero if the character tests false
+** The ft_isdigit() function tests for a decimal digit character.
+** The function returns zero if the character tests false
 ** and return non-zero if the character tests true.
 */
 

@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 06:04:15 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:28:42 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:49:27 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The ft_error_null() function displays on the standart error input
+** The ft_error_null() function displays on the standart error output
 ** an error message about a null parameter given to the function displayed.
 */
 

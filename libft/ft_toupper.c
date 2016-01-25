@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 02:24:17 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:03:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 21:10:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The toupper() function converts a lower-case letter
+** The ft_toupper() function converts a lower-case letter
 ** to the corresponding upper-case letter, and returns it.
 */
 

@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:06:22 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:05:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 21:00:04 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The memset() function writes len bytes of value c to the string b.
+** The ft_memset() function writes len bytes of value c to the string b.
 ** The function returns its first argument.
 */
 

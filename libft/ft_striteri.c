@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/05 00:31:49 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 05:27:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 21:04:05 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The ft_striteri() apply the fonction f
+** The ft_striteri() applies the fonction f
 ** to each character of the string, precising his index.
 ** Each string's character is given to f by his address
 ** in order to allow modification, if necessary.

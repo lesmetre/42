@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/28 02:14:05 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:01:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:59:47 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** The memmove() function copies len bytes from string src to string dst.
+** The ft_memmove() function copies len bytes from string src to string dst.
 ** The two strings may overlap;
 ** the copy is always done in a non-destructive manner.
 ** The function returns the original value of dst.

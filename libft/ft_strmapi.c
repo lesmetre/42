@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/05 00:49:41 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 05:35:49 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 21:08:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <stdlib.h>
 
 /*
-** The ft_strmapi() apply the function f
+** The ft_strmapi() applies the function f
 ** to each character of the string, precising his index
 ** in order to allocate a new string, result of f's successives applies.
-** The ft_strmap() return a pointer to the new string allocated.
+** The ft_strmap() returns a pointer to the new string allocated.
 */
 
 char	*ft_strmapi(char const *s, char (*f) (unsigned int, char))
