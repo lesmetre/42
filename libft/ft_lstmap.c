@@ -6,11 +6,18 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 10:22:00 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:48:07 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:17:50 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The function ft_lstmap allocates and returns a new linked list,
+** result of the successives applies of the function f
+** on each link of the linked list lst.
+** If an allocation fails, ft_lstmap() returns NULL.
+*/
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f) (t_list *elem))
 {

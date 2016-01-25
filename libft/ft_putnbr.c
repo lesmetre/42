@@ -6,12 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:33:10 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 23:21:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 06:50:24 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+
+/*
+** The function ft_putnbr() displays the integer n on the standart input.
+*/
 
 void	ft_putnbr(int n)
 {

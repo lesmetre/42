@@ -6,12 +6,18 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:38:30 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:41:41 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 05:49:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+** The ft_strjoin() allocates and return a '\0' terminated string,
+** result of the concatenation of s1 and s2.
+** If allocation fails, the function returns NULL.
+*/
 
 static char	*ft_strjoin2(char const *s1, char const *s2, size_t i, size_t j)
 {

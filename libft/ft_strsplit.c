@@ -6,12 +6,18 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 00:30:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:21:29 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 05:58:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+** The ft_strsplit() allocates and returns an array of '\0' terminated strings,
+** result of s's cut by the c character.
+** If allocation fails, the function returns NULL.
+*/
 
 static char	**ft_strsplit2(char const *s, char c, size_t i, size_t bits)
 {

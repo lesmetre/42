@@ -6,12 +6,19 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 22:35:23 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/08 03:02:11 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 04:47:14 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+** The ft_strnew() allocates memory for a string.
+** Character's value are set to 0.
+** If allocation fails, the function returns NULL.
+** If not, ft_strnew() returns a pointer to the string.
+*/
 
 char	*ft_strnew(size_t size)
 {

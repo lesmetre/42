@@ -6,12 +6,21 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 08:44:49 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 01:54:50 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:00:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+** The function ft_lstnew() allocates and returns a new link to the linked list.
+** The content and content_size are initialized by copy of the parameters.
+** If content is nul, the content field of the new link is set to NULL
+** and content_size is set to 0.
+** Next is inizialised to NULL.
+** If allocation fails, the function returns NULL.
+*/
 
 t_list	*ft_lstnew(void	const *content, size_t content_size)
 {

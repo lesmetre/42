@@ -6,12 +6,19 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:39:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 05:54:41 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+
+/*
+** The ft_strtrim() allocates and returns a string's copy,
+** but without the white spaces at the beginning and the end of the string.
+** ' ', '\n' and '\t' are the white spaces considerated.
+** If allocation fails, the function returns NULL.
+*/
 
 static char	*ft_strtrim2(char const *s, size_t i, size_t j, size_t begin)
 {

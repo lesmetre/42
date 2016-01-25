@@ -6,12 +6,19 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 02:42:22 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 07:19:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 06:45:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
+
+/*
+** The ft_itoa() allocates and returns a '\0' terminated string,
+** representing the integer n.
+** Negatives integers must be handled.
+** If allocation fails, the function returns NULL.
+*/
 
 static int		ft_itoa_len(int n)
 {

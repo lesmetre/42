@@ -6,12 +6,17 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 05:48:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 06:49:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+
+/*
+** The function ft_putendl() displays the string s on the standart output,
+** followed by a '\n'.
+*/
 
 void	ft_putendl(char const *s)
 {

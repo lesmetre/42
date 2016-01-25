@@ -6,12 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 03:05:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 06:48:21 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+
+/*
+** The function ft_putstr() displays the string s on the standart output.
+*/
 
 void	ft_putstr(char const *s)
 {

@@ -6,11 +6,15 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:02:32 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:53:09 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 04:54:27 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The ft_strclr() set character's value from a string to 0.
+*/
 
 void	ft_strclr(char *s)
 {
