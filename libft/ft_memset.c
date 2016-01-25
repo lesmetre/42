@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:06:22 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 03:08:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:05:16 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
 ** The memset() function writes len bytes of value c to the string b.
-** The memset() function returns its first argument.
+** The function returns its first argument.
 */
 
 void	*ft_memset(void *b, int c, size_t len)

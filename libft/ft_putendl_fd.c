@@ -6,12 +6,17 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:30:03 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 06:36:41 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:17:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+
+/*
+** The function ft_putendl_fd() displays the string s
+** on the file descriptor fd, followed by a '\n'.
+*/
 
 void	ft_putendl_fd(char const *s, int fd)
 {

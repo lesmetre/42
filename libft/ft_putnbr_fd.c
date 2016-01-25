@@ -6,12 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:33:10 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/04 23:22:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:17:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
+
+/*
+** The function ft_putnbr_fd() displays the integer n on the file descriptor fd.
+*/
 
 void	ft_putnbr_fd(int n, int fd)
 {

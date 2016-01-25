@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:59:43 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 08:41:45 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:00:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*
 ** The ft_isalpha() function tests for any character
 ** for which isupper(3) or islower(3) is true.
-** The isalpha() function returns zero if the character tests false
-** and returns non-zero if the character tests true.
+** The function returns zero if the character tests false
+** and non-zero if the character tests true.
 */
 
 int		ft_isalpha(int c)

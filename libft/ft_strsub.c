@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:17:46 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 05:47:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:19:37 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 
 /*
-** The ft_strsub() allocates and return a copy of a portion's string.
+** The ft_strsub() allocates and returns a copy of a portion's string.
 ** The portion start at index start, with len as length.
 ** If allocation fails, the function return NULL.
 */

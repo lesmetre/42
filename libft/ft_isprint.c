@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:59:43 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 03:18:05 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:08:45 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 /*
 ** The isprint() function tests for any printing character,
-** including space (` ').
-** The isprint() function returns zero if the character tests false
+** including space (' ').
+** The function returns zero if the character tests false
 ** and returns non-zero if the character tests true.
 */
 

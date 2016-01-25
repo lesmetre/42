@@ -6,16 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 03:16:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:07:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The strcmp() function lexicographically compare
+** The strcmp() function lexicographically compares
 ** the null-terminated strings s1 and s2.
-** The strcmp() function return an integer greater than, equal to,
+** The function returns an integer greater than, equal to,
 ** or less than 0, according as the string s1 is greater than, equal to,
 ** or less than the string s2. The comparison is done using unsigned characters,
 ** so that `\200' is greater than `\0'.

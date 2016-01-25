@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 00:30:22 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 05:58:58 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:19:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /*
 ** The ft_strsplit() allocates and returns an array of '\0' terminated strings,
-** result of s's cut by the c character.
+** portions of the string s cut by the c character.
 ** If allocation fails, the function returns NULL.
 */
 

@@ -6,17 +6,17 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 02:57:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:03:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The strncmp() function lexicographically compare
+** The strncmp() function lexicographically compares
 ** the null-terminated strings s1 and s2.
-** The strncmp() function compares not more than n characters.
-** The strncmp() function return an integer greater than, equal to, or
+** The function compares not more than n characters.
+** The strncmp() returns an integer greater than, equal to, or
 ** less than 0, according as the string s1 is greater than, equal to,
 ** or less than the string s2.
 ** The comparison is done using unsigned characters,
