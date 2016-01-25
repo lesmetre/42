@@ -6,14 +6,14 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 00:58:00 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 00:16:33 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:46:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The strstr() function locates the first occurrence
+** The ft_strstr() function locates the first occurrence
 ** of the null-terminated string little in the null-terminated string big.
 ** If little is an empty string, big is returned;
 ** if little occurs nowhere in big, NULL is returned;

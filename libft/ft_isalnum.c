@@ -6,16 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:59:43 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 02:45:44 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:49:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-** The isalnum() function tests for any character
-** for which isalpha(3) or isdigit(3) is true.
-** The isalnum() function returns zero if the character tests false
+** The ft_isalnum() function tests for any character
+** for which ft_isalpha or ft_isdigit is true.
+** The function returns zero if the character tests false
 ** and returns non-zero if the character tests true.
 */
 

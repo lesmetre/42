@@ -6,11 +6,16 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 00:58:50 by mpressen          #+#    #+#             */
-/*   Updated: 2015/12/11 05:48:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:27:31 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+** The function ft_countbits() returns the number of portions
+** splitted by the character c, in the string s.
+*/
 
 size_t	ft_countbits(const char *s, char c)
 {

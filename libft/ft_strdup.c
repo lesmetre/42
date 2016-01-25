@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 21:35:09 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 00:01:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/25 07:47:00 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include <stdlib.h>
 
 /*
-** The strdup() function allocates sufficient memory for a copy of the
+** The ft_strdup() function allocates sufficient memory for a copy of the
 ** string s1, does the copy, and returns a pointer to it.
-** The pointer may subsequently be used as an argument to the function free(3).
 ** If insufficient memory is available,
 ** NULL is returned and errno is set to ENOMEM.
 */
