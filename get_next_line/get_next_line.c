@@ -3,87 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/30 22:43:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/09 07:36:22 by mpressen         ###   ########.fr       */
+/*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
+/*   Updated: 2016/01/28 07:54:39 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
 #include "get_next_line.h"
-#include "libft.h"
 
-int		buffer_full_return_line(char **line)
+static void			create_link(int fd, t_linked_list *begin_list, t_linked_list **addr_list)
 {
-	int i;
+	if (!(*addr_list = (t_linked_list*)malloc(sizeof(**addr_list))))
+		return;
+	(*addr_list)->fd = fd;
+	(*addr_list)->str = NULL;
+	(*addr_list)->prev = NULL;
+	(*addr_list)->next = begin_list ;
+}
 
-	i = -1;
-	while ((*line)[++i])
+static int			get_str_stocked(t_linked_list **addr_list, char **line)
+{						
+	int				i;
+	int				start;
+
+	i = 0;
+	while ((*addr_list)->str[i] && (*addr_list)->str[i] == '\n') 
+		i++;
+	start = i;
+	while ((*addr_list)->str[i] && (*addr_list)->str[i] != '\n')
+		i++;
+	*line = ft_strsub((*addr_list)->str, start, i - start);
+	if ((*addr_list)->str[i + 1])
 	{
-		if ((*line)[i] != '\n')
-			return (0);
+		start = i;
+		while ((*addr_list)->str[i])
+			i++;
+		(*addr_list)->str = ft_strsub((*addr_list)->str, start, i - start);
 	}
+	else
+		ft_strdel(&((*addr_list)->str));
 	return (1);
 }
 
-//void	print_stock
-
-int		get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
-	int				ret;
-	static t_struct	t_stock = {0, NULL, 0, NULL, NULL};
-	int				line_to_ignore;
+    static t_linked_list	*begin_list = NULL;
+	t_linked_list			*list;
+	int						ret;
+	char					*buf;
 
-	if (t_stock.split && t_stock.split[t_stock.i + 1])
+	if (fd < 0 || !line)
+        return (-1);
+	list = begin_list;
+	while (list && list->fd != fd)
+		list = list->next;
+	if (list)
+		return (get_str_stocked(&list, line));
+	else
 	{
-		ft_putstr(t_stock.split[t_stock.i + 1]);
-		t_stock.i++;
-		if (t_stock.split[t_stock.i + 1])
-			return (1);
-	}
-	while ((ret = read(fd, *line, BUFF_SIZE)) > 0)
-	{
-		line_to_ignore = 1;
-		(*line)[ret] = '\0';
-		while (buffer_full_return_line(line))
-		{
-			line_to_ignore = 0;
-			if ((ret = read(fd, *line, BUFF_SIZE)) > 0)
-				(*line)[ret] = '\0';
-			else if (ret == 0)
-				return (0);
-			else
-				return (-1);
-		}
-		if (ret == BUFF_SIZE && t_stock.i != -1 && !line_to_ignore)
-		{
-			t_stock.split = ft_strsplit(*line, '\n');
-			t_stock.i = -1;
-			return (1);
-		}
-		t_stock.split = ft_strsplit(*line, '\n');
-		if (!t_stock.split)
+		create_link(fd, begin_list, &list);
+		begin_list = list;
+		buf = ft_memalloc(BUFF_SIZE + 1);
+		list->str = ft_strnew(0);
+		while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+			list->str = ft_strjoin(list->str, buf);
+		ft_strdel(&buf);
+		if (list->str)
+			return (get_str_stocked(&list, line));
+		if (ret == -1)
 			return (-1);
-		if (line_to_ignore && (*line)[0] == '\n' && t_stock.i != -1)
-		{
-			t_stock.i = -1;
-			return (1);
-		}
-		ft_putstr(t_stock.split[0]);
-		if (t_stock.split[1])
-			return (1);
-		if ((*line)[ret - 1] == '\n')
-		{
-			if ((ret = read(fd, *line, BUFF_SIZE)) > 0)
-			{
-				t_stock.split = ft_strsplit(*line, '\n');
-				t_stock.i = -1;
-				return (1);
-			}
+		else
 			return (0);
-		}
 	}
-	return (ret);
 }
