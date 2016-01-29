@@ -6,110 +6,92 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/29 03:04:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/29 09:51:30 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static void			create_link(int fd, t_linked_list *begin_list, t_linked_list **addr_list)
+static void	create_link(int fd, t_linked_list *begin_list, t_linked_list **list)
 {
-//	ft_putendl("on rentre dans create_link");
-	if (!(*addr_list = (t_linked_list*)malloc(sizeof(**addr_list))))
-		return;
-	(*addr_list)->fd = fd;
-	(*addr_list)->str = NULL;
-	(*addr_list)->prev = NULL;
-	(*addr_list)->next = begin_list ;
+	if (!(*list = (t_linked_list*)malloc(sizeof(**list))))
+		return ;
+	(*list)->fd = fd;
+	(*list)->str = NULL;
+	(*list)->prev = NULL;
+	(*list)->next = begin_list;
 }
 
-static int			get_str_stocked(t_linked_list **addr_list, char **line)
-{						
-	int				i;
-	int				start;
-
-//	ft_putendl("on rentre dans get_str_stocked");
-	i = 0;
-	if (!((*addr_list)->str))
-		return (0);
-	while ((*addr_list)->str[i] && (*addr_list)->str[i] == '\n') 
-		i++;
-	start = i;
-	while ((*addr_list)->str[i] && (*addr_list)->str[i] != '\n')
-		i++;
-	*line = ft_strsub((*addr_list)->str, start, i - start);
-	if ((*addr_list)->str[i + 1])
-	{
-		start = i;
-		while ((*addr_list)->str[i])
-			i++;
-		(*addr_list)->str = ft_strsub((*addr_list)->str, start, i - start);
-	}
-	else
-		ft_strdel(&((*addr_list)->str));
-	return (1);
-}
-
-static int					string_with_linefeed(char *str)
+static int	is_line(char *str)
 {
-	int i;
-
-	i = -1;
-	while (str[i + 1])
-		i++;
-	if (str[i] == '\n')
-		return (1);
-	return (0);
-}
-
-static int					string_only_filled_with_linefeed(char *str)
-{
-	int i;
+	int	i;
 
 	i = -1;
 	while (str[++i])
-		if (str[i] != '\n')
-			return (0);
+	{
+		if (str[i] == '\n')
+			return (1);
+	}
+	return (0);
+}
+
+static int	get_line_stocked(t_linked_list **list, char **line)
+{
+	int				i;
+	int				start;
+
+	i = 0;
+	if (!(*list) || !((*list)->str))
+		return (0);
+	start = 0;
+	while ((*list)->str[i] && (*list)->str[i] != '\n')
+		i++;
+	*line = ft_strsub((*list)->str, start, i - start);
+	if ((*list)->str[++i])
+	{
+		start = i;
+		while ((*list)->str[i])
+			i++;
+		(*list)->str = ft_strsub((*list)->str, start, i - start);
+	}
+	else
+		ft_strdel(&((*list)->str));
 	return (1);
 }
 
-int					get_next_line(int const fd, char **line)
+static void	init_list(int fd, t_linked_list **first, t_linked_list **list)
 {
-    static t_linked_list	*begin_list = NULL;
+	if (!(*list))
+	{
+		create_link(fd, *first, list);
+		*first = *list;
+	}
+	if (!(*list)->str)
+		(*list)->str = ft_strnew(0);
+}
+
+int			get_next_line(int const fd, char **line)
+{
+	static t_linked_list	*begin_list = NULL;
 	t_linked_list			*list;
 	int						ret;
 	char					*buf;
 
-//	ft_putendl("on rentre dans gnl");
 	if (fd < 0 || !line)
-        return (-1);
+		return (-1);
 	list = begin_list;
 	while (list && list->fd != fd)
 		list = list->next;
-	buf = ft_memalloc(BUFF_SIZE + 1);
-	while ((ret = read(fd, buf, BUFF_SIZE)))
+	buf = ft_strnew(BUFF_SIZE + 1);
+	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
-		if (!list)
-		{
-//			ft_putendl("on cree une instance correspondant au fd");
-			create_link(fd, begin_list, &list);
-			begin_list = list;
-		}
-		if (!list->str)
-        {
-//            ft_putendl("on initialise la string stockee a 0");
-            list->str =ft_strnew(0);
-        }
+		init_list(fd, &begin_list, &list);
 		list->str = ft_strjoin(list->str, buf);
-		if (string_with_linefeed(list->str) && !(string_only_filled_with_linefeed(list->str)))
-		{
-//			ft_putendl("la ligne stockee contient un linefeed");
+		ft_bzero(buf, BUFF_SIZE + 1);
+		if (is_line(list->str))
 			break ;
-		}
 	}
-	if (ret == 0)
-		return (0);
 	if (ret == -1)
-        return (-1);
-	return (get_str_stocked(&list, line));
+		return (-1);
+	return (get_line_stocked(&list, line));
 }
