@@ -6,16 +6,16 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:28:58 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/29 09:52:01 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/29 13:15:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 13
 
-# include "libft.h"
+# include "libft/includes/libft.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>

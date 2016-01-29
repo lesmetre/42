@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/25 20:44:49 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/29 12:51:42 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -92,16 +92,14 @@ SRC4 = ft_memdup.c			\
 		ft_isupper.c		\
 		ft_islower.c
 
-INC_PATH = ./
-
-INC_NAME = libft.h
+INC = includes/
 
 OBJ_PATH = ./
 
 #STANDART VARIABLES
-CC = gcc -c
+CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror	#-g -pedantic -ansi
+CFLAGS = -c -Wall -Wextra -Werror	#-g -pedantic -ansi
 
 # COLORS
 RESET =		\033[0m
@@ -124,17 +122,15 @@ SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-INC = $(addprefix $(INC_PATH), $(INC_NAME))
-
 #STANDART RULES
 all: $(NAME)
 
 
 $(NAME):
 	@echo "$(YELLOW)compiling ...$(RESET)"
-	$(CC) $(CFLAGS) $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -I$(INC)
 	@echo "$(YELLOW)linking...$(RESET)"
-	ar rc $@ $(OBJ) $(INC)
+	ar rc $@ $(OBJ)
 	@echo "$(YELLOW)creating index...$(RESET)"
 	ranlib $@
 	@echo "$(CYAN)$(NAME) IS BUILT !$(RESET)"
