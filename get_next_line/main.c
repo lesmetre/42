@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 22:31:44 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/29 13:07:13 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 01:27:41 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 int		main(int ac, char **av)
 {
-    char	*line;
-    int		fd;
+	char	*line;
+	int		fd;
 	int		ret;
 
-    line = NULL;
+	line = NULL;
 	if (ac != 2)
 		return (0);
 	fd = open(av[1], O_RDONLY);
-    if (fd == -1)
-        return (1);
+	if (fd == -1)
+		return (1);
 	while ((ret = get_next_line(fd, &line) > 0))
 	{
 		ft_putnbr(ret);
@@ -37,6 +37,6 @@ int		main(int ac, char **av)
 	ft_putstr("\n");
 	ft_strdel(&line);
 	if (close(fd))
-        return (1);
-    return (0);
+		return (1);
+	return (0);
 }

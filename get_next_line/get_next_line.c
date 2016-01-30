@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/29 10:01:05 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 03:44:34 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,33 @@ static int	get_line_stocked(t_linked_list **list, char **line)
 {
 	int				i;
 	int				start;
+	char			*tmp;
 
 	i = 0;
 	if (!(*list) || !((*list)->str))
+	{
+		ft_strdel(line);
 		return (0);
+	}
 	start = 0;
 	while ((*list)->str[i] && (*list)->str[i] != '\n')
 		i++;
-	*line = ft_strsub((*list)->str, start, i - start);
-	if ((*list)->str[++i])
+	tmp = ft_strsub((*list)->str, 0, i);
+	*line = ft_strdup(tmp);
+	ft_strdel(&tmp);
+	if ((*list)->str[i] && (*list)->str[++i])
 	{
 		start = i;
 		while ((*list)->str[i])
 			i++;
-		(*list)->str = ft_strsub((*list)->str, start, i - start);
+		tmp = ft_strsub((*list)->str, start, i - start);
 	}
-	else
-		ft_strdel(&((*list)->str));
+	ft_strdel(&((*list)->str));
+	if (tmp)
+	{
+		(*list)->str = ft_strdup(tmp);
+		ft_strdel(&tmp);
+	}
 	return (1);
 }
 
@@ -74,6 +84,7 @@ int			get_next_line(int const fd, char **line)
 	t_linked_list			*list;
 	int						ret;
 	char					*buf;
+	char					*tmp;
 
 	if (fd < 0 || !line)
 		return (-1);
@@ -84,11 +95,15 @@ int			get_next_line(int const fd, char **line)
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		init_list(fd, &first, &list);
-		list->str = ft_strjoin(list->str, buf);
+		tmp = ft_strjoin(list->str, buf);
+		ft_strdel(&(list->str));
+		list->str = ft_strdup(tmp);
+		ft_strdel(&tmp);
 		ft_bzero(buf, BUFF_SIZE + 1);
 		if (is_line(list->str))
 			break ;
 	}
+	ft_strdel(&buf);
 	if (ret == -1)
 		return (-1);
 	return (get_line_stocked(&list, line));
