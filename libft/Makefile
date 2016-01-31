@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/31 10:18:48 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/31 10:53:56 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -93,12 +93,9 @@ SRC4 = ft_memdup.c			\
 		ft_islower.c		\
 		get_next_line.c
 
-INC_PATH = ./
-
-INC_NAME = libft.h			\
-			get_next_line.h
-
 OBJ_PATH = ./
+
+INC = includes/
 
 #STANDART VARIABLES
 CC = gcc -c
@@ -126,17 +123,15 @@ SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-INC = $(addprefix $(INC_PATH), $(INC_NAME))
-
 #STANDART RULES
 all: $(NAME)
 
 
 $(NAME):
 	@echo "$(YELLOW)compiling ...$(RESET)"
-	$(CC) $(CFLAGS) $(SRC)
+	$(CC) $(CFLAGS) $(SRC) -I$(INC)
 	@echo "$(YELLOW)linking...$(RESET)"
-	ar rc $@ $(OBJ) $(INC)
+	ar rc $@ $(OBJ)
 	@echo "$(YELLOW)creating index...$(RESET)"
 	ranlib $@
 	@echo "$(CYAN)$(NAME) IS BUILT !$(RESET)"
