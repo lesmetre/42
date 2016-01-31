@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 08:44:49 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 07:00:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 08:16:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ t_list	*ft_lstnew(void	const *content, size_t content_size)
 
 	list = NULL;
 	if (!(list = (t_list*)malloc(sizeof(*list))))
+	{
+		ft_error_malloc("ft_lstnew");
 		return (NULL);
+	}
 	if (!(content))
 	{
 		list->content = NULL;

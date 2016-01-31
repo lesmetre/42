@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:33:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 06:50:24 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 09:00:29 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putnbr(int n)
 	}
 	else if (n >= 0 && n <= 9)
 		ft_putchar('0' + n);
-	else if (n < 0)
+	else
 	{
 		ft_putchar('-');
 		ft_putnbr(-n);

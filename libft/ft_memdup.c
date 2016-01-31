@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 08:44:49 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:59:33 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 08:42:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ void	*ft_memdup(const void *src, size_t n)
 
 	ret = NULL;
 	if (!(ret = (void *)malloc(sizeof(*src) * n)))
+	{
+		ft_error_malloc("ft_memdup");
 		return (NULL);
+	}
 	ft_memcpy(ret, src, n);
 	return (ret);
 }

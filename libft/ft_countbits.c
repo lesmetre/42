@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 00:58:50 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 07:27:31 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 07:38:31 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ size_t	ft_countbits(const char *s, char c)
 	bits = 0;
 	while (s[i])
 	{
-		if (s[i] == c && is_bit != 0)
+		if (s[i] == c && is_bit)
 			is_bit = 0;
-		if (s[i] != c && is_bit == 0)
+		if (s[i] != c && !is_bit)
 		{
 			bits++;
 			is_bit = 1;
 		}
-		while (s[i] && s[i] == c && is_bit == 0)
+		while (s[i] && s[i] == c && !is_bit)
 			i++;
-		while (s[i] && s[i] != c && is_bit != 0)
+		while (s[i] && s[i] != c && is_bit)
 			i++;
 	}
 	return (bits);

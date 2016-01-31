@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/01/25 20:44:49 by mpressen         ###   ########.fr        #
+#    Updated: 2016/01/31 10:18:48 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -90,11 +90,13 @@ SRC4 = ft_memdup.c			\
 		ft_error_null.c		\
 		ft_error_malloc.c	\
 		ft_isupper.c		\
-		ft_islower.c
+		ft_islower.c		\
+		get_next_line.c
 
 INC_PATH = ./
 
-INC_NAME = libft.h
+INC_NAME = libft.h			\
+			get_next_line.h
 
 OBJ_PATH = ./
 

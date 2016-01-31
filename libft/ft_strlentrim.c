@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/11 01:30:48 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 21:07:50 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/31 08:04:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,18 @@
 
 size_t		ft_strlentrim(char const *s)
 {
-	size_t	len;
-	size_t	i;
-	size_t	begin;
+	size_t i;
+	size_t j;
 
-	begin = 1;
 	i = 0;
-	len = 0;
-	while (s[i])
-	{
-		while (ft_isspace((int)s[i]) && begin == 1)
-			i++;
-		begin = 0;
-		len++;
-		i++;
-	}
-	i--;
+	j = 0;
 	while (ft_isspace((int)s[i]))
-	{
-		len--;
-		i--;
-	}
-	return (len);
+		i++;
+	i--;
+	while (s[++i])
+		j++;
+	if (j)
+		while (ft_isspace((int)s[--i]))
+			j--;
+	return (j);
 }

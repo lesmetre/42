@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:38:39 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 21:08:59 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/31 08:26:03 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,17 @@
 
 int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t			s1len;
-	size_t			s2len;
-	unsigned char	*s11;
-	unsigned char	*s22;
+	size_t			len1;
+	size_t			len2;
 
-	s11 = (unsigned char *)s1;
-	s22 = (unsigned char *)s2;
-	s1len = ft_strlen(s1);
-	s2len = ft_strlen(s2);
-	if (s1len < n && s2len < n)
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (len1 < n && len2 < n)
 	{
-		if (s1len > s2len)
-			n = s1len;
+		if (len1 > len2)
+			n = len1;
 		else
-			n = s2len;
+			n = len2;
 	}
-	return (ft_memcmp(s11, s22, n));
+	return (ft_memcmp((const void*)s1, (const void*)s2, n));
 }

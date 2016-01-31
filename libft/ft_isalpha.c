@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 01:59:43 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 20:00:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/30 07:48:25 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@
 
 int		ft_isalpha(int c)
 {
-	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
-		return (1);
-	return (0);
+	return (ft_islower(c) || ft_isupper(c));
 }

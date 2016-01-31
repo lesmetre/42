@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/25 05:54:41 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/01/31 10:08:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,37 +20,29 @@
 ** If allocation fails, the function returns NULL.
 */
 
-static char	*ft_strtrim2(char const *s, size_t i, size_t j, size_t begin)
+char		*ft_strtrim(char const *s)
 {
 	char	*trim;
 	size_t	len;
-
-	if (!(s))
-		return (ft_error_null("ft_strtrim"));
-	len = ft_strlentrim(s);
-	if ((trim = (char *)malloc(sizeof(*trim) * (len + 1))))
-	{
-		while (j < len)
-		{
-			while (ft_isspace((int)s[i]) && begin == 1)
-				i++;
-			begin = 0;
-			trim[j++] = s[i++];
-		}
-		trim[j] = '\0';
-		return (trim);
-	}
-	return (ft_error_malloc("ft_strtrim"));
-}
-
-char		*ft_strtrim(char const *s)
-{
 	size_t	i;
 	size_t	j;
-	size_t	begin;
 
-	begin = 1;
 	i = 0;
-	j = 0;
-	return (ft_strtrim2(s, i, j, begin));
+	j = -1;
+	if (!(s))
+	{
+		ft_error_null("ft_strtrim");
+		return (NULL);
+	}
+	len = ft_strlentrim(s);
+	if ((trim = ft_strnew(len)))
+	{
+		while (ft_isspace((int)s[i]))
+			i++;
+		while (++j < len)
+			trim[j] = s[i++];
+		return (trim);
+	}
+	ft_error_malloc("ft_strtrim");
+	return (NULL);
 }
