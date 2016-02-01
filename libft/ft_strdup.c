@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 21:35:09 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 10:19:39 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/01 21:46:02 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	*ft_strdup(const char *s1)
 	{
 		while (s1[++i])
 			dup[i] = (char)s1[i];
-		dup[i] = '\0';
 		return (dup);
 	}
 	return (NULL);
