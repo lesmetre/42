@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 22:02:32 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/30 09:16:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/02 22:16:47 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,5 @@
 
 void	ft_strclr(char *s)
 {
-	size_t i;
-
-	i = -1;
-	if (!(s))
-		ft_error_null("ft_strclr");
-	else
-		while (s[++i])
-			s[i] = '\0';
+	ft_bzero((void*)s, ft_strlen(s));
 }
