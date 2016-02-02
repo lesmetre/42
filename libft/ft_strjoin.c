@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:38:30 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/30 09:28:30 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:13:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ char		*ft_strjoin(char const *s1, char const *s2)
 
 	i = -1;
 	j = -1;
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 	{
 		ft_error_null("ft_strjoin");
 		return (NULL);
 	}
-	if ((join = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
+	if (!s1)
+		return ((char*)s2);
+	if (!s2)
+		return ((char*)s1);
+	if ((join = ft_strnew(ft_strlen(s1) + ft_strlen(s2))))
 	{
 		while (s1[++i])
 			join[i] = s1[i];

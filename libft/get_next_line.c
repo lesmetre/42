@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/02 13:24:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/02 18:06:54 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int			get_next_line(int const fd, char **line)
 	list = first;
 	while (list && list->fd != fd)
 		list = list->next;
-	buf = ft_strnew(BUFF_SIZE + 1);
+	buf = ft_strnew(BUFF_SIZE);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		init_list(fd, &first, &list);
