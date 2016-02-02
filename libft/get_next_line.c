@@ -6,11 +6,19 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 10:17:51 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/02 13:24:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+/*
+** The get_next_line() function reads a line from stream
+** with the newline character as delimiter.
+** The delimiter is not included as part of the line.
+** The function returns 1 if a line has been read,
+** -1 if an error occurs, and 0 if end-of-file is reached.
+*/
 
 static void	create_link(int fd, t_linked_list *first, t_linked_list **list)
 {
