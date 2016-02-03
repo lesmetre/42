@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/03 21:20:23 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/03 21:30:14 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 21:33:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	print_tab(char **tab)
 	else
 		while (tab[++i])
 			ft_putendl(tab[i]);
-
 }
