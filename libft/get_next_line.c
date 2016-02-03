@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/02 18:06:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 20:16:48 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@
 ** -1 if an error occurs, and 0 if end-of-file is reached.
 */
 
-static void	create_link(int fd, t_linked_list *first, t_linked_list **list)
+static void	create_link(int fd, t_linked_list **first, t_linked_list **list)
 {
 	if (!(*list = (t_linked_list*)malloc(sizeof(**list))))
 		return ;
 	(*list)->fd = fd;
 	(*list)->str = NULL;
-	(*list)->next = first;
+	(*list)->next = *first;
+	*first = *list;
 }
 
 static int	is_line(char *str)
@@ -66,17 +67,6 @@ static int	get_line_stocked(t_linked_list **list, char **line)
 	return (1);
 }
 
-static void	init_list(int fd, t_linked_list **first, t_linked_list **list)
-{
-	if (!(*list))
-	{
-		create_link(fd, *first, list);
-		*first = *list;
-	}
-	if (!(*list)->str)
-		(*list)->str = ft_strnew(0);
-}
-
 int			get_next_line(int const fd, char **line)
 {
 	static t_linked_list	*first = NULL;
@@ -93,7 +83,8 @@ int			get_next_line(int const fd, char **line)
 	buf = ft_strnew(BUFF_SIZE);
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
-		init_list(fd, &first, &list);
+		if (!list)
+			create_link(fd, &first, &list);
 		tmp = ft_strjoin(list->str, buf);
 		ft_strdel(&(list->str));
 		list->str = tmp;

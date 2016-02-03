@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:51:53 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 08:30:35 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/02 22:31:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,12 @@
 
 int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	size_t i;
-
-	i = -1;
 	if (!s1 || !s2)
 	{
 		ft_error_null("ft_strnequ");
 		return (0);
 	}
-	while ((s1[++i] || s2[i]) && i < n)
-		if (s1[i] != s2[i])
-			return (0);
-	return (1);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:28:58 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 10:20:28 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 17:22:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # define BUFF_SIZE 32
 
 # include "libft.h"
-# include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
