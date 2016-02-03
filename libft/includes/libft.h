@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/02 13:16:17 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 21:19:02 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void				*ft_memdup(const void *src, size_t n);
 size_t				ft_countbits(const char *s, char c);
 int					ft_isspace_full(int c);
 int					ft_isspace(int c);
-size_t				ft_strlentrim(char const *s);
 void				ft_error_malloc(char const *str);
 void				ft_error_null(char const *str);
 int					ft_isupper(int c);

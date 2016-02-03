@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/24 21:52:59 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/03 20:16:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 20:30:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int			get_next_line(int const fd, char **line)
 		tmp = ft_strjoin(list->str, buf);
 		ft_strdel(&(list->str));
 		list->str = tmp;
-		ft_bzero(buf, BUFF_SIZE + 1);
+		ft_bzero(buf, BUFF_SIZE);
 		if (is_line(list->str))
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 10:08:32 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 21:17:35 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,27 @@
 ** If allocation fails, the function returns NULL.
 */
 
-char		*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
-	char	*trim;
-	size_t	len;
 	size_t	i;
-	size_t	j;
+	size_t	start;
+	size_t	len;
 
 	i = 0;
-	j = -1;
+	len = ft_strlen(s);
 	if (!(s))
 	{
 		ft_error_null("ft_strtrim");
 		return (NULL);
 	}
-	len = ft_strlentrim(s);
-	if ((trim = ft_strnew(len)))
-	{
-		while (ft_isspace((int)s[i]))
-			i++;
-		while (++j < len)
-			trim[j] = s[i++];
-		return (trim);
-	}
-	ft_error_malloc("ft_strtrim");
+	while (ft_isspace((int)s[i]))
+		i++;
+	if (i == len)
+		return (ft_strdup(""));
+	start = i;
+	i = len - 1;
+	while (ft_isspace((int)s[i]))
+		i--;
+	return (ft_strsub(s, start, i + 1 - start));
 	return (NULL);
 }

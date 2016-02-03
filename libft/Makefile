@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/02/02 13:15:34 by mpressen         ###   ########.fr        #
+#    Updated: 2016/02/03 21:18:48 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -86,7 +86,6 @@ SRC4 = ft_memdup.c			\
 		ft_countbits.c		\
 		ft_isspace_full.c	\
 		ft_isspace.c		\
-		ft_strlentrim.c		\
 		ft_error_null.c		\
 		ft_error_malloc.c	\
 		ft_isupper.c		\
