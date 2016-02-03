@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/03 21:19:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/03 21:31:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,5 +89,6 @@ void				ft_error_null(char const *str);
 int					ft_isupper(int c);
 int					ft_islower(int c);
 char				*ft_itoa_base(int value, int base);
+void				print_tab(char **tab);
 
 #endif
