@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/24 21:28:58 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/03 17:22:42 by mpressen         ###   ########.fr       */
+/*   Created: 2016/01/25 20:39:59 by mpressen          #+#    #+#             */
+/*   Updated: 2016/01/25 20:46:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 32
+/*
+** The ft_islower() function tests for any lower-case letter.
+** The function returns zero if the character tests false
+** and returns non-zero if the character tests true.
+*/
 
-# include "libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-
-typedef struct				s_linked_list
+int		ft_islower(int c)
 {
-	int						fd;
-	char					*str;
-	struct s_linked_list	*next;
-}							t_linked_list;
-
-int							get_next_line(int const fd, char **line);
-
-#endif
+	return (c >= 'a' && c <= 'z');
+}
