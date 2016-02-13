@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/02/10 21:32:56 by mpressen         ###   ########.fr        #
+#    Updated: 2016/02/12 03:08:48 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,7 @@ LIB_PATH = ./libft/
 
 LIB_NAME = libft.a
 
-INC = ./libft/includes/ ./fdf.h
+INC = ./libft/includes fdf.h
 
 #AUTOMATIC
 CFLAGS = -Wall -Wextra -Werror
@@ -38,7 +38,7 @@ all: $(NAME)
 $(NAME):
 	make -C $(LIB_PATH)
 	gcc -c $(CFLAGS) $(SRC) -I $(INC)
-	gcc -o $@ $(OBJ) $(LIB)
+	gcc -o $@ $(OBJ) $(LIB) #-lm -lmlx -framework OpenGL -framework AppKit
 
 clean:
 	make -C $(LIB_PATH) clean
