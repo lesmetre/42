@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/13 02:51:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/15 09:51:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,15 @@ typedef struct	s_fdf_list
 	void				*mlx;
 	void				*win;
 	void				*img;
+	int					width_win;
+	int					height_win;
+	int					width_img;
+	int					height_img;
 	int					x;
 	int					y;
 	int					z;
+	int					x1;
+	int					y1;
 	struct s_fdf_list	*next;
 }				t_fdf_list;
 
