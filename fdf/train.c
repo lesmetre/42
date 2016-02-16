@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/15 09:51:30 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/16 04:32:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include "libft.h"
 
-int		key_hook(int keycode, t_fdf_list *param)
+int		key_hook(int keycode, t_fdf *param)
 {
 	if (keycode == 53)
 		exit(EXIT_SUCCESS);
@@ -24,7 +24,7 @@ int		key_hook(int keycode, t_fdf_list *param)
 
 int		main(void)
 {
-	t_fdf_list		param;
+	t_fdf			param;
 	unsigned int	*pic;
 	int				bpp;
 	int				sizeline;
