@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 21:15:51 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/10 17:55:38 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/10 19:51:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void				print_tab(char **tab);
 void				free_tab(char ***tab);
 void				print_memory(const void *adr, size_t size);
 int					get_next_line(int const fd, char **line);
-
+size_t				ft_indexlen(void **tab);
 #endif
