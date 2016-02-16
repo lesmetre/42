@@ -6,11 +6,10 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/16 06:07:42 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/16 08:20:30 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fdf.h"
 
 static int		ft_error(int error, char *str)

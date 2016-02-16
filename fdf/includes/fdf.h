@@ -6,23 +6,18 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/16 06:08:42 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/16 08:49:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-
+# include "mlx.h"
+# include "libft.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-
-/*
-** # include <sys/errno.h> // system calls and error numbers
-** # include <stdio.h> // perror
-** # include <string.h> // strerror
-** # include <math.h>
-*/
+# include <math.h>
 
 typedef struct	s_fdf
 {
@@ -33,6 +28,10 @@ typedef struct	s_fdf
 	int				height_win;
 	int				width_img;
 	int				height_img;
+	unsigned int	*pic;
+	int				bpp;
+	int				sizeline;
+	int				endian;
 	int				x;
 	int				y;
 	int				z;
