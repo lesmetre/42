@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/16 08:20:30 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/17 13:02:31 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,31 +45,35 @@ static void		create_new_elem(int y, int x, int z, t_fdf **param)
 	*param = new;
 }
 
-static void		create_list(t_fdf **param, char **tab, int y)
+static void		create_list(t_fdf **param, int *int_tab, int y, size_t ref)
 {
-	int			x;
+	size_t	x;
 
 	x = -1;
-	while (tab[++x])
-		create_new_elem(y, x, ft_atoi(tab[x]), param);
+	while (++x < ref)
+		create_new_elem(y, x, int_tab[x], param);
 }
 
 static int		check_fd_init_param(char *line, int y, t_fdf **param)
 {
 	int				i;
-	static size_t	ref_i = 0;
+	static size_t	ref = 0;
 	char			**tab;
+	int				*int_tab;
 
 	i = -1;
-	while (line[++i])
-		if (!(ft_isdigit(line[i])) && line[i] != ' ' && line[i] != '-')
-			line[i] = ' ';
 	tab = ft_strsplit(line, ' ');
-	if (!ref_i)
-		ref_i = ft_indexlen((void**)tab);
-	else if (ref_i != ft_indexlen((void**)tab))
+	if (!(int_tab = (int*)malloc(sizeof(int_tab) * ft_indexlen((void**)tab))))
+		ft_error_malloc("check_fd_init_program");
+	while (tab[++i])
+		int_tab[i] = ft_atoi(tab[i]);
+	if (!ref)
+		ref = ft_indexlen((void**)tab);
+	else if (ref > ft_indexlen((void**)tab))
 		return (1);
-	create_list(param, tab, y);
+	create_list(param, int_tab, y, ref);
+	free_tab(&tab);
+	ft_memdel((void**)&int_tab);
 	return (0);
 }
 
