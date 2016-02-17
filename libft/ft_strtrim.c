@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 23:52:02 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/03 21:17:35 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/02/17 10:59:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,4 @@ char	*ft_strtrim(char const *s)
 	while (ft_isspace((int)s[i]))
 		i--;
 	return (ft_strsub(s, start, i + 1 - start));
-	return (NULL);
 }
