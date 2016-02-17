@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 21:17:18 by mpressen          #+#    #+#              #
-#    Updated: 2016/02/17 10:35:35 by mpressen         ###   ########.fr        #
+#    Updated: 2016/02/17 12:24:57 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -96,7 +96,6 @@ SRC4 = ft_memdup.c			\
 		free_tab.c			\
 		print_memory.c		\
 		ft_indexlen.c		\
-		ft_tab_iter.c
 
 OBJ_PATH = ./
 
