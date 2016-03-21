@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/02/17 13:02:31 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/03/21 06:05:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void		create_new_elem(int y, int x, int z, t_fdf **param)
 	new->x = x;
 	new->y = y;
 	new->z = z;
+	new->x1 = 0.5 * x - 0.5 * y;
+	new->y1 = 0.25 * x + 0.25 * y - 0.5 * z;
 	new->next = *param;
 	*param = new;
 }
