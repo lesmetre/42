@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/03/22 14:11:26 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/03/23 14:10:11 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,21 +41,21 @@ static void		draw_pic(t_fdf **param)
 	int		i;
 	int		center;
 	t_fdf	*browser;
-//	t_fdf	*tmp;
+	t_fdf	*tmp;
 
 	browser = *param;
 	center = (*param)->sizeline / 4 * (*param)->height_win / 2 + (*param)->sizeline / 8;
 	while (browser)
 	{
 		i = center + browser->x1 * 16 + (browser->y1 * (*param)->sizeline * 4) + 0.5; 
-		(*param)->pic[i] = mlx_get_color_value((*param)->mlx, 0xff0000);
-//		tmp = browser->next;
-//		if (tmp && browser->y == tmp->y)
-//			draw_line(&param, browser->x, tmp->x);
-//		while (tmp && browser->x != tmp->x)
-//			tmp = tmp->next;
-//		if (tmp)
-//			draw_line(&param, browser->y, tmp->y);
+		(*param)->pic[i] = mlx_get_color_value((*param)->mlx, 0xffffff);
+		tmp = browser->next;
+		if (tmp && browser->y == tmp->y)
+			draw_line(browser->x1, tmp->x1, browser->y1, tmp->y1);
+		while (tmp && browser->x != tmp->x)
+			tmp = tmp->next;
+		if (tmp)
+			draw_line(browser->x1, tmp->x1, browser->y1, tmp->y1);
 		browser = browser->next;
 	}
 	mlx_put_image_to_window((*param)->mlx,

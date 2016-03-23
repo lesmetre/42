@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/03/21 06:05:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/03/23 14:10:09 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct	s_fdf
 }				t_fdf;
 
 int				ft_parsing(int ac, char **av, t_fdf **param);
-
+void			draw_line(int x1, int x2, int y1, int y2);
 #endif
 
 
