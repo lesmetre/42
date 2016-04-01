@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/03/23 14:10:11 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/03/24 17:23:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ static void		draw_pic(t_fdf **param)
 		(*param)->pic[i] = mlx_get_color_value((*param)->mlx, 0xffffff);
 		tmp = browser->next;
 		if (tmp && browser->y == tmp->y)
-			draw_line(browser->x1, tmp->x1, browser->y1, tmp->y1);
+			draw_line(browser->x1, browser->y1, tmp->x1, tmp->y1);
 		while (tmp && browser->x != tmp->x)
 			tmp = tmp->next;
 		if (tmp)
-			draw_line(browser->x1, tmp->x1, browser->y1, tmp->y1);
+			draw_line(browser->x1, browser->y1, tmp->x1, tmp->y1);
 		browser = browser->next;
 	}
 	mlx_put_image_to_window((*param)->mlx,
