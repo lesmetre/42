@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/03/24 01:16:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/04 17:01:15 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,28 +24,18 @@ typedef struct	s_fdf
 	void			*mlx;
 	void			*win;
 	void			*img;
-	int				width_win;
-	int				height_win;
-	int				width_img;
-	int				height_img;
 	unsigned int	*pic;
 	int				bpp;
 	int				sizeline;
 	int				endian;
-	int				x;
-	int				y;
-	int				z;
-	double			x1;
-	double			y1;
-	int				x2;
-	int				y2;
-	int				x3;
-	int				y3;
+	int				center;
+	float			x1;
+	float			y1;
 	struct s_fdf	*next;
 }				t_fdf;
 
-int				ft_parsing(int ac, char **av, t_fdf **param);
-void			draw_line(int x1, int y1, int x2, int y2);
+int				ft_parsing(int ac, char **av, t_fdf *param);
+void			draw_line(t_fdf *start, t_fdf *end, t_fdf *param);
 #endif
 
 
