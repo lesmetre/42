@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/03/23 14:10:05 by mpressen         ###   ########.fr        #
+#    Updated: 2016/04/05 19:44:34 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 SRC_PATH = ./
 
-SRC_NAME = main.c ft_parsing.c draw_line.c
+SRC_NAME = main.c ft_parsing.c draw_pic.c
 
 OBJ_PATH = ./
 
