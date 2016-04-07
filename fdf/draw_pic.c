@@ -6,28 +6,30 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/07 17:41:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/07 19:39:09 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		draw_pixel(float x, float y, t_fdf *param)
+static void		draw_pixel(double x, double y, t_fdf *param)
 {
 	int	pix;
 
-	x += param->width * 0.5;
-	y += param->height * 0.5;
-	pix = x + y * param->width + 0.5;
+    x = ceil(param->width * 0.5 + x * 0.001 + 0.5);
+    y = ceil(param->height * 0.5 + y * 0.001 + 0.5);
+//	x += param->width * 0.5;
+//	y += param->height * 0.5;
+	pix = floor(x + y * param->width + 0.5);
 	if (pix >= 0 && pix <= param->width * param->height) 
 		param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
 }
 
 static void		draw_line(t_fdf start, t_fdf end, t_fdf *param)
 {
-	float	xab;
-	float	yab;
-	float	lab;
+	double	xab;
+	double	yab;
+	double	lab;
 	int		i;
 
 	xab = end.x1 - start.x1;
@@ -37,7 +39,7 @@ static void		draw_line(t_fdf start, t_fdf end, t_fdf *param)
 	xab /= lab;
 	yab /= lab;
 	while (++i < lab)
-		draw_pixel(ceil(start.x1 + (i * xab) + 0.5), ceil(start.y1 + (i * yab) + 0.5), param);
+		draw_pixel(floor(start.x1 + (i * xab) + 0.5), floor(start.y1 + (i * yab) + 0.5), param);
 }
 
 void			draw_pic(t_fdf *param)

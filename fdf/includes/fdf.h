@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/07 16:59:47 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/07 19:38:18 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ typedef struct	s_fdf
 	int				x;
 	int				y;
 	int				z;
-	float			x1;
-	float			y1;
+	double			x1;
+	double			y1;
 	struct s_fdf	*next;
 }				t_fdf;
 
