@@ -6,26 +6,25 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/05 20:59:41 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/07 17:24:07 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		display_init(t_fdf *param)
+static void		display_init(t_fdf **addr_param)
 {
-	int	width;
-	int	height;
+	t_fdf	*param;
 
-	width = 1000;
-	height = 500; 
+	param = *addr_param;
+	param->width = 1000;
+	param->height = 1000; 
 	param->mlx = mlx_init();
-	param->win = mlx_new_window(param->mlx, width, height, "FdF");
-	param->img = mlx_new_image(param->mlx, width, height);
+	param->win = mlx_new_window(param->mlx, param->width, param->height, "FdF");
+	param->img = mlx_new_image(param->mlx, param->width, param->height);
 	param->pic = (unsigned int *)mlx_get_data_addr
 		(param->img, &param->bpp, &param->sizeline, &param->endian);
-	param->sizeline /= 4;
-	param->center = param->sizeline * height / 2 + param->sizeline / 2;
+	param->center = param->width * param->height / 2 + param->width * 0.5;
 }
 
 static int		key_hook(int keycode, t_fdf *param)
@@ -36,21 +35,6 @@ static int		key_hook(int keycode, t_fdf *param)
 	return (0);
 }
 
-static void		show_list(t_fdf *param)
-{
-	int i;
-
-	i = 0;
-	while (param)
-	{
-		i++;
-		param = param->next;
-	}
-	ft_putstr("Il y a ");
-	ft_putnbr(i);
-	ft_putendl(" instances dans la liste.");
-}
-
 int				main(int ac, char **av)
 {
 	t_fdf			*param;
@@ -58,9 +42,8 @@ int				main(int ac, char **av)
 	if (ft_parsing(ac, av, &param))
 		return (1);
 	display_init(&param);
-	show_list(&param);
 	draw_pic(param);
-	mlx_key_hook(param.win, key_hook, &param);
-	mlx_loop(param.mlx);
+	mlx_key_hook(param->win, key_hook, param);
+	mlx_loop(param->mlx);
 	return (0);
 }

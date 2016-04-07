@@ -6,13 +6,13 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/05 20:39:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/07 17:37:15 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int		ft_error(int error, char *str)
+static int	ft_error(int error, char *str)
 {
 	if (error == 1)
 		ft_putendl_fd("Usage : ./fdf <filename> [ case_size z_size ]", 2);
@@ -29,7 +29,7 @@ static int		ft_error(int error, char *str)
 	return (1);
 }
 
-static void		create_new_elem(int y, int x, int z, t_fdf **param)
+static void	create_new_elem(int y, int x, int z, t_fdf **param)
 {
 	t_fdf	*new;
 
@@ -41,13 +41,16 @@ static void		create_new_elem(int y, int x, int z, t_fdf **param)
 	new->x = x;
 	new->y = y;
 	new->z = z;
+	x *= 20;
+	y *= 20;
+	z *= 20;
 	new->x1 = 0.5 * x - 0.5 * y;
 	new->y1 = 0.25 * x + 0.25 * y - 0.5 * z;
 	new->next = *param;
 	*param = new;
 }
 
-static void		create_list(t_fdf **param, int *int_tab, int y, size_t ref)
+static void	create_list(t_fdf **param, int *int_tab, int y, size_t ref)
 {
 	size_t	x;
 
@@ -56,7 +59,7 @@ static void		create_list(t_fdf **param, int *int_tab, int y, size_t ref)
 		create_new_elem(y, x, int_tab[x], param);
 }
 
-static int		check_fd_init_param(char *line, int y, t_fdf **param)
+static int	check_fd_init_param(char *line, int y, t_fdf **param)
 {
 	int				i;
 	static size_t	ref = 0;
@@ -79,7 +82,7 @@ static int		check_fd_init_param(char *line, int y, t_fdf **param)
 	return (0);
 }
 
-int				ft_parsing(int ac, char **av, t_fdf *param)
+int			ft_parsing(int ac, char **av, t_fdf **param)
 {
 	char	*line;
 	int		fd;
@@ -94,7 +97,7 @@ int				ft_parsing(int ac, char **av, t_fdf *param)
 		return (ft_error(2, av[1]));
 	while ((ret = get_next_line(fd, &line)))
 	{
-		if (check_fd_init_param(line, y, &param))
+		if (check_fd_init_param(line, y, param))
 			return (ft_error(3, NULL));
 		y++;
 	}
