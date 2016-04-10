@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/07 19:39:09 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/10 12:49:10 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ static void		draw_pixel(double x, double y, t_fdf *param)
 
     x = ceil(param->width * 0.5 + x * 0.001 + 0.5);
     y = ceil(param->height * 0.5 + y * 0.001 + 0.5);
-//	x += param->width * 0.5;
-//	y += param->height * 0.5;
 	pix = floor(x + y * param->width + 0.5);
 	if (pix >= 0 && pix <= param->width * param->height) 
 		param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
