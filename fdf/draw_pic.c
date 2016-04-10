@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/10 12:49:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/10 18:00:39 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ static void		draw_pixel(double x, double y, t_fdf *param)
 {
 	int	pix;
 
-    x = ceil(param->width * 0.5 + x * 0.001 + 0.5);
-    y = ceil(param->height * 0.5 + y * 0.001 + 0.5);
+    x = ceil(param->width * 0.5 + x * 0.001 * param->zoom + 0.5);
+    y = ceil(param->height * 0.5 + y * 0.001 * param->zoom + 0.5);
 	pix = floor(x + y * param->width + 0.5);
-	if (pix >= 0 && pix <= param->width * param->height) 
-		param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
+	if (pix + param->move >= 0 && pix + param->move <= param->width * param->height) 
+		param->pic[pix + param->move] = mlx_get_color_value(param->mlx, 0xffffff);
 }
 
 static void		draw_line(t_fdf start, t_fdf end, t_fdf *param)

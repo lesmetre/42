@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/10 14:16:15 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/10 18:12:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,41 +20,50 @@ static void		display_init(t_fdf **addr_param)
 	param->width = 1920;
 	param->height = 1080; 
 	param->mlx = mlx_init();
-	param->win = mlx_new_window(param->mlx, 1920, 1080, "FdF");
-	param->img = mlx_new_image(param->mlx, 1920, 1080);
+	param->win = mlx_new_window(param->mlx, param->width, param->height, "FdF");
+	param->img = mlx_new_image(param->mlx, param->width, param->height);
 	param->pic = (unsigned int *)mlx_get_data_addr
 		(param->img, &param->bpp, &param->sizeline, &param->endian);
-	param->center = param->width * param->height / 2 + param->width * 0.5;
+	param->move = 0;
+	param->zoom = 1;
+}
+
+static int		expose_hook(t_fdf *param)
+{
+	mlx_destroy_image(param->mlx, param->img);
+	param->img = mlx_new_image(param->mlx, param->width, param->height);
+	param->pic = (unsigned int *)mlx_get_data_addr
+		(param->img, &param->bpp, &param->sizeline, &param->endian);
+	draw_pic(param);
+	return (0);
 }
 
 static int		key_hook(int keycode, t_fdf *param)
 {
-	static int i = 1;
-
+	static int		i = 0;
+	static double	j = 1;
 	if (keycode == 53 || keycode == 12)
 		exit(EXIT_SUCCESS);
-	if (keycode == 123) // left
-		param->width--;
-	if (keycode == 124) // right
-		param->width++;
-	if (keycode == 125) // down
-		param->height++; 
-	if (keycode == 126) // up
-		param->height--; 
-	if (keycode == 49) // zoom
+	else if (keycode == 123) // left
+		i -= 50;
+	else if (keycode == 124) // right
+		i += 50;
+	else if (keycode == 125) // down
+		i += param->width * 50;
+	else if (keycode == 126) // up
+		i -= param->width * 50;
+	else if (keycode == 49)
 	{
-		i++;
-		param->x *= i;
-		param->y *= i;
-		param->z *= i;
+		i = 0;
+		j = 1;
 	}
-	if (keycode == 51) // dezoom
-	{
-		i--;
-		param->x *= i;
-		param->y *= i;
-		param->z *= i;
-	}
+	else if (keycode == 69) // zoom
+		j += 0.1;
+	else if (keycode == 78 && j > 0.1) // dezoom
+		j -= 0.1;
+	param->move = i;
+	param->zoom = j;
+	expose_hook(param);
 	return (0);
 }
 
@@ -65,11 +74,9 @@ int				main(int ac, char **av)
 	if (ft_parsing(ac, av, &param))
 		return (1);
 	display_init(&param);
-	mlx_key_hook(param->win, key_hook, param);
 	draw_pic(param);
 	mlx_key_hook(param->win, key_hook, param);
-//	mlx_hook( event 17);
-	mlx_expose_hook(param->win, key_hook, param);
+//	mlx_expose_hook(param->win, expose_hook, param);
 	mlx_loop(param->mlx);
 	return (0);
 }
