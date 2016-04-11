@@ -6,57 +6,61 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/10 18:00:39 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/12 01:49:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-static void		draw_pixel(double x, double y, t_fdf *param)
+#include <stdio.h>
+static void		draw_pixel(int x, int y, t_fdfparam *param)
 {
-	int	pix;
+	int		pix;
 
-    x = ceil(param->width * 0.5 + x * 0.001 * param->zoom + 0.5);
-    y = ceil(param->height * 0.5 + y * 0.001 * param->zoom + 0.5);
-	pix = floor(x + y * param->width + 0.5);
-	if (pix + param->move >= 0 && pix + param->move <= param->width * param->height) 
-		param->pic[pix + param->move] = mlx_get_color_value(param->mlx, 0xffffff);
+	pix = x + y * param->width + param->center;
+	if (pix >= 0 && pix <= param->width * param->height)
+		param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
 }
 
-static void		draw_line(t_fdf start, t_fdf end, t_fdf *param)
+
+static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 {
 	double	xab;
 	double	yab;
-	double	lab;
+	int		lab;
 	int		i;
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
 
-	xab = end.x1 - start.x1;
-	yab = end.y1 - start.y1;
+	x1 = 0.71 * (start->x - start->y) * 20 + 0.5;
+	y1 = (0.41 * (start->x + start->y) - 0.82 * start->z) * 20 + 0.5;
+	x2 = 0.71 * (end->x - end->y) * 20 + 0.5;
+	y2 = (0.41 * (end->x + end->y) - 0.82 * end->z) * 20 + 0.5;
+	xab = (x2 - x1);
+	yab = (y2 - y1);
 	lab = sqrt((xab * xab) + (yab * yab));
-	i = 0;
+	i = -1;
 	xab /= lab;
 	yab /= lab;
 	while (++i < lab)
-		draw_pixel(floor(start.x1 + (i * xab) + 0.5), floor(start.y1 + (i * yab) + 0.5), param);
+		draw_pixel(x1 + (i * xab), y1 + (i * yab), param);
 }
 
-void			draw_pic(t_fdf *param)
+void			draw_pic(t_fdflist *list, t_fdfparam *param)
 {
-    t_fdf   *browser;
-    t_fdf   *tmp;
+    t_fdflist   *tmp;
 
-    browser = param;
-    while (browser)
+    while (list)
     {
-		draw_pixel(browser->x1, browser->y1, param);
-        tmp = browser->next;
-        if (tmp && browser->y == tmp->y)
-			draw_line(*browser, *tmp, param);
-        while (tmp && browser->x != tmp->x)
+        tmp = list->next;
+        if (tmp && list->y == tmp->y)
+			draw_line(list, tmp, param);
+        while (tmp && list->x != tmp->x)
             tmp = tmp->next;
         if (tmp)
-			draw_line(*browser, *tmp, param);
-        browser = browser->next;
+			draw_line(list, tmp, param);
+        list = list->next;
     }
     mlx_put_image_to_window(param->mlx,
 							param->win, param->img, 0, 0);

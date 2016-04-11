@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/10 18:13:26 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/11 17:26:11 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ static int	ft_error(int error, char *str)
 	return (1);
 }
 
-static void	create_new_elem(int y, int x, int z, t_fdf **param)
+static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list)
 {
-	t_fdf	*new;
+	t_fdflist	*new;
 
-	if (!(new = (t_fdf*)malloc(sizeof(*new))))
+	if (!(new = (t_fdflist*)malloc(sizeof(*new))))
 	{
 		ft_error_malloc("create_new_elem");
 		exit(1);
@@ -41,26 +41,22 @@ static void	create_new_elem(int y, int x, int z, t_fdf **param)
 	new->x = x;
 	new->y = y;
 	new->z = z;
-	new->x1 = 710 * (new->x - new->y) * 20;
-	new->y1 = (410 * (new->x + new->y) - 820 * new->z) * 20;
-//	new->x1 = 0.5 * x - 0.5 * y;
-//	new->y1 = 0.25 * x + 0.25 * y - 0.5 * z;
-	new->next = *param;
-	*param = new;
+	new->next = *list;
+	*list = new;
 }
 
-static void	create_list(t_fdf **param, int *int_tab, int y, size_t ref)
+static void	create_list(t_fdflist **list, int *int_tab, size_t y, size_t ref)
 {
 	size_t	x;
 
 	x = -1;
 	while (++x < ref)
-		create_new_elem(y, x, int_tab[x], param);
+		create_new_elem(x, y, int_tab[x], list);
 }
 
-static int	check_fd_init_param(char *line, int y, t_fdf **param)
+static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 {
-	int				i;
+	size_t			i;
 	static size_t	ref = 0;
 	char			**tab;
 	int				*int_tab;
@@ -75,18 +71,18 @@ static int	check_fd_init_param(char *line, int y, t_fdf **param)
 		ref = ft_indexlen((void**)tab);
 	else if (ref > ft_indexlen((void**)tab))
 		return (1);
-	create_list(param, int_tab, y, ref);
+	create_list(list, int_tab, y, ref);
 	free_tab(&tab);
 	ft_memdel((void**)&int_tab);
 	return (0);
 }
 
-int			ft_parsing(int ac, char **av, t_fdf **param)
+int			ft_parsing(int ac, char **av, t_fdflist **list)
 {
 	char	*line;
 	int		fd;
 	int		ret;
-	int		y;
+	size_t	y;
 
 	line = NULL;
 	y = 0;
@@ -96,7 +92,7 @@ int			ft_parsing(int ac, char **av, t_fdf **param)
 		return (ft_error(2, av[1]));
 	while ((ret = get_next_line(fd, &line)))
 	{
-		if (check_fd_init_param(line, y, param))
+		if (check_fd_init_param(line, y, list))
 			return (ft_error(3, NULL));
 		y++;
 	}

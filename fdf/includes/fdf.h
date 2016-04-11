@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/10 18:10:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/12 01:48:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,32 @@
 # include <stdlib.h>
 # include <math.h>
 
-typedef struct	s_fdf
+typedef struct			s_fdfparam
 {
-	void			*mlx;
-	void			*win;
-	void			*img;
-	unsigned int	*pic;
-	int				bpp;
-	int				sizeline;
-	int				endian;
-	int				width;
-	int				height;
-	int				x;
-	int				y;
-	int				z;
-	int				move;
-	double			zoom;
-	double			x1;
-	double			y1;
-	struct s_fdf	*next;
-}				t_fdf;
+	int					width;
+	int					height;
+	void				*mlx;
+	void				*win;
+	void				*img;
+	unsigned int		*pic;
+	int					bpp;
+	int					sizeline;
+	int					endian;
+	int					center;
+//	s_fdflist			list;
+}						t_fdfparam;
 
-int				ft_parsing(int ac, char **av, t_fdf **param);
-void			draw_pic(t_fdf *param);
+typedef struct			s_fdflist
+{
+	int					x;
+	int					y;
+	int					z;
+	struct s_fdflist	*next;
+}						t_fdflist;
+
+
+int				ft_parsing(int ac, char **av, t_fdflist **list);
+void			draw_pic(t_fdflist *list, t_fdfparam *param);
 #endif
 
 
