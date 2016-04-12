@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/13 00:19:18 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/13 01:09:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,10 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 	yab = tmp - param->y1;
 	lab = sqrt((xab * xab) + (yab * yab));
 	i = -1;
-	xab *= 1000;
-	xab /= lab;
-	yab *= 1000;
-	yab /= lab;
+	xab = xab * 1000 / lab;
+	yab = yab * 1000 / lab;
 	while (++i <= lab)
-		draw_pixel(param->x1 + i * xab * 0.001 + 0.5, param->y1 + i * yab * 0.001 + 0.5, param);
+		draw_pixel(param->x1 + i * xab *0.001 + 0.5, param->y1 + i * yab * 0.001 + 0.5, param);
 }
 
 void			draw_pic(t_fdflist *list, t_fdfparam *param)

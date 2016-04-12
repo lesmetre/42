@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/12 01:52:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/13 00:59:35 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void		display(t_fdfparam **addr_param, char *file)
 	param->img = mlx_new_image(param->mlx, param->width, param->height);
 	param->pic = (unsigned int *)mlx_get_data_addr
 		(param->img, &param->bpp, &param->sizeline, &param->endian);
-	param->center = param->width * param->height / 2;
 	param->center = param->width / 2 + param->height / 2 * param->width;
 	*addr_param = param;
 }
