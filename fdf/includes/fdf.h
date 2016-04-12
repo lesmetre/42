@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/12 01:48:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/12 17:52:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ typedef struct			s_fdfparam
 	int					sizeline;
 	int					endian;
 	int					center;
-//	s_fdflist			list;
+	int					x1;
+	int					y1;
+
 }						t_fdfparam;
 
 typedef struct			s_fdflist

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/12 01:49:58 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/12 23:06:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,20 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 	double	yab;
 	int		lab;
 	int		i;
-	int		x1;
-	int		y1;
-	int		x2;
-	int		y2;
+	int		tmp;
 
-	x1 = 0.71 * (start->x - start->y) * 20 + 0.5;
-	y1 = (0.41 * (start->x + start->y) - 0.82 * start->z) * 20 + 0.5;
-	x2 = 0.71 * (end->x - end->y) * 20 + 0.5;
-	y2 = (0.41 * (end->x + end->y) - 0.82 * end->z) * 20 + 0.5;
-	xab = (x2 - x1);
-	yab = (y2 - y1);
+	param->x1 = 0.71 * (start->x - start->y) * 20 + 0.5;
+	tmp = 0.71 * (end->x - end->y) * 20 + 0.5;
+	xab = tmp - param->x1;
+	param->y1  = (0.41 * (start->x + start->y) - 0.82 * start->z) * 20 + 0.5;
+	tmp = (0.41 * (end->x + end->y) - 0.82 * end->z) * 20 + 0.5;
+	yab = tmp - param->y1;
 	lab = sqrt((xab * xab) + (yab * yab));
 	i = -1;
-	xab /= lab;
-	yab /= lab;
-	while (++i < lab)
-		draw_pixel(x1 + (i * xab), y1 + (i * yab), param);
+	xab = xab / lab;
+	yab = yab / lab;
+	while (++i <= lab)
+		draw_pixel(param->x1 + i * xab + 0.5, param->y1 + i * yab + 0.5, param);
 }
 
 void			draw_pic(t_fdflist *list, t_fdfparam *param)
