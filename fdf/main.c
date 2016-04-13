@@ -6,13 +6,13 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/13 00:59:35 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/13 01:26:02 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static void		display(t_fdfparam **addr_param, char *file)
+static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
 {
 	t_fdfparam	*param;
 
@@ -30,14 +30,43 @@ static void		display(t_fdfparam **addr_param, char *file)
 	param->pic = (unsigned int *)mlx_get_data_addr
 		(param->img, &param->bpp, &param->sizeline, &param->endian);
 	param->center = param->width / 2 + param->height / 2 * param->width;
+	param->zoom = 1;
+	param->list = list;
 	*addr_param = param;
+}
+
+static int      expose_hook(t_fdfparam *param)
+{
+    mlx_destroy_image(param->mlx, param->img);
+    param->img = mlx_new_image(param->mlx, param->width, param->height);
+    param->pic = (unsigned int *)mlx_get_data_addr
+        (param->img, &param->bpp, &param->sizeline, &param->endian);
+    draw_pic(param->list, param);
+    return (0);
 }
 
 static int		key_hook(int keycode, t_fdfparam *param)
 {
 	if (keycode == 53 || keycode == 12)
 		exit(EXIT_SUCCESS);
-	param = NULL;
+	else if (keycode == 123) // left
+		param->center -= 50;
+	else if (keycode == 124) // right
+		param->center += 50;
+	else if (keycode == 125) // down
+		param->center += param->width * 50;
+	else if (keycode == 126) // up
+		param->center -= param->width * 50;
+	else if (keycode == 49)
+		param->center = param->width / 2 + param->height / 2 * param->width;
+/*
+	else if (keycode == 69) // zoom
+		j += 0.1;
+	else if (keycode == 78 && j > 0.1) // dezoom
+		j -= 0.1;
+	param->zoom = j;
+*/
+	expose_hook(param);
 	return (0);
 }
 
@@ -50,7 +79,7 @@ int				main(int ac, char **av)
 	param = NULL;
 	if (ft_parsing(ac, av, &list))
 		return (1);
-	display(&param, av[1]);
+	display(&param, av[1], list);
 	draw_pic(list, param);
 	mlx_key_hook(param->win, key_hook, param);
 	mlx_loop(param->mlx);

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/12 17:52:32 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/13 01:47:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+
+typedef struct			s_fdflist
+{
+	int					x;
+	int					y;
+	int					z;
+	struct s_fdflist	*next;
+}						t_fdflist;
 
 typedef struct			s_fdfparam
 {
@@ -31,19 +39,12 @@ typedef struct			s_fdfparam
 	int					sizeline;
 	int					endian;
 	int					center;
-	int					x1;
-	int					y1;
+	double				x1;
+	double				y1;
+	int					zoom;
+	t_fdflist			*list;
 
 }						t_fdfparam;
-
-typedef struct			s_fdflist
-{
-	int					x;
-	int					y;
-	int					z;
-	struct s_fdflist	*next;
-}						t_fdflist;
-
 
 int				ft_parsing(int ac, char **av, t_fdflist **list);
 void			draw_pic(t_fdflist *list, t_fdfparam *param);
