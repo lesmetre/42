@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/13 01:26:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/19 23:28:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
         ft_error_malloc("display");
         exit(1);
     }
-
 	param->width = 1920;
 	param->height = 1080; 
 	param->mlx = mlx_init();
@@ -32,6 +31,10 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
 	param->center = param->width / 2 + param->height / 2 * param->width;
 	param->zoom = 1;
 	param->list = list;
+	param->pixmax = param->width * param->height;
+	param->modx = 1;
+	param->mody = 1;
+	param->modz = 1;
 	*addr_param = param;
 }
 
@@ -49,23 +52,38 @@ static int		key_hook(int keycode, t_fdfparam *param)
 {
 	if (keycode == 53 || keycode == 12)
 		exit(EXIT_SUCCESS);
-	else if (keycode == 123) // left
+	else if (keycode == 123)
 		param->center -= 50;
-	else if (keycode == 124) // right
+	else if (keycode == 124)
 		param->center += 50;
-	else if (keycode == 125) // down
+	else if (keycode == 125)
 		param->center += param->width * 50;
-	else if (keycode == 126) // up
+	else if (keycode == 126)
 		param->center -= param->width * 50;
 	else if (keycode == 49)
+	{
 		param->center = param->width / 2 + param->height / 2 * param->width;
-/*
-	else if (keycode == 69) // zoom
-		j += 0.1;
-	else if (keycode == 78 && j > 0.1) // dezoom
-		j -= 0.1;
-	param->zoom = j;
-*/
+		param->zoom = 1;
+		param->modx = 1;
+		param->mody = 1;
+		param->modz = 1;
+	}
+	else if (keycode == 69)
+		param->zoom++;
+	else if (keycode == 78)
+		param->zoom--;
+	else if (keycode == 89)
+		param->modx += 0.1;
+	else if (keycode == 86)
+		param->modx -= 0.1;
+	else if (keycode == 91)
+		param->mody += 0.1;
+	else if (keycode == 87)
+		param->mody -= 0.1;
+	else if (keycode == 92)
+		param->modz += 0.1;
+	else if (keycode == 88)
+		param->modz -= 0.1;
 	expose_hook(param);
 	return (0);
 }

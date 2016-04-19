@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/13 01:47:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/19 23:17:12 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct			s_fdflist
 	int					x;
 	int					y;
 	int					z;
+	char				*color;
 	struct s_fdflist	*next;
 }						t_fdflist;
 
@@ -41,7 +42,11 @@ typedef struct			s_fdfparam
 	int					center;
 	double				x1;
 	double				y1;
+	double				modx;
+	double				mody;
+	double				modz;
 	int					zoom;
+	int					pixmax;
 	t_fdflist			*list;
 
 }						t_fdfparam;

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/13 01:56:01 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/19 23:17:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void		draw_pixel(int x, int y, t_fdfparam *param)
 	int		pix;
 
 	pix = x + y * param->width + param->center;
-	if (pix >= 0 && pix <= param->width * param->height)
-		param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
+	if (pix >= 0 && pix <= param->pixmax)
+			param->pic[pix] = mlx_get_color_value(param->mlx, 0xffffff);
 }
 
 
@@ -29,12 +29,12 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 	double	lab;
 	int		i;
 	double	tmp;
-
-	param->x1 = 0.71 * (start->x - start->y) * 600;
-	tmp = 0.71 * (end->x - end->y) * 600;
+	
+	param->x1 = param->modx * 0.71 * (start->x - start->y) * param->zoom;
+	tmp = param->modx * 0.71 * (end->x - end->y) * param->zoom;
 	xab = tmp - param->x1;
-	param->y1  = (0.41 * (start->x + start->y) - 0.82 * start->z) * 600;
-	tmp = (0.41 * (end->x + end->y) - 0.82 * end->z) * 600;
+	param->y1  = (param->mody * 0.41 * (start->x + start->y) - param->modz * 0.82 * start->z) * param->zoom;
+	tmp = (param->mody * 0.41 * (end->x + end->y) - param->modz * 0.82 * end->z) * param->zoom;
 	yab = tmp - param->y1;
 	lab = sqrt((xab * xab) + (yab * yab));
 	i = -1;
