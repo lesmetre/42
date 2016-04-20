@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 12:13:50 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:30:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
 static int      expose_hook(t_fdfparam *param)
 {
     mlx_destroy_image(param->mlx, param->img);
+	mlx_clear_window(param->mlx, param->win);
     param->img = mlx_new_image(param->mlx, param->width, param->height);
-    param->pic = (unsigned int *)(mlx_get_data_addr
-								  (param->img, &param->bpp, &param->sizeline, &param->endian));
+    param->pic = (unsigned int *)(mlx_get_data_addr(param->img, &param->bpp, &param->sizeline, &param->endian));
+	ft_bzero(param->pic, param->pixmax);
     draw_pic(param->list, param);
     return (0);
 }
@@ -99,6 +100,7 @@ int				main(int ac, char **av)
 		return (1);
 	display(&param, av[1], list);
 	draw_pic(list, param);
+	mlx_string_put(param->mlx, param->win,param->width * 0.5, 50, 0xff0000, "lol----------------------------------------------------------------------------");
 	mlx_key_hook(param->win, key_hook, param);
 	mlx_loop(param->mlx);
 	return (0);

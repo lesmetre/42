@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 11:59:47 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 14:15:23 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 		if ((tmp = ft_strchr(tab[i], ',')))
 			color[i] = ft_atoi_hexa(tmp + 1);
 		else
-			color[i] = 0;
+			color[i] = -1;
 	}
 	if (!ref)
 		ref = ft_indexlen((void**)tab);

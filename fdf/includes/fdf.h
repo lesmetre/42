@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 02:04:37 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 13:42:20 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ typedef struct			s_fdfparam
 	int					endian;
 	int					center;
 	double				x1;
+	double				x2;
 	double				y1;
+	double				y2;
 	double				modx;
 	double				mody;
 	double				modz;
