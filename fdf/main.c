@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/19 23:28:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 00:31:05 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
         ft_error_malloc("display");
         exit(1);
     }
-	param->width = 1920;
-	param->height = 1080; 
+	param->width = 2560;
+	param->height = 1440; 
 	param->mlx = mlx_init();
 	param->win = mlx_new_window(param->mlx, param->width, param->height, file);
 	param->img = mlx_new_image(param->mlx, param->width, param->height);

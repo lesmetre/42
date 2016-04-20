@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/19 23:17:12 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 02:04:37 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct			s_fdflist
 	int					x;
 	int					y;
 	int					z;
-	char				*color;
+	int					color;
 	struct s_fdflist	*next;
 }						t_fdflist;
 

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/11 17:26:11 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 02:53:33 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	ft_error(int error, char *str)
 	return (1);
 }
 
-static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list)
+static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list, int color)
 {
 	t_fdflist	*new;
 
@@ -41,17 +41,35 @@ static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list)
 	new->x = x;
 	new->y = y;
 	new->z = z;
+	new->color = color;
 	new->next = *list;
 	*list = new;
 }
 
-static void	create_list(t_fdflist **list, int *int_tab, size_t y, size_t ref)
+static void	create_list(t_fdflist **list, int *int_tab, size_t y, size_t ref, int *color)
 {
 	size_t	x;
 
 	x = -1;
 	while (++x < ref)
-		create_new_elem(x, y, int_tab[x], list);
+		create_new_elem(x, y, int_tab[x], list, color[x]);
+}
+
+int     ft_atoi_hexa(const char *str)
+{
+    size_t  i;
+    int     res;
+
+    i = 1;
+    res = 0;
+    while (str[++i])
+	{
+		if (ft_isdigit(str[i]))
+			res = res * 16 + str[i] - '0';
+		else
+		res = res * 16 + str[i] - 'A';
+	}
+    return (res);
 }
 
 static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
@@ -60,18 +78,28 @@ static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 	static size_t	ref = 0;
 	char			**tab;
 	int				*int_tab;
+	int				*color;
+	char			*tmp;
 
 	i = -1;
 	tab = ft_strsplit(line, ' ');
 	if (!(int_tab = (int*)malloc(sizeof(int_tab) * ft_indexlen((void**)tab))))
 		ft_error_malloc("check_fd_init_program");
+	if (!(color = (int*)malloc(sizeof(color) * ft_indexlen((void**)tab))))
+		ft_error_malloc("check_fd_init_program");
 	while (tab[++i])
+	{
 		int_tab[i] = ft_atoi(tab[i]);
+		if ((tmp = ft_strchr(tab[i], ',')))
+			color[i] = ft_atoi_hexa(tmp + 1);
+		else
+			color[i] = 0;
+	}
 	if (!ref)
 		ref = ft_indexlen((void**)tab);
 	else if (ref > ft_indexlen((void**)tab))
 		return (1);
-	create_list(list, int_tab, y, ref);
+	create_list(list, int_tab, y, ref, color);
 	free_tab(&tab);
 	ft_memdel((void**)&int_tab);
 	return (0);
