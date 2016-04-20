@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 02:58:32 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 11:53:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void		draw_pixel(int x, int y, t_fdfparam *param, t_fdflist *start)
 	int		pix;
 
 	pix = x + y * param->width + param->center;
-	if (pix >= 0 && pix <= param->pixmax)
+	if (pix >= 0 && pix <= param->pixmax && param->pic[pix] == 0)
 	{
 		if (start->color)
 			param->pic[pix] = mlx_get_color_value(param->mlx, start->color);

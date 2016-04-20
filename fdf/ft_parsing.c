@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 02:53:33 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 11:59:47 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int     ft_atoi_hexa(const char *str)
 		if (ft_isdigit(str[i]))
 			res = res * 16 + str[i] - '0';
 		else
-		res = res * 16 + str[i] - 'A';
+			res = res * 16 + str[i] - 'a' + 10;
 	}
     return (res);
 }
