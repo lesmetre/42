@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 14:30:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/20 17:21:23 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
 	param->width = 2560;
 	param->height = 1440; 
 	param->mlx = mlx_init();
-	param->win = mlx_new_window(param->mlx, param->width, param->height, file);
+	param->win = mlx_new_window(param->mlx, param->width, param->height, ft_strrchr(file, '/') + 1);
 	param->img = mlx_new_image(param->mlx, param->width, param->height);
 	param->pic = (unsigned int *)mlx_get_data_addr
 		(param->img, &param->bpp, &param->sizeline, &param->endian);
@@ -38,6 +38,17 @@ static void		display(t_fdfparam **addr_param, char *file, t_fdflist *list)
 	*addr_param = param;
 }
 
+static void		legend(t_fdfparam *param)
+{
+
+	mlx_string_put(param->mlx, param->win,0, 0, 0xff0000, "move map : arrow keys");
+	mlx_string_put(param->mlx, param->win,0, 20, 0xff0000, "zoom : + / -");
+	mlx_string_put(param->mlx, param->win,0, 40, 0xff0000, "modify perspective : 4-7 / 5-8" );
+	mlx_string_put(param->mlx, param->win,0, 60, 0xff0000, "alter height : 6-9");
+	mlx_string_put(param->mlx, param->win,0, 80, 0xff0000, "reinitiate : space");
+	mlx_string_put(param->mlx, param->win,0, 100, 0xff0000, "quit : q / echap");
+}
+
 static int      expose_hook(t_fdfparam *param)
 {
     mlx_destroy_image(param->mlx, param->img);
@@ -46,6 +57,7 @@ static int      expose_hook(t_fdfparam *param)
     param->pic = (unsigned int *)(mlx_get_data_addr(param->img, &param->bpp, &param->sizeline, &param->endian));
 	ft_bzero(param->pic, param->pixmax);
     draw_pic(param->list, param);
+	legend(param);
     return (0);
 }
 
@@ -100,7 +112,7 @@ int				main(int ac, char **av)
 		return (1);
 	display(&param, av[1], list);
 	draw_pic(list, param);
-	mlx_string_put(param->mlx, param->win,param->width * 0.5, 50, 0xff0000, "lol----------------------------------------------------------------------------");
+	legend(param);
 	mlx_key_hook(param->win, key_hook, param);
 	mlx_loop(param->mlx);
 	return (0);
