@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 21:06:11 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 22:08:16 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 
 static void		draw_legend(t_fdfparam *param)
 {
-	mlx_string_put(param->mlx,
-			param->win, 10, 1371, 0x00ffff, param->file);
+	mlx_string_put(param->mlx, param->win, 10,
+			param->height - 40, 0x00ffff, param->file);
 	mlx_string_put(param->mlx,
 			param->win, 10, 1, 0xff0000, "move map : arrow keys");
 	mlx_string_put(param->mlx,

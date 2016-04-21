@@ -6,7 +6,7 @@
 /*   By: mpressen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/02 00:30:22 by mpressen          #+#    #+#             */
-/*   Updated: 2016/01/31 09:29:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 22:10:10 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ char		**ft_strsplit(char const *s, char c)
 
 	if (!s)
 	{
-		ft_error_null("ft_strsplit");
 		return (NULL);
 	}
 	if ((split = (char**)malloc(sizeof(*split) * (ft_countbits(s, c) + 1))))

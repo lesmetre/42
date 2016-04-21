@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 20:39:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 21:52:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int		expose_hook(t_fdfparam *param)
 	param->img = mlx_new_image(param->mlx, param->width, param->height);
 	param->pic = (unsigned int *)(mlx_get_data_addr(param->img,
 		&param->bpp, &param->sizeline, &param->endian));
-	ft_bzero(param->pic, param->pixmax);
 	draw_pic(param->list, param);
 	return (0);
 }

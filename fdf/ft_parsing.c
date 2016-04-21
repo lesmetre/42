@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 21:16:38 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 22:11:44 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ static void	create_new_elem(size_t x, size_t y,
 	t_fdflist	*new;
 
 	if (!(new = (t_fdflist*)malloc(sizeof(*new))))
-	{
-		ft_error_malloc("create_new_elem");
 		exit(1);
-	}
 	new->x = x;
 	new->y = y;
 	new->z = parse.int_tab[x];
@@ -58,24 +55,23 @@ static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 {
 	static size_t	ref = 0;
 	t_fdfparse		parse;
+	size_t			index;
 
 	if (!(parse.tab = ft_strsplit(line, ' ')))
 		exit(ft_error(4, NULL));
-	if (!(parse.int_tab = (int*)malloc(sizeof(int) *
-			ft_indexlen((void**)parse.tab))) || !(parse.color =
-			(int*)malloc(sizeof(int) * ft_indexlen((void**)parse.tab))))
-	{
-		ft_error_malloc("check_fd_init_program");
+	index = ft_indexlen((void**)parse.tab);
+	if (!(parse.int_tab = (int*)malloc(sizeof(int) * index))
+		|| !(parse.color = (int*)malloc(sizeof(int) * index)))
 		exit(1);
-	}
 	parse_parse(&parse);
 	if (!ref)
-		ref = ft_indexlen((void**)parse.tab);
-	else if (ref > ft_indexlen((void**)parse.tab))
+		ref = index;
+	else if (ref > index)
 		return (1);
 	create_list(list, y, ref, parse);
 	free_tab(&parse.tab);
 	ft_memdel((void**)&parse.int_tab);
+	ft_memdel((void**)&parse.color);
 	return (0);
 }
 
