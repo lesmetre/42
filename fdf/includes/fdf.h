@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 17:48:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 18:06:14 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_fdflist
 
 typedef struct	s_fdfparam
 {
+	char				*file;
 	int					width;
 	int					height;
 	void				*mlx;
@@ -39,7 +40,9 @@ typedef struct	s_fdfparam
 	int					bpp;
 	int					sizeline;
 	int					endian;
-	int					center;
+//	int					center;
+	int					midwidth;
+	int					midheight;
 	double				x1;
 	double				x2;
 	double				y1;

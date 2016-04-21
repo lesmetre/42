@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 17:54:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 18:17:09 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,20 @@ static int		expose_hook(t_fdfparam *param)
 static void		move(int keycode, t_fdfparam *param)
 {
 	if (keycode == 123)
-		param->center -= 50;
+		param->midwidth -= 50;
 	else if (keycode == 124)
-		param->center += 50;
+		param->midwidth += 50;
 	else if (keycode == 125)
-		param->center += param->width * 50;
+		param->midheight += 50;
 	else if (keycode == 126)
-		param->center -= param->width * 50;
+		param->midheight -= 50;
 }
 
 static void		reinitiate(t_fdfparam *param)
 {
-	param->center = param->width / 2 + param->height / 2 * param->width;
+//	param->center = param->width / 2 + param->height / 2 * param->width;
+	param->midwidth = param->width * 0.5;
+    param->midheight = param->height * 0.5;
 	param->zoom = 1;
 	param->modx = 1;
 	param->mody = 1;

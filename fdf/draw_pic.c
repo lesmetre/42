@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 17:39:26 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 18:22:28 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static void		draw_pixel(int x, int y, t_fdfparam *param, int color)
 {
 	int		pix;
 
-	pix = x + y * param->width + param->center;
-	if (pix >= 0 && pix <= param->pixmax && param->pic[pix] == 0)
+	pix = x + y * param->width + param->midwidth + param->midheight * param->width;
+	if (x + param->midwidth < param->width && x + param->midwidth >= 0 && pix >= 0 && pix <= param->pixmax && param->pic[pix] == 0)
 	{
 		if (color != -1)
 			param->pic[pix] = mlx_get_color_value(param->mlx, color);
@@ -33,12 +33,7 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 	double	yab;
 	double	lab;
 	int		i;
-	int		color;
 
-	if (end->color - start->color >= 0)
-		color = end->color;
-	else
-		color = start->color;
 	param->x1 = param->modx * 0.71 * (start->x - start->y) * param->zoom;
 	param->x2 = param->modx * 0.71 * (end->x - end->y) * param->zoom;
 	xab = param->x2 - param->x1;
@@ -49,25 +44,31 @@ static void		draw_line(t_fdflist *start, t_fdflist *end, t_fdfparam *param)
 	i = -1;
 	xab /= lab;
 	yab /= lab;
+	lab *= 0.5;
 	while (++i < lab)
-		draw_pixel((int)floor(param->x1 + i * xab + 0.5), (int)floor(param->y1 + i * yab + 0.5), param, color);
-
+		draw_pixel((int)floor(param->x1 + i * xab + 0.5), (int)floor(param->y1 + i * yab + 0.5), param, start->color);
+	lab *= 2;
+	i--;
+	while (++i < lab)
+		draw_pixel((int)floor(param->x1 + i * xab + 0.5), (int)floor(param->y1 + i * yab + 0.5), param, end->color);
 }
 
 static void		draw_legend(t_fdfparam *param)
 {
 	mlx_string_put(param->mlx,
-			param->win, 0, 0, 0xff0000, "move map : arrow keys");
+			param->win, 10, 1371, 0x00ffff, param->file);
 	mlx_string_put(param->mlx,
-			param->win, 0, 20, 0xff0000, "zoom : + / -");
+			param->win, 10, 1, 0xff0000, "move map : arrow keys");
 	mlx_string_put(param->mlx,
-			param->win, 0, 40, 0xff0000, "modify perspective : 4-7 / 5-8");
+			param->win, 10, 21, 0xff0000, "zoom : + / -");
 	mlx_string_put(param->mlx,
-			param->win, 0, 60, 0xff0000, "alter height : 6-9");
+			param->win, 10, 41, 0xff0000, "modify perspective : 4-7 / 5-8");
 	mlx_string_put(param->mlx,
-			param->win, 0, 80, 0xff0000, "reinitiate : space");
+			param->win, 10, 61, 0xff0000, "alter height : 6-9");
 	mlx_string_put(param->mlx,
-			param->win, 0, 100, 0xff0000, "quit : q / echap");
+			param->win, 10, 81, 0xff0000, "reinitiate : space");
+	mlx_string_put(param->mlx,
+			param->win, 10, 101, 0xff0000, "quit : q / echap");
 }
 
 void			draw_pic(t_fdflist *list, t_fdfparam *param)
