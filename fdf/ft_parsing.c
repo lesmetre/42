@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 20:58:17 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 21:16:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 	static size_t	ref = 0;
 	t_fdfparse		parse;
 
-	parse.tab = ft_strsplit(line, ' ');
+	if (!(parse.tab = ft_strsplit(line, ' ')))
+		exit(ft_error(4, NULL));
 	if (!(parse.int_tab = (int*)malloc(sizeof(int) *
 			ft_indexlen((void**)parse.tab))) || !(parse.color =
 			(int*)malloc(sizeof(int) * ft_indexlen((void**)parse.tab))))
