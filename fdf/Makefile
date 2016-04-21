@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/04/20 17:46:30 by mpressen         ###   ########.fr        #
+#    Updated: 2016/04/21 20:58:41 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 SRC_PATH = ./
 
-SRC_NAME = main.c ft_parsing.c draw_pic.c hook.c
+SRC_NAME = main.c ft_parsing.c draw_pic.c hook.c ft_atoi_hexa.c ft_error.c
 
 OBJ_PATH = ./
 

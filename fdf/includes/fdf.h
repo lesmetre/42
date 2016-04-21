@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 18:49:38 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 20:59:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+
+typedef struct	s_fdfparse
+{
+	char	**tab;
+	int		*int_tab;
+	int		*color;
+}				t_fdfparse;
 
 typedef struct	s_fdflist
 {
@@ -57,4 +64,6 @@ typedef struct	s_fdfparam
 int				ft_parsing(int ac, char **av, t_fdflist **list);
 void			draw_pic(t_fdflist *list, t_fdfparam *param);
 int				key_hook(int keycode, t_fdfparam *param);
+int				ft_atoi_hexa(const char *str);
+int				ft_error(int error, char *str);
 #endif

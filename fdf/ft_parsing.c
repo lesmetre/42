@@ -6,30 +6,14 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 16:37:38 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/20 14:15:23 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 20:58:17 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-static int	ft_error(int error, char *str)
-{
-	if (error == 1)
-		ft_putendl_fd("Usage : ./fdf <filename> [ case_size z_size ]", 2);
-	else if (error == 2)
-	{
-		ft_putstr_fd("no file ", 2);
-		ft_putstr_fd(str, 2);
-		ft_putstr_fd("\n", 2);
-	}
-	else if (error == 3)
-		ft_putendl_fd("Found wrong line length. Exiting.", 2);
-	else if (error == 4)
-		ft_putendl_fd("No data found.", 2);
-	return (1);
-}
-
-static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list, int color)
+static void	create_new_elem(size_t x, size_t y,
+		t_fdfparse parse, t_fdflist **list)
 {
 	t_fdflist	*new;
 
@@ -40,68 +24,57 @@ static void	create_new_elem(size_t x, size_t y, int z, t_fdflist **list, int col
 	}
 	new->x = x;
 	new->y = y;
-	new->z = z;
-	new->color = color;
+	new->z = parse.int_tab[x];
+	new->color = parse.color[x];
 	new->next = *list;
 	*list = new;
 }
 
-static void	create_list(t_fdflist **list, int *int_tab, size_t y, size_t ref, int *color)
+static void	create_list(t_fdflist **list,
+		size_t y, size_t ref, t_fdfparse parse)
 {
 	size_t	x;
 
 	x = -1;
 	while (++x < ref)
-		create_new_elem(x, y, int_tab[x], list, color[x]);
+		create_new_elem(x, y, parse, list);
 }
 
-int     ft_atoi_hexa(const char *str)
+static void	parse_parse(t_fdfparse *parse)
 {
-    size_t  i;
-    int     res;
+	size_t			i;
+	char			*tmp;
 
-    i = 1;
-    res = 0;
-    while (str[++i])
+	i = -1;
+	while (parse->tab[++i])
 	{
-		if (ft_isdigit(str[i]))
-			res = res * 16 + str[i] - '0';
-		else
-			res = res * 16 + str[i] - 'a' + 10;
+		parse->int_tab[i] = ft_atoi(parse->tab[i]);
+		tmp = ft_strchr(parse->tab[i], ',');
+		parse->color[i] = (tmp ? ft_atoi_hexa(tmp + 1) : -1);
 	}
-    return (res);
 }
 
 static int	check_fd_init_param(char *line, size_t y, t_fdflist **list)
 {
-	size_t			i;
 	static size_t	ref = 0;
-	char			**tab;
-	int				*int_tab;
-	int				*color;
-	char			*tmp;
+	t_fdfparse		parse;
 
-	i = -1;
-	tab = ft_strsplit(line, ' ');
-	if (!(int_tab = (int*)malloc(sizeof(int_tab) * ft_indexlen((void**)tab))))
-		ft_error_malloc("check_fd_init_program");
-	if (!(color = (int*)malloc(sizeof(color) * ft_indexlen((void**)tab))))
-		ft_error_malloc("check_fd_init_program");
-	while (tab[++i])
+	parse.tab = ft_strsplit(line, ' ');
+	if (!(parse.int_tab = (int*)malloc(sizeof(int) *
+			ft_indexlen((void**)parse.tab))) || !(parse.color =
+			(int*)malloc(sizeof(int) * ft_indexlen((void**)parse.tab))))
 	{
-		int_tab[i] = ft_atoi(tab[i]);
-		if ((tmp = ft_strchr(tab[i], ',')))
-			color[i] = ft_atoi_hexa(tmp + 1);
-		else
-			color[i] = -1;
+		ft_error_malloc("check_fd_init_program");
+		exit(1);
 	}
+	parse_parse(&parse);
 	if (!ref)
-		ref = ft_indexlen((void**)tab);
-	else if (ref > ft_indexlen((void**)tab))
+		ref = ft_indexlen((void**)parse.tab);
+	else if (ref > ft_indexlen((void**)parse.tab))
 		return (1);
-	create_list(list, int_tab, y, ref, color);
-	free_tab(&tab);
-	ft_memdel((void**)&int_tab);
+	create_list(list, y, ref, parse);
+	free_tab(&parse.tab);
+	ft_memdel((void**)&parse.int_tab);
 	return (0);
 }
 

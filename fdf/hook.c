@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/21 19:05:06 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/21 20:39:16 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void		move(int keycode, t_fdfparam *param)
 static void		reinitiate(t_fdfparam *param)
 {
 	param->midwidth = param->width * 0.5;
-    param->midheight = param->height * 0.5;
+	param->midheight = param->height * 0.5;
 	param->zoom = 1;
 	param->modx = 1;
 	param->mody = 1;
