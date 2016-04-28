@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/23 23:14:22 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/28 17:56:46 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ typedef struct	s_fractolparam
 	int					bpp;
 	int					sizeline;
 	int					endian;
+	double				zoom;
 	double				x1;
 	double				x2;
 	double				y1;
 	double				y2;
-	double				zoom;
 	int					iteration_max;
 	int					image_x;
 	int					image_y;
-	int					**pixeltab;
+	int					pixmax;
 }				t_fractolparam;
 
 void			draw_pic(t_fractolparam *param);
