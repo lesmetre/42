@@ -6,12 +6,11 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/29 12:09:47 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/29 16:18:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
 
 static void		init_param(t_fractolparam **addr_param, char *fractal)
 {
@@ -21,7 +20,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 		exit(1);
 	param->fractal = fractal;
 	param->mlx = mlx_init();
-	param->zoom = 300;
+	param->zoom = 100;
 	if (!ft_strcmp(param->fractal, "Mandelbraut"))
 	{
 		param->x1 = -2.1;
@@ -30,7 +29,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 		param->y2 = 1.2;
 		param->iteration_max = 50;
 	}
-	if (!ft_strcmp(param->fractal, "Multibrot"))
+	else if (!ft_strcmp(param->fractal, "Mandelbar"))
 	{
 		param->x1 = -2.1;
 		param->x2 = 2.1;
@@ -38,7 +37,23 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 		param->y2 = 2.1;
 		param->iteration_max = 50;
 	}
-	if (!ft_strcmp(param->fractal, "Burning_Ship"))
+	else if (!ft_strcmp(param->fractal, "Multibrot"))
+	{
+		param->x1 = -2.1;
+		param->x2 = 2.1;
+		param->y1 = -2.1;
+		param->y2 = 2.1;
+		param->iteration_max = 50;
+	}
+	else if (!ft_strcmp(param->fractal, "Multibar"))
+	{
+		param->x1 = -2.1;
+		param->x2 = 2.1;
+		param->y1 = -2.1;
+		param->y2 = 2.1;
+		param->iteration_max = 50;
+	}
+	else if (!ft_strcmp(param->fractal, "Burning_Ship"))
 	{
 		param->x1 = -2.1;
 		param->x2 = 1.1;
@@ -76,7 +91,8 @@ int				main(int ac, char **av)
 
 	param = NULL;
 	if (ac < 2 || (ft_strcmp(av[1], "Julia") && ft_strcmp(av[1], "Mandelbraut")
-				   && ft_strcmp(av[1], "Burning_Ship") && ft_strcmp(av[1], "Multibrot")))
+	&& ft_strcmp(av[1], "Burning_Ship") && ft_strcmp(av[1], "Multibrot")
+	&& ft_strcmp(av[1], "Mandelbar") && ft_strcmp(av[1], "Multibar")))
 		return (ft_fractal_list());
 	init_param(&param, av[1]);
 	draw_pic(param);
