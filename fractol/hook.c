@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/23 22:53:35 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/28 19:14:08 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int				key_hook(int keycode, t_fractolparam *param)
 {
 	if (keycode == 53 || keycode == 12)
 		exit(EXIT_SUCCESS);
-	if (keycode == 124 || keycode == 125)
-	{
-
-	}
+	else if (keycode == 69)
+		param->zoom += 10;
+	else if (keycode == 78)
+		param->zoom -= 10;
 	expose_hook(param);
 	return (0);
 }
