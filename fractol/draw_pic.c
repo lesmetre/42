@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/29 16:22:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/04/30 17:32:21 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ static void		draw_Mandelbraut(t_fractolparam *param, int x, int y, int i)
 			else
 				draw_pixel(x, y, param, i * 255 / param->iteration_max * i * 255 / param->iteration_max * i * 255 / param->iteration_max);
 		}
+	}
+}
+
+static void		draw_Sierpinski_triangle(t_fractolparam *param)
+{
+	int		x;
+	int		y;
+
+	x = -1;
+	while (++x < param->image_x)
+	{
+		y = -1;
+		while (++y < param->image_y)
+			if (!(x & y))
+				draw_pixel(x, y, param, 0xffffff);
 	}
 }
 
@@ -117,6 +132,23 @@ static void		draw_Multibrot(t_fractolparam *param, int x, int y, int i)
 	}
 }
 
+static void		draw_Sierpinski_carpet(t_fractolparam *param)
+{
+	int		x;
+	int		y;
+
+	x = -1;
+	while (++x < param->image_x)
+	{
+		y = -1;
+		while (++y < param->image_y)
+			if (!(x % 3 == 1 && y % 3 == 1) && !((x / 3) % 3 == 1 && (y / 3) % 3 == 1)
+				&& !((x / 9) % 3 == 1 && (y / 9) % 3 == 1) && !((x / 27) % 3 == 1
+				&& (y / 27) % 3 == 1) && !((x / 81) % 3 == 1 && (y / 81) % 3 == 1)) 
+				draw_pixel(x, y, param, 0xffffff);
+	}
+}
+
 static void		draw_Multibar(t_fractolparam *param, int x, int y, int i)
 {
 	double	c_r;
@@ -149,7 +181,7 @@ static void		draw_Multibar(t_fractolparam *param, int x, int y, int i)
 	}
 }
 
-static void		draw_Burning_Ship(t_fractolparam *param, int x, int y, int i)
+static void		draw_Burning_ship(t_fractolparam *param, int x, int y, int i)
 {
 	double	c_r;
 	double	c_i;
@@ -219,12 +251,16 @@ void			draw_pic(t_fractolparam *param)
 		draw_Julia(param, -1, -1 ,-1);
 	else if (!ft_strcmp(param->fractal, "Mandelbraut"))
 		draw_Mandelbraut(param, -1, -1, -1);
-	else if (!ft_strcmp(param->fractal, "Burning_Ship"))
-		draw_Burning_Ship(param, -1, -1, -1);
+	else if (!ft_strcmp(param->fractal, "Burning_ship"))
+		draw_Burning_ship(param, -1, -1, -1);
+	else if (!ft_strcmp(param->fractal, "Sierpinski_triangle"))
+		draw_Sierpinski_triangle(param);
 	else if (!ft_strcmp(param->fractal, "Multibrot"))
 		draw_Multibrot(param, -1, -1 ,-1);
 	else if (!ft_strcmp(param->fractal, "Mandelbar"))
 		draw_Mandelbar(param, -1, -1 ,-1);
+	else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
+		draw_Sierpinski_carpet(param);
 	else if (!ft_strcmp(param->fractal, "Multibar"))
 		draw_Multibar(param, -1, -1 ,-1);
 	mlx_put_image_to_window(param->mlx, param->win, param->img, 0, 0);
