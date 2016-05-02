@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/30 17:28:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/02 13:10:43 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 	param->fractal = fractal;
 	param->mlx = mlx_init();
 	param->zoom = 400;
-	if (!ft_strcmp(param->fractal, "Mandelbraut"))
+	if (!ft_strcmp(param->fractal, "Mandelbrot"))
 	{
 		param->x1 = -2.1;
 		param->x2 = 0.6;
@@ -60,7 +60,6 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 		param->y1 = -1.9;
 		param->y2 = 0.6;
 		param->iteration_max = 100;
-		
 	}
 	else if (!ft_strcmp(param->fractal, "Julia"))
 	{
@@ -84,6 +83,14 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 		param->y1 = 0;
 		param->y2 = 2.43;
 	}
+	if (!ft_strcmp(param->fractal, "Newton"))
+	{
+		param->x1 = -1;
+		param->x2 = 1;
+		param->y1 = -1;
+		param->y2 = 1;
+		param->iteration_max = 20;
+	}
 	param->image_x = (param->x2 - param->x1) * param->zoom;
 	param->image_y = (param->y2 - param->y1) * param->zoom;
 	param->win = mlx_new_window(param->mlx, param->image_x, param->image_y, "FRACTOL");
@@ -95,7 +102,27 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 
 static int		ft_fractal_list(void)
 {
-	ft_putendl("liste des fractales");
+	ft_putstr("\033[1;32m---------------------\033[0m");
+	ft_putstr("\033[1;31m FRACTALS LIST \033[0m");
+	ft_putendl("\033[1;32m---------------------\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 1) Mandelbrot			");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 2) Mandelbar			");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 3) Multibrot			");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 4) Multibar			");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 5) Burning_ship		");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 6) Julia				");
+	ft_putendl("		\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 7) Sierpinski_carpet	");
+	ft_putendl("				\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 8) Sierpinski_triangle	");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m---------------------------\033[0m");
+	ft_putendl("\033[1;32m------------------------------\033[0m");
 	return (1);
 }
 
@@ -104,11 +131,11 @@ int				main(int ac, char **av)
 	t_fractolparam			*param;
 
 	param = NULL;
-	if (ac < 2 || (ft_strcmp(av[1], "Julia") && ft_strcmp(av[1], "Mandelbraut")
+	if (ac < 2 || (ft_strcmp(av[1], "Julia") && ft_strcmp(av[1], "Mandelbrot")
 	&& ft_strcmp(av[1], "Burning_ship") && ft_strcmp(av[1], "Multibrot")
 	&& ft_strcmp(av[1], "Mandelbar") && ft_strcmp(av[1], "Multibar")
 	&& ft_strcmp(av[1], "Sierpinski_triangle")
-	&& ft_strcmp(av[1], "Sierpinski_carpet")))
+	&& ft_strcmp(av[1], "Sierpinski_carpet") && ft_strcmp(av[1], "Newton")))
 		return (ft_fractal_list());
 	init_param(&param, av[1]);
 	draw_pic(param);
