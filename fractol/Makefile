@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/04/23 20:19:26 by mpressen         ###   ########.fr        #
+#    Updated: 2016/05/03 17:55:53 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ NAME = fractol
 
 SRC_PATH = ./
 
-SRC_NAME = main.c draw_pic.c hook.c
+SRC_NAME = main.c  draw_pic.c hook.c Burning_ship.c Julia.c Mandelbar.c Mandelbrot.c Multibar.c Multibrot.c Sierpinski_carpet.c Sierpinski_triangle.c
 
 OBJ_PATH = ./
 

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/04/28 19:14:08 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/03 18:18:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		expose_hook(t_fractolparam *param)
 	param->img = mlx_new_image(param->mlx, param->image_x, param->image_y);
 	param->pic = (unsigned int *)(mlx_get_data_addr(param->img,
 		&param->bpp, &param->sizeline, &param->endian));
-	draw_pic(param);
+	draw_pic(&param);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/02 13:10:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/03 18:52:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,90 +14,33 @@
 
 static void		init_param(t_fractolparam **addr_param, char *fractal)
 {
-	t_fractolparam	*param;
+    t_fractolparam  *param;
 
-	if (!(param = (t_fractolparam*)malloc(sizeof(*param))))
-		exit(1);
-	param->fractal = fractal;
-	param->mlx = mlx_init();
-	param->zoom = 400;
-	if (!ft_strcmp(param->fractal, "Mandelbrot"))
-	{
-		param->x1 = -2.1;
-		param->x2 = 0.6;
-		param->y1 = -1.2;
-		param->y2 = 1.2;
-		param->iteration_max = 50;
-	}
-	else if (!ft_strcmp(param->fractal, "Mandelbar"))
-	{
-		param->x1 = -2.1;
-		param->x2 = 2.1;
-		param->y1 = -2.1;
-		param->y2 = 2.1;
-		param->iteration_max = 50;
-	}
-	else if (!ft_strcmp(param->fractal, "Multibrot"))
-	{
-		param->x1 = -2.1;
-		param->x2 = 2.1;
-		param->y1 = -2.1;
-		param->y2 = 2.1;
-		param->iteration_max = 50;
-	}
-	else if (!ft_strcmp(param->fractal, "Multibar"))
-	{
-		param->x1 = -2.1;
-		param->x2 = 2.1;
-		param->y1 = -2.1;
-		param->y2 = 2.1;
-		param->iteration_max = 50;
-	}
-	else if (!ft_strcmp(param->fractal, "Burning_ship"))
-	{
-		param->x1 = -2.1;
-		param->x2 = 1.1;
-		param->y1 = -1.9;
-		param->y2 = 0.6;
-		param->iteration_max = 100;
-	}
-	else if (!ft_strcmp(param->fractal, "Julia"))
-	{
-		param->x1 = -1;
-		param->x2 = 1;
-		param->y1 = -1.2;
-		param->y2 = 1.2;
-		param->iteration_max = 150;
-	}
-	if (!ft_strcmp(param->fractal, "Sierpinski_triangle"))
-	{
-		param->x1 = -1.28;
-		param->x2 = 1.28;
-		param->y1 = -1.28;
-		param->y2 = 1.28;
-	}
-	if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
-	{
-		param->x1 = 0;
-		param->x2 = 2.43;
-		param->y1 = 0;
-		param->y2 = 2.43;
-	}
-	if (!ft_strcmp(param->fractal, "Newton"))
-	{
-		param->x1 = -1;
-		param->x2 = 1;
-		param->y1 = -1;
-		param->y2 = 1;
-		param->iteration_max = 20;
-	}
-	param->image_x = (param->x2 - param->x1) * param->zoom;
-	param->image_y = (param->y2 - param->y1) * param->zoom;
-	param->win = mlx_new_window(param->mlx, param->image_x, param->image_y, "FRACTOL");
-	param->img = mlx_new_image(param->mlx, param->image_x, param->image_y);
-	param->pic = (unsigned int *)mlx_get_data_addr(param->img, &param->bpp, &param->sizeline, &param->endian);
-	*addr_param = param;
-	param->pixmax = param->image_x * param->image_y;
+    if (!(param = (t_fractolparam*)malloc(sizeof(*param))))
+        exit(1);
+    param->width = 2560;
+    param->height =1400;
+    param->fractal = fractal;
+    param->mlx = mlx_init();
+    if (!ft_strcmp(param->fractal, "Mandelbrot"))
+        init_Mandelbrot(&param);
+    else if (!ft_strcmp(param->fractal, "Mandelbar"))
+        init_Mandelbar(&param);
+    else if (!ft_strcmp(param->fractal, "Multibrot"))
+        init_Multibrot(&param);
+    else if (!ft_strcmp(param->fractal, "Multibar"))
+        init_Multibar(&param);
+    else if (!ft_strcmp(param->fractal, "Burning_ship"))
+        init_Burning_ship(&param);
+    else if (!ft_strcmp(param->fractal, "Julia"))
+        init_Julia(&param);
+    else if (!ft_strcmp(param->fractal, "Sierpinski_triangle"))
+        init_Sierpinski_triangle(&param);
+    else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
+        init_Sierpinski_carpet(&param);
+    param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
+    *addr_param = param;
+
 }
 
 static int		ft_fractal_list(void)
@@ -135,10 +78,10 @@ int				main(int ac, char **av)
 	&& ft_strcmp(av[1], "Burning_ship") && ft_strcmp(av[1], "Multibrot")
 	&& ft_strcmp(av[1], "Mandelbar") && ft_strcmp(av[1], "Multibar")
 	&& ft_strcmp(av[1], "Sierpinski_triangle")
-	&& ft_strcmp(av[1], "Sierpinski_carpet") && ft_strcmp(av[1], "Newton")))
+	&& ft_strcmp(av[1], "Sierpinski_carpet")))
 		return (ft_fractal_list());
 	init_param(&param, av[1]);
-	draw_pic(param);
+	draw_pic(&param);
 	mlx_key_hook(param->win, key_hook, param);
 	mlx_hook(param->win, 2, 3, key_hook, param);
 	mlx_loop(param->mlx);
