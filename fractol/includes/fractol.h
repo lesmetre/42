@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 15:53:45 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 17:25:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void			draw_pic(t_fractolparam **param);
 void			draw_pixel(int x, int y, t_fractolparam *param, int color); 
 int				key_hook(int keycode, t_fractolparam *param);
 int				julia_hook(int x, int y, t_fractolparam *param);
+void			draw_miniMandelbrot(t_fractolparam *param, int x, int y, int i);
 
 #endif

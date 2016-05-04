@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 15:53:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 17:11:22 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
     param->height =1395;
     param->fractal = fractal;
     param->mlx = mlx_init();
+    param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
     if (!ft_strcmp(param->fractal, "Mandelbrot"))
         init_Mandelbrot(&param);
     else if (!ft_strcmp(param->fractal, "Mandelbar"))
@@ -38,7 +39,6 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
         init_Sierpinski_triangle(&param);
     else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
         init_Sierpinski_carpet(&param);
-    param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
 	param->mousex = 0;
 	param->mousey = 0;
     *addr_param = param;

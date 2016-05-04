@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 15:58:07 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 17:19:48 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	draw_pic(t_fractolparam **addr_param)
 	param->pic = (unsigned int *)mlx_get_data_addr(param->img,
 		&param->bpp, &param->sizeline, &param->endian);
 	if (!ft_strcmp(param->fractal, "Julia"))
+	{
+		draw_miniMandelbrot(param, -1, -1, -1);
 		draw_Julia(param, -1, -1 ,-1);
+	}
 	else if (!ft_strcmp(param->fractal, "Mandelbrot"))
 		draw_Mandelbrot(param, -1, -1, -1);
 	else if (!ft_strcmp(param->fractal, "Burning_ship"))
