@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 18:05:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 15:53:45 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ typedef struct	s_fractolparam
 	int					iteration_max;
 	int					image_x;
 	int					image_y;
-	int					pixmax;
+	double				pixmax;
+	double				mousex;
+	double				mousey;
 }				t_fractolparam;
 
 void			init_Burning_ship(t_fractolparam **addr_param);
@@ -61,4 +63,6 @@ void			draw_Sierpinski_carpet(t_fractolparam *param);
 void			draw_pic(t_fractolparam **param);
 void			draw_pixel(int x, int y, t_fractolparam *param, int color); 
 int				key_hook(int keycode, t_fractolparam *param);
+int				julia_hook(int x, int y, t_fractolparam *param);
+
 #endif

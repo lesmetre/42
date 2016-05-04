@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:17:06 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 19:40:24 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 12:07:18 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_Mandelbrot(t_fractolparam **addr_param)
 	(*addr_param)->y1 = -1.2;
 	(*addr_param)->y2 = 1.2;
 	(*addr_param)->iteration_max = 50;
-	(*addr_param)->zoom = 100;
+	(*addr_param)->zoom = 500;
 }
 
 void	draw_Mandelbrot(t_fractolparam *param, int x, int y, int i)

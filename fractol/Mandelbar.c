@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:22:15 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 19:10:47 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 12:09:48 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_Mandelbar(t_fractolparam **addr_param)
 	(*addr_param)->y1 = -2.1;
 	(*addr_param)->y2 = 2.1;
 	(*addr_param)->iteration_max = 50;
-    (*addr_param)->zoom = 400;
+    (*addr_param)->zoom = 300;
 }
 
 void	draw_Mandelbar(t_fractolparam *param, int x, int y, int i)

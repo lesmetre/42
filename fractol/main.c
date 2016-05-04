@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 18:52:57 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 15:53:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
     if (!(param = (t_fractolparam*)malloc(sizeof(*param))))
         exit(1);
     param->width = 2560;
-    param->height =1400;
+    param->height =1395;
     param->fractal = fractal;
     param->mlx = mlx_init();
     if (!ft_strcmp(param->fractal, "Mandelbrot"))
@@ -39,6 +39,8 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
     else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
         init_Sierpinski_carpet(&param);
     param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
+	param->mousex = 0;
+	param->mousey = 0;
     *addr_param = param;
 
 }
@@ -82,8 +84,14 @@ int				main(int ac, char **av)
 		return (ft_fractal_list());
 	init_param(&param, av[1]);
 	draw_pic(&param);
-	mlx_key_hook(param->win, key_hook, param);
 	mlx_hook(param->win, 2, 3, key_hook, param);
+	mlx_hook(param->win, 6, 1L<<6, julia_hook, param);
 	mlx_loop(param->mlx);
 	return (0);
 }
+//	mlx_mouse_hook(param->win, mouse_hook, param);
+//	mlx_key_hook(param->win, key_hook, param);
+//	mlx_expose_hook(param->win, expose2_hook, param);
+//	mlx_loop_hook(param->mlx, loop_hook, param);	
+//	mlx_hook(param->win, 6, 1L << 6, mouse_hook, param);
+	

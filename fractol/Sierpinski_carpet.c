@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:43:40 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 19:23:35 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/04 12:01:01 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    init_Sierpinski_carpet(t_fractolparam **addr_param)
     (*addr_param)->x2 = 2.43;
     (*addr_param)->y1 = 0;
     (*addr_param)->y2 = 2.43;
-    (*addr_param)->zoom = 100;
+    (*addr_param)->zoom = 400;
 }
 
 void     draw_Sierpinski_carpet(t_fractolparam *param)
