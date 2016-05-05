@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 12:18:36 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:02:30 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void	draw_miniMandelbrot(t_fractolparam *param, int x, int y, int i)
     double	z_i;
     double	tmp;
 
-    while (++x < 540)
+    while (++x < 270)
     {
-        c_r = (double)x / 200 - 2.1;
+        c_r = (double)x / 100 - 2.1;
         y = -1;
-        while (++y < 480)
+        while (++y < 240)
         {
-            c_i = (double)y / 200 - 1.2;
+            c_i = (double)y / 100 - 1.2;
             z_r = 0;
             z_i = 0;
             i = -1;
@@ -41,7 +41,7 @@ void	draw_miniMandelbrot(t_fractolparam *param, int x, int y, int i)
 		mlx_pixel_put(param->mlx, param->win, x, y, 0xffffff);
     }
 	y = -1;
-	while (++y < 480)
+	while (++y < 240)
 		mlx_pixel_put(param->mlx, param->win, x, y, 0xffffff);
 }
 
@@ -50,12 +50,12 @@ void		init_Julia(t_fractolparam **addr_param)
 	t_fractolparam *param;
 
 	param = *addr_param;
-    param->x1 = -1;
-    param->x2 = 1;
-    param->y1 = -1.2;
-    param->y2 = 1.2;
+    param->x1 = -2;
+    param->x2 = 2;
+    param->y1 = -2.4;
+    param->y2 = 2.4;
     param->iteration_max = 50;
-    param->zoom = 500;
+    param->zoom = 200;
 	draw_miniMandelbrot(param, -1, -1, -1);
 }
 
@@ -69,11 +69,11 @@ void		draw_Julia(t_fractolparam *param, int x, int y, int i)
 
     while (++y < param->image_y && y / param->zoom < param->height)
     {
-        c_i = param->mousey / 200 - 1.2;
+        c_i = param->mousey / 100 - 1.2;
         x = -1;
         while (++x < param->image_x && x / param->zoom < param->width)
         {
-            c_r = param->mousex / 200 - 2.1;
+            c_r = param->mousex / 100 - 2.1;
             z_r = x / param->zoom + param->x1;
             z_i = y / param->zoom + param->y1;
             i = -1;

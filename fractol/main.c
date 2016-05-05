@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 11:11:59 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:04:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 
     if (!(param = (t_fractolparam*)malloc(sizeof(*param))))
         exit(1);
-    param->width = 2560;
-    param->height =1395;
+    param->width = 1920;
+    param->height = 1080;
     param->fractal = fractal;
     param->mlx = mlx_init();
     param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
@@ -39,8 +39,8 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
         init_Sierpinski_triangle(&param);
     else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
         init_Sierpinski_carpet(&param);
-	param->mousex = 0;
-	param->mousey = 0;
+	param->mousex = 129;
+	param->mousey = 120;
     *addr_param = param;
 
 }

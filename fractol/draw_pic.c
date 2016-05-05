@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 17:19:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:21:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ void	draw_pic(t_fractolparam **addr_param)
 		draw_Sierpinski_carpet(param);
 	else if (!ft_strcmp(param->fractal, "Multibar"))
 		draw_Multibar(param, -1, -1 ,-1);
-	mlx_put_image_to_window(param->mlx, param->win, param->img, (param->width - param->image_x) * 0.5, (param->height - param->image_y) * 0.5);
+	mlx_put_image_to_window(param->mlx, param->win, param->img, (param->width - param->image_x) * 0.5 + param->movex , (param->height - param->image_y) * 0.5 + param->movey);
 }

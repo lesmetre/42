@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 11:14:43 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 16:17:16 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct	s_fractolparam
 	double				pixmax;
 	double				mousex;
 	double				mousey;
+	int					movex;
+	int					movey;
 }				t_fractolparam;
 
 void			init_Burning_ship(t_fractolparam **addr_param);
