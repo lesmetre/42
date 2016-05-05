@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 18:02:30 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:09:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,11 @@ void		draw_Julia(t_fractolparam *param, int x, int y, int i)
     double  z_i;
     double  tmp;
 
-    while (++y < param->image_y && y / param->zoom < param->height)
+    while (++y < param->image_y)
     {
         c_i = param->mousey / 100 - 1.2;
         x = -1;
-        while (++x < param->image_x && x / param->zoom < param->width)
+        while (++x < param->image_x)
         {
             c_r = param->mousex / 100 - 2.1;
             z_r = x / param->zoom + param->x1;

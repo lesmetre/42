@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 16:17:16 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:06:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
 typedef struct	s_fractolparam
 {
 	char				*fractal;
-	int					width;
-	int					height;
 	void				*mlx;
 	void				*win;
 	void				*img;

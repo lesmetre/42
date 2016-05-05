@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 18:04:53 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:51:11 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,25 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 
     if (!(param = (t_fractolparam*)malloc(sizeof(*param))))
         exit(1);
-    param->width = 1920;
-    param->height = 1080;
     param->fractal = fractal;
     param->mlx = mlx_init();
-    param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
-    if (!ft_strcmp(param->fractal, "Mandelbrot"))
-        init_Mandelbrot(&param);
-    else if (!ft_strcmp(param->fractal, "Mandelbar"))
-        init_Mandelbar(&param);
-    else if (!ft_strcmp(param->fractal, "Multibrot"))
-        init_Multibrot(&param);
-    else if (!ft_strcmp(param->fractal, "Multibar"))
-        init_Multibar(&param);
-    else if (!ft_strcmp(param->fractal, "Burning_ship"))
-        init_Burning_ship(&param);
+
+    if (!ft_strcmp(param->fractal, "Mandelbrot")
+		|| !ft_strcmp(param->fractal, "Mandelbar")
+		|| !ft_strcmp(param->fractal, "Multibrot")
+		|| !ft_strcmp(param->fractal, "Multibar")
+		|| !ft_strcmp(param->fractal, "Burning_ship"))
+		init_Mandelbrot(&param);
     else if (!ft_strcmp(param->fractal, "Julia"))
         init_Julia(&param);
     else if (!ft_strcmp(param->fractal, "Sierpinski_triangle"))
         init_Sierpinski_triangle(&param);
     else if (!ft_strcmp(param->fractal, "Sierpinski_carpet"))
         init_Sierpinski_carpet(&param);
+    param->image_x = (param->x2 - param->x1) * param->zoom;
+    param->image_y = (param->y2 - param->y1) * param->zoom;
+    param->pixmax = param->image_x * param->image_y;
+    param->win = mlx_new_window(param->mlx, param->image_x, param->image_y, "FRACTOL");
 	param->mousex = 129;
 	param->mousey = 120;
     *addr_param = param;

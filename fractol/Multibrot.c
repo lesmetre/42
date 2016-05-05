@@ -6,21 +6,11 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:27:23 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 11:59:44 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:52:57 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void    init_Multibrot(t_fractolparam **addr_param)
-{
-    (*addr_param)->x1 = -2.1;
-    (*addr_param)->x2 = 2.1;
-    (*addr_param)->y1 = -2.1;
-    (*addr_param)->y2 = 2.1;
-    (*addr_param)->iteration_max = 50;
-    (*addr_param)->zoom = 300;
-}
 
 void     draw_Multibrot(t_fractolparam *param, int x, int y, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 18:02:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:38:38 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int				key_hook(int keycode, t_fractolparam *param)
 		ft_putendl("<== iteration max");
 		param->iteration_max += 1;
 	}
-	else if (keycode == 78 && param->iteration_max > 0)
+	else if (keycode == 78 && param->iteration_max > 1)
 	{
 		ft_putnbr(param->iteration_max);
 		ft_putendl("<== iteration max");

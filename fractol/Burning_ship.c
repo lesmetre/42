@@ -6,21 +6,11 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:33:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/03 19:11:39 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 18:53:10 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	init_Burning_ship(t_fractolparam **addr_param)
-{
-    (*addr_param)->x1 = -2.1;
-    (*addr_param)->x2 = 1.1;
-    (*addr_param)->y1 = -1.9;
-    (*addr_param)->y2 = 0.6;
-    (*addr_param)->iteration_max = 100;
-    (*addr_param)->zoom = 400;
-}
 
 void	draw_Burning_ship(t_fractolparam *param, int x, int y, int i)
 {
