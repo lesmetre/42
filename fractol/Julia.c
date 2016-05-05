@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 17:22:55 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 12:18:36 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,28 @@ void	draw_miniMandelbrot(t_fractolparam *param, int x, int y, int i)
     double	z_i;
     double	tmp;
 
-    while (++x < 270)
+    while (++x < 540)
     {
-        c_r = (double)x / 100 - 2.1;
+        c_r = (double)x / 200 - 2.1;
         y = -1;
-        while (++y < 240)
+        while (++y < 480)
         {
-            c_i = (double)y / 100 - 1.2;
+            c_i = (double)y / 200 - 1.2;
             z_r = 0;
             z_i = 0;
             i = -1;
-            while (z_r * z_r + z_i * z_i < 4 && ++i < 50)
+            while (z_r * z_r + z_i * z_i < 4 && ++i < 51)
             {
                 tmp = z_r;
                 z_r = z_r * z_r - z_i * z_i + c_r;
                 z_i = 2 * z_i * tmp + c_i;
             }
-			mlx_pixel_put(param->mlx, param->win, x, y, i * 255 / 50);
+			mlx_pixel_put(param->mlx, param->win, x, y, i * 5);
         }
 		mlx_pixel_put(param->mlx, param->win, x, y, 0xffffff);
     }
 	y = -1;
-	while (++y < 240)
+	while (++y < 480)
 		mlx_pixel_put(param->mlx, param->win, x, y, 0xffffff);
 }
 
@@ -54,7 +54,7 @@ void		init_Julia(t_fractolparam **addr_param)
     param->x2 = 1;
     param->y1 = -1.2;
     param->y2 = 1.2;
-    param->iteration_max = 150;
+    param->iteration_max = 50;
     param->zoom = 500;
 	draw_miniMandelbrot(param, -1, -1, -1);
 }
@@ -67,13 +67,13 @@ void		draw_Julia(t_fractolparam *param, int x, int y, int i)
     double  z_i;
     double  tmp;
 
-    while (++x < param->image_x && x / param->zoom < param->width)
+    while (++y < param->image_y && y / param->zoom < param->height)
     {
-        c_r = param->mousex;
-        y = -1;
-        while (++y < param->image_y && y / param->zoom < param->height)
+        c_i = param->mousey / 200 - 1.2;
+        x = -1;
+        while (++x < param->image_x && x / param->zoom < param->width)
         {
-            c_i = param->mousey;
+            c_r = param->mousex / 200 - 2.1;
             z_r = x / param->zoom + param->x1;
             z_i = y / param->zoom + param->y1;
             i = -1;

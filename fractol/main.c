@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 17:11:22 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/05 11:11:59 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,12 @@ int				main(int ac, char **av)
 	init_param(&param, av[1]);
 	draw_pic(&param);
 	mlx_hook(param->win, 2, 3, key_hook, param);
+	mlx_mouse_hook(param->win, mouse_hook, param);
 	mlx_hook(param->win, 6, 1L<<6, julia_hook, param);
 	mlx_loop(param->mlx);
 	return (0);
 }
-//	mlx_mouse_hook(param->win, mouse_hook, param);
+
 //	mlx_key_hook(param->win, key_hook, param);
 //	mlx_expose_hook(param->win, expose2_hook, param);
 //	mlx_loop_hook(param->mlx, loop_hook, param);	
