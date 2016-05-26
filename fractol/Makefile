@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/05/03 17:55:53 by mpressen         ###   ########.fr        #
+#    Updated: 2016/05/24 18:25:58 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ NAME = fractol
 
 SRC_PATH = ./
 
-SRC_NAME = main.c  draw_pic.c hook.c Burning_ship.c Julia.c Mandelbar.c Mandelbrot.c Multibar.c Multibrot.c Sierpinski_carpet.c Sierpinski_triangle.c
+SRC_NAME = main.c  draw_pic.c hook.c Julia.c #Burning_ship.c Mandelbar.c Mandelbrot.c Multibar.c Multibrot.c
 
 OBJ_PATH = ./
 
@@ -25,7 +25,7 @@ LIB_NAME = libft.a
 INC_PATH = ./libft/includes ./includes/
 
 #AUTOMATIC
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-D_REENTRANT
 
 INC_FLAG = -I
 
@@ -41,7 +41,7 @@ all: $(NAME)
 $(NAME):
 	make -C $(LIB_PATH)
 	gcc -c $(CFLAGS) $(SRC) $(INC_COMPIL)
-	gcc -o $@ $(OBJ) $(LIB) -lm -lmlx -framework OpenGL -framework AppKit
+	gcc -o $@ $(OBJ) $(LIB) -lm -lmlx -framework OpenGL -framework AppKit #-lpthread
 
 clean:
 	make -C $(LIB_PATH) clean
