@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 14:31:17 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 14:42:59 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:27:01 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    draw_Logbrot(t_fractolparam *param)
                 param->z_r = log(param->z_r * param->z_r - param->z_i * param->z_i + param->c_r);
                 param->z_i = log(2 * param->z_i * param->tmp + param->c_i);
             }
-            draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
         }
     }
 }

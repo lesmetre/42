@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 15:12:42 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 18:40:22 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static void		init_param(t_fractolparam **addr_param, char *fractal)
 	param->iteration_max = 20;
 	param->mousex = 0;
 	param->mousey = 0;
+	param->color = 1;
     param->win = mlx_new_window(param->mlx, param->width, param->height, "FRACTOL");
     *addr_param = param;
 }

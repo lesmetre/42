@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:30:47 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 14:25:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:25:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    draw_Multibar(t_fractolparam *param)
                 param->z_r = param->z_r * param->z_r * param->z_r - 3 * param->z_r * param->z_i * param->z_i + param->c_r;
                 param->z_i = -1 * (3 * param->tmp * param->tmp * param->z_i - param->z_i * param->z_i * param->z_i + param->c_i);
             }
-            draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
         }
     }
 }

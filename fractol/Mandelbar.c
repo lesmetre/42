@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:22:15 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 14:30:41 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:25:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    draw_Mandelbar(t_fractolparam *param)
                 param->z_r = param->z_r * param->z_r - param->z_i * param->z_i + param->c_r;
                 param->z_i = -1 * (2 * param->z_i * param->tmp + param->c_i);
             }
-            draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
         }
     }
 }

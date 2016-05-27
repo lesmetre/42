@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/26 18:48:02 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 18:49:06 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void        *draw_Julia1(void *data)
                 param->z_r = param->z_r * param->z_r - param->z_i * param->z_i + param->c_r;
                 param->z_i = 2 * param->z_i * param->tmp + param->c_i;
             }
-			draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
 		}
 	}
 	return (NULL);
@@ -72,7 +72,13 @@ void        *draw_Julia2(void *data)
                 param->z_r2 = param->z_r2 * param->z_r2 - param->z_i2 * param->z_i2 + param->c_r2;
                 param->z_i2 = 2 * param->z_i2 * param->tmp2 + param->c_i2;
             }
-			draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			if (param->color == 9)
+				draw_pixel(x, y, param, i - (log(log(sqrt(param->z_r2 * param->z_r2 + param->z_i2
+				* param->z_i2)))) / log(2) + (i - (log(log(sqrt(param->z_r2 * param->z_r2 +
+				param->z_i2 * param->z_i2)))) / log(2)) * 255 + (i - (log(log(sqrt(param->z_r2 *
+				param->z_r2 + param->z_i2 * param->z_i2)))) / log(2)) * 255 * 255);
+			else
+				choose_color(x, y, param, i);
 		}
 	}
 	return (NULL);
@@ -105,7 +111,13 @@ void        *draw_Julia3(void *data)
                 param->z_r3 = param->z_r3 * param->z_r3 - param->z_i3 * param->z_i3 + param->c_r3;
                 param->z_i3 = 2 * param->z_i3 * param->tmp3 + param->c_i3;
             }
-			draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			if (param->color == 9)
+				draw_pixel(x, y, param, i - (log(log(sqrt(param->z_r3 * param->z_r3 + param->z_i3
+				* param->z_i3)))) / log(2) + (i - (log(log(sqrt(param->z_r3 * param->z_r3 +
+				param->z_i3 * param->z_i3)))) / log(2)) * 255 + (i - (log(log(sqrt(param->z_r3 *
+				param->z_r3 + param->z_i3 * param->z_i3)))) / log(2)) * 255 * 255);
+			else
+				choose_color(x, y, param, i);
 		}
 	}
 
@@ -137,7 +149,13 @@ void        *draw_Julia4(void *data)
                 param->z_r4 = param->z_r4 * param->z_r4 - param->z_i4 * param->z_i4 + param->c_r4;
                 param->z_i4 = 2 * param->z_i4 * param->tmp4 + param->c_i4;
             }
-			draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			if (param->color == 9)
+				draw_pixel(x, y, param, i - (log(log(sqrt(param->z_r4 * param->z_r4 + param->z_i4
+				* param->z_i4)))) / log(2) + (i - (log(log(sqrt(param->z_r4 * param->z_r4 +
+				param->z_i4 * param->z_i4)))) / log(2)) * 255 + (i - (log(log(sqrt(param->z_r4 *
+				param->z_r4 + param->z_i4 * param->z_i4)))) / log(2)) * 255 * 255);
+			else
+				choose_color(x, y, param, i);
 		}
 	}
 	return (NULL);
@@ -190,7 +208,7 @@ void		draw_Julia(t_fractolparam *param)
                 param->z_r = param->z_r * param->z_r - param->z_i * param->z_i + param->c_r;
                 param->z_i = 2 * param->z_i * param->tmp + param->c_i;
             }
-			draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
 		}
 	}
 }

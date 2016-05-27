@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:27:23 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 14:24:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:25:32 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    draw_Multibrot(t_fractolparam *param)
                 param->z_r = param->z_r * param->z_r * param->z_r - 3 * param->z_r * param->z_i * param->z_i + param->c_r;
                 param->z_i = 3 * param->tmp * param->tmp * param->z_i - param->z_i * param->z_i * param->z_i + param->c_i;
             }
-            draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+			choose_color(x, y, param, i);
         }
     }
 }
