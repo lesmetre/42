@@ -6,12 +6,13 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:39:40 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/04 12:04:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 15:08:37 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
+/*
 void    init_Sierpinski_triangle(t_fractolparam **addr_param)
 {
 
@@ -21,6 +22,7 @@ void    init_Sierpinski_triangle(t_fractolparam **addr_param)
     (*addr_param)->y2 = 1.28;
     (*addr_param)->zoom = 500;
 }
+*/
 
 void     draw_Sierpinski_triangle(t_fractolparam *param)
 {
@@ -28,10 +30,10 @@ void     draw_Sierpinski_triangle(t_fractolparam *param)
     int     y;
 
     x = -1;
-    while (++x < param->image_x)
+    while (++x < param->width)
     {
         y = -1;
-        while (++y < param->image_y)
+        while (++y < param->height)
 		{
             if (!(x & y))
                 draw_pixel(x, y, param, 0x00ff00);

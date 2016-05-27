@@ -6,39 +6,36 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:33:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/05 18:53:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 14:25:30 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	draw_Burning_ship(t_fractolparam *param, int x, int y, int i)
+void    draw_Burning_ship(t_fractolparam *param)
 {
-    double  c_r;
-    double  c_i;
-    double  z_r;
-    double  z_i;
-    double  tmp;
+    int y;
+    int x;
+    int i;
 
-    while (++x < param->image_x)
+    y = -1;
+    while (++y < param->height)
     {
-        c_r = x / param->zoom + param->x1;
-        y = -1;
-        while (++y < param->image_y)
+        param->c_i = y / param->zoom + param->y1;
+        x = -1;
+        while (++x < param->width)
         {
-            c_i = y / param->zoom + param->y1;
-            z_r = 0;
-            z_i = 0;
+            param->c_r = x / param->zoom + param->x1;
+            param->z_r = 0;
+            param->z_i = 0;
             i = -1;
-            while (z_r * z_r + z_i * z_i < 4 && ++i < param->iteration_max)
+            while (param->z_r * param->z_r + param->z_i * param->z_i < 4 && ++i < param->iteration_max)
             {
-                tmp = z_r;
-                z_r = fabs(z_r * z_r - z_i * z_i + c_r);
-                z_i = fabs(2 * z_i * tmp + c_i);
+                param->tmp = param->z_r;
+                param->z_r = fabs(param->z_r * param->z_r - param->z_i * param->z_i + param->c_r);
+                param->z_i = fabs(2 * param->z_i * param->tmp + param->c_i);
             }
-			draw_pixel(x, y, param, i - (log(log(sqrt(z_r * z_r + z_i * z_i)))) / log(2)
-					   + (i - (log(log(sqrt(z_r * z_r + z_i * z_i)))) / log(2)) * 256
-					   + (i- (log(log(sqrt(z_r * z_r + z_i * z_i)))) / log(2)) * 256 * 256);
-		}
-	}
+            draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
+        }
+    }
 }

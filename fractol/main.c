@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/26 19:09:08 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 15:12:42 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,15 @@ static int		ft_fractal_list(void)
 	ft_putendl("			\033[1;32m|\033[0m");
 	ft_putstr("\033[1;32m|\033[0m 5) Burning_ship		");
 	ft_putendl("			\033[1;32m|\033[0m");
-	ft_putstr("\033[1;32m|\033[0m 6) Julia				");
+	ft_putstr("\033[1;32m|\033[0m 6) Logbrot			    ");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 7) Mpressen			    ");
+	ft_putendl("			\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 8) Julia				");
+	ft_putendl("		\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 9) Sierpinski_triangle		");
+	ft_putendl("		\033[1;32m|\033[0m");
+	ft_putstr("\033[1;32m|\033[0m 10) Sierpinski_carpet			");
 	ft_putendl("		\033[1;32m|\033[0m");
 	ft_putstr("\033[1;32m---------------------------\033[0m");
 	ft_putendl("\033[1;32m------------------------------\033[0m");
@@ -70,7 +78,10 @@ int				main(int ac, char **av)
 	param = NULL;
 	if (ac < 2 || (ft_strcmp(av[1], "Julia") && ft_strcmp(av[1], "Mandelbrot")
 	&& ft_strcmp(av[1], "Burning_ship") && ft_strcmp(av[1], "Multibrot")
-	&& ft_strcmp(av[1], "Mandelbar") && ft_strcmp(av[1], "Multibar")))
+	&& ft_strcmp(av[1], "Mandelbar") && ft_strcmp(av[1], "Multibar")
+	&& ft_strcmp(av[1], "Logbrot") && ft_strcmp(av[1], "Mpressen")
+	&& ft_strcmp(av[1], "Sierpinski_triangle")
+	&& ft_strcmp(av[1], "Sierpinski_carpet")))
 		return (ft_fractal_list());
 	init_param(&param, av[1]);
 	draw_pic(&param);

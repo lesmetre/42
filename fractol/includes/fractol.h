@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/26 15:35:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/27 15:10:55 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,16 @@ typedef struct	s_fractolparam
 
 }				t_fractolparam;
 
-void			draw_Burning_ship(t_fractolparam *param, int x, int y, int i);
+void			draw_Burning_ship(t_fractolparam *param);
+void			draw_Logbrot(t_fractolparam *param);
 void			draw_Julia(t_fractolparam *param);
-void			draw_Mandelbar(t_fractolparam *param, int x, int y, int i);
-void			draw_Mandelbrot(t_fractolparam *param, int x, int y, int i);
-void			draw_Multibar(t_fractolparam *param, int x, int y, int i);
-void			draw_Multibrot(t_fractolparam *param, int x, int y, int i);
+void			draw_Sierpinski_triangle(t_fractolparam *param);
+void			draw_Sierpinski_carpet(t_fractolparam *param);
+void			draw_Mpressen(t_fractolparam *param);
+void			draw_Mandelbar(t_fractolparam *param);
+void			draw_Mandelbrot(t_fractolparam *param);
+void			draw_Multibar(t_fractolparam *param);
+void			draw_Multibrot(t_fractolparam *param);
 void			draw_pic(t_fractolparam **param);
 void			draw_pixel(int x, int y, t_fractolparam *param, int color); 
 int				key_hook(int keycode, t_fractolparam *param);

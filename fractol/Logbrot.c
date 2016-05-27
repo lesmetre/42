@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Mandelbar.c                                        :+:      :+:    :+:   */
+/*   Logbrot.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/05/03 17:22:15 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 14:30:41 by mpressen         ###   ########.fr       */
+/*   Created: 2016/05/27 14:31:17 by mpressen          #+#    #+#             */
+/*   Updated: 2016/05/27 14:42:59 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void    draw_Mandelbar(t_fractolparam *param)
+void    draw_Logbrot(t_fractolparam *param)
 {
     int y;
     int x;
@@ -32,8 +32,8 @@ void    draw_Mandelbar(t_fractolparam *param)
             while (param->z_r * param->z_r + param->z_i * param->z_i < 4 && ++i < param->iteration_max)
             {
                 param->tmp = param->z_r;
-                param->z_r = param->z_r * param->z_r - param->z_i * param->z_i + param->c_r;
-                param->z_i = -1 * (2 * param->z_i * param->tmp + param->c_i);
+                param->z_r = log(param->z_r * param->z_r - param->z_i * param->z_i + param->c_r);
+                param->z_i = log(2 * param->z_i * param->tmp + param->c_i);
             }
             draw_pixel(x, y, param, 0xffffff - (param->iteration_max * i) * 255);
         }
