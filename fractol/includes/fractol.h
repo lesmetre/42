@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 16:20:21 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/31 16:12:52 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_fractolparam
 	double				x2;
 	double				y2;
 	double				zoom;
-	int					iteration_max;
+	int					imax;
 	double				pixmax;
 	double				mousex;
 	double				mousey;
@@ -67,19 +67,19 @@ typedef struct	s_fractolparam
 	int					color;
 }				t_fractolparam;
 
-void			draw_Burning_ship(t_fractolparam *param);
-void			draw_Logbrot(t_fractolparam *param);
-void			draw_Julia(t_fractolparam *param);
-void			draw_Sierpinski_triangle(t_fractolparam *param);
-void			draw_Sierpinski_carpet(t_fractolparam *param);
-void			draw_Mpressen(t_fractolparam *param);
-void			draw_Mandelbar(t_fractolparam *param);
-void			draw_Mandelbrot(t_fractolparam *param);
-void			draw_Multibar(t_fractolparam *param);
-void			draw_Multibrot(t_fractolparam *param);
+void			draw_burning_ship(t_fractolparam *param);
+void			draw_logbrot(t_fractolparam *param);
+void			draw_julia(t_fractolparam *param);
+void			draw_sierpinski_triangle(t_fractolparam *param);
+void			draw_sierpinski_carpet(t_fractolparam *param);
+void			draw_mpressen(t_fractolparam *param);
+void			draw_mandelbar(t_fractolparam *param);
+void			draw_mandelbrot(t_fractolparam *param);
+void			draw_multibar(t_fractolparam *param);
+void			draw_multibrot(t_fractolparam *param);
 void			draw_pic(t_fractolparam **param);
-void			choose_color(int x, int y, t_fractolparam *param, int color); 
-void			draw_pixel(int x, int y, t_fractolparam *param, int color); 
+void			choose_color(int x, int y, t_fractolparam *param, int color);
+void			draw_pixel(int x, int y, t_fractolparam *param, int color);
 int				key_hook(int keycode, t_fractolparam *param);
 int				mouse_hook(int button, int x, int y, t_fractolparam *param);
 int				julia_hook(int x, int y, t_fractolparam *param);

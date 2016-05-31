@@ -6,36 +6,36 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:17:06 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/27 16:26:03 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/05/31 18:48:56 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	draw_Mandelbrot(t_fractolparam *param)
+void	draw_mandelbrot(t_fractolparam *p)
 {
 	int y;
 	int x;
 	int i;
 
 	y = -1;
-	while (++y < param->height)
+	while (++y < p->height)
 	{
-		param->c_i = y / param->zoom + param->y1;
+		p->c_i = y / p->zoom + p->y1;
 		x = -1;
-		while (++x < param->width)
+		while (++x < p->width)
 		{
-			param->c_r = x / param->zoom + param->x1;			
-			param->z_r = 0;
-			param->z_i = 0;
+			p->c_r = x / p->zoom + p->x1;
+			p->z_r = 0;
+			p->z_i = 0;
 			i = -1;
-			while (param->z_r * param->z_r + param->z_i * param->z_i < 4 && ++i < param->iteration_max)
+			while (p->z_r * p->z_r + p->z_i * p->z_i < 4 && ++i < p->imax)
 			{
-				param->tmp = param->z_r;
-				param->z_r = param->z_r * param->z_r - param->z_i * param->z_i + param->c_r;
-				param->z_i = 2 * param->z_i * param->tmp + param->c_i;
+				p->tmp = p->z_r;
+				p->z_r = p->z_r * p->z_r - p->z_i * p->z_i + p->c_r;
+				p->z_i = 2 * p->z_i * p->tmp + p->c_i;
 			}
-			choose_color(x, y, param, i);
+			choose_color(x, y, p, i);
 		}
 	}
 }
