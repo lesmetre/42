@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/20 17:34:07 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/31 20:04:20 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/01 15:13:02 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int				mouse_hook(int button, int x, int y, t_fractolparam *p)
 		if (button == 5 || button == 1)
 		{
 			p->zoom *= 1.1;
-			p->imax += -1;
+			p->imax += 1;
 		}
 		else
 		{
