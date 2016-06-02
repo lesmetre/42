@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 11:20:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 17:58:04 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void		draw_julia1bis(t_fractolparam *p, int x, int y)
 {
 	int i;
 
-	p->c_i = p->mousey / 100 - 1.2;
+	p->c_i = p->mousey / 50 - 1.2;
 	while (++x < p->width)
 	{
-		p->c_r = p->mousex / 100 - 2.1;
+		p->c_r = p->mousex / 50 - 2.1;
 		p->z_r = (x - p->movex) / p->zoom + p->x1;
 		p->z_i = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
@@ -37,11 +37,11 @@ void		draw_julia2bis(t_fractolparam *p, int x, int y)
 {
 	int i;
 
-	p->c_i2 = p->mousey / 100 - 1.2;
+	p->c_i2 = p->mousey / 50 - 1.2;
 	x = -1;
 	while (++x < p->width)
 	{
-		p->c_r2 = p->mousex / 100 - 2.1;
+		p->c_r2 = p->mousex / 50 - 2.1;
 		p->z_r2 = (x - p->movex) / p->zoom + p->x1;
 		p->z_i2 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
@@ -67,10 +67,10 @@ void		draw_julia3bis(t_fractolparam *p, int x, int y)
 	int i;
 
 	i = -1;
-	p->c_i3 = p->mousey / 100 - 1.2;
+	p->c_i3 = p->mousey / 50 - 1.2;
 	while (++x < p->width)
 	{
-		p->c_r3 = p->mousex / 100 - 2.1;
+		p->c_r3 = p->mousex / 50 - 2.1;
 		p->z_r3 = (x - p->movex) / p->zoom + p->x1;
 		p->z_i3 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
@@ -96,10 +96,10 @@ void		draw_julia4bis(t_fractolparam *p, int x, int y)
 	int i;
 
 	i = -1;
-	p->c_i4 = p->mousey / 100 - 1.2;
+	p->c_i4 = p->mousey / 50 - 1.2;
 	while (++x < p->width)
 	{
-		p->c_r4 = p->mousex / 100 - 2.1;
+		p->c_r4 = p->mousex / 50 - 2.1;
 		p->z_r4 = (x - p->movex) / p->zoom + p->x1;
 		p->z_i4 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 14:47:48 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 18:31:05 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct	s_fractolparam
 	double				tmp4;
 	int					block;
 	int					color;
+	int					mandel;
 }				t_fractolparam;
 
 void			draw_burning_ship(t_fractolparam *param);
@@ -92,4 +93,8 @@ void			draw_mpressen2bis(t_fractolparam *p, int x, int y, int i);
 void			draw_mpressen3bis(t_fractolparam *p, int x, int y, int i);
 void			draw_mpressen4bis(t_fractolparam *p, int x, int y, int i);
 void			draw_legend(t_fractolparam *p);
+int				expose_hook(t_fractolparam *p);
+int				julia_hook(int x, int y, t_fractolparam *p);
+void			draw_minimandel(t_fractolparam *p, int x, int y, int i);
+void			mouse_hook2(int button, t_fractolparam *p);
 #endif

@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 13:30:10 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 18:22:54 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,11 @@ int				main(int ac, char **av)
 
 	p = NULL;
 	if (ac < 2 || (ft_strcmp(av[1], "julia") && ft_strcmp(av[1], "mandelbrot")
-		&& ft_strcmp(av[1], "burning_ship") && ft_strcmp(av[1], "multibrot")
-		&& ft_strcmp(av[1], "mandelbar") && ft_strcmp(av[1], "multibar")
-		&& ft_strcmp(av[1], "logbrot") && ft_strcmp(av[1], "mpressen")
-		&& ft_strcmp(av[1], "sierpinski_triangle")
-		&& ft_strcmp(av[1], "sierpinski_carpet")))
+			&& ft_strcmp(av[1], "burning_ship") && ft_strcmp(av[1], "multibrot")
+			&& ft_strcmp(av[1], "mandelbar") && ft_strcmp(av[1], "multibar")
+			&& ft_strcmp(av[1], "logbrot") && ft_strcmp(av[1], "mpressen")
+			&& ft_strcmp(av[1], "sierpinski_triangle")
+			&& ft_strcmp(av[1], "sierpinski_carpet")))
 		return (ft_fractal_list());
 	init_param(&p, av[1]);
 	draw_pic(&p);
