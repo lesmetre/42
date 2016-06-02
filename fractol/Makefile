@@ -6,7 +6,7 @@
 #    By: mpressen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/29 20:56:44 by mpressen          #+#    #+#              #
-#    Updated: 2016/06/02 13:20:45 by mpressen         ###   ########.fr        #
+#    Updated: 2016/06/02 18:54:10 by mpressen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,12 +20,16 @@ OBJ_PATH = ./
 
 LIB_PATH = ./libft/
 
+LIB_PATH2 = ./mlx/
+
 LIB_NAME = libft.a
+
+LIB_NAME2 = libmlx.a
 
 INC_PATH = ./libft/includes ./includes/
 
 #AUTOMATIC
-CFLAGS = -Wall -Wextra -Werror #-D_REENTRANT
+CFLAGS = -Wall -Wextra -Werror
 
 INC_FLAG = -I
 
@@ -34,17 +38,20 @@ OBJ_NAME = $(SRC_NAME:.c=.o)
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 LIB = $(addprefix $(LIB_PATH), $(LIB_NAME))
+LIB2 = $(addprefix $(LIB_PATH2), $(LIB_NAME2))
 INC_COMPIL = $(addprefix $(INC_FLAG), $(INC_PATH))
 
 all: $(NAME)
 
 $(NAME):
 	make -C $(LIB_PATH)
+	make -C $(LIB_PATH2)
 	gcc -c $(CFLAGS) $(SRC) $(INC_COMPIL)
-	gcc -o $@ $(OBJ) $(LIB) -lm -lmlx -framework OpenGL -framework AppKit #-lpthread
+	gcc -o $@ $(OBJ) $(LIB) $(LIB2) -framework OpenGL -framework AppKit
 
 clean:
 	make -C $(LIB_PATH) clean
+	make -C $(LIB_PATH2) clean
 	rm -rf $(OBJ)
 
 fclean: clean
