@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/10 18:18:04 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/01 17:05:03 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 14:47:48 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,4 +91,5 @@ void			draw_mpressen1bis(t_fractolparam *p, int x, int y, int i);
 void			draw_mpressen2bis(t_fractolparam *p, int x, int y, int i);
 void			draw_mpressen3bis(t_fractolparam *p, int x, int y, int i);
 void			draw_mpressen4bis(t_fractolparam *p, int x, int y, int i);
+void			draw_legend(t_fractolparam *p);
 #endif

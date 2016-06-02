@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:17:06 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/31 18:48:56 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 09:55:53 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	draw_mandelbrot(t_fractolparam *p)
 	int i;
 
 	y = -1;
-	while (++y < p->height)
+	while (++y <= p->height)
 	{
-		p->c_i = y / p->zoom + p->y1;
+		p->c_i = (y - p->movey) / p->zoom + p->y1;
 		x = -1;
-		while (++x < p->width)
+		while (++x <= p->width)
 		{
-			p->c_r = x / p->zoom + p->x1;
+			p->c_r = (x - p->movex) / p->zoom + p->x1;
 			p->z_r = 0;
 			p->z_i = 0;
 			i = -1;

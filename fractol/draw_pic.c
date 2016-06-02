@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/05/31 20:04:52 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 13:25:33 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ void		draw_pixel(int x, int y, t_fractolparam *p, int color)
 {
 	int pix;
 
-	pix = x + p->movex + (y + p->movey) * p->width;
-	if (x + p->movex < p->width && x + p->movex >= 0
-		&& pix >= 0 && pix < p->pixmax)
+	pix = x + y * p->width;
+	if (x < p->width && x >= 0 && pix >= 0 && pix < p->pixmax)
 		p->pic[pix] = mlx_get_color_value(p->mlx, color);
 }
 
@@ -82,4 +81,5 @@ void		draw_pic(t_fractolparam **addr_p)
 	p->pic = (unsigned int *)mlx_get_data_addr(p->img,
 			&p->bpp, &p->sizeline, &p->endian);
 	draw_pic2(p);
+	draw_legend(p);
 }

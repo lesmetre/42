@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 17:35:19 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/01 17:04:05 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 09:58:00 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void		draw_mpressen1bis(t_fractolparam *p, int x, int y, int i)
 	while (++x < p->width)
 	{
 		p->c_r = p->mousex / 100 - 2.1;
-		p->z_r = x / p->zoom + p->x1;
-		p->z_i = y / p->zoom + p->y1;
+		p->z_r = (x - p->movex) / p->zoom + p->x1;
+		p->z_i = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
 		while (p->z_r * p->z_r + p->z_i * p->z_i < 4 && ++i < p->imax)
 		{
@@ -39,8 +39,8 @@ void		draw_mpressen2bis(t_fractolparam *p, int x, int y, int i)
 	while (++x < p->width)
 	{
 		p->c_r2 = p->mousex / 100 - 2.1;
-		p->z_r2 = x / p->zoom + p->x1;
-		p->z_i2 = y / p->zoom + p->y1;
+		p->z_r2 = (x - p->movex) / p->zoom + p->x1;
+		p->z_i2 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
 		while (p->z_r2 * p->z_r2 + p->z_i2 * p->z_i2 < 4 && ++i < p->imax)
 		{
@@ -67,8 +67,8 @@ void		draw_mpressen3bis(t_fractolparam *p, int x, int y, int i)
 	while (++x < p->width)
 	{
 		p->c_r3 = p->mousex / 100 - 2.1;
-		p->z_r3 = x / p->zoom + p->x1;
-		p->z_i3 = y / p->zoom + p->y1;
+		p->z_r3 = (x - p->movex) / p->zoom + p->x1;
+		p->z_i3 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
 		while (p->z_r3 * p->z_r3 + p->z_i3 * p->z_i3 < 4 && ++i < p->imax)
 		{
@@ -95,8 +95,8 @@ void		draw_mpressen4bis(t_fractolparam *p, int x, int y, int i)
 	while (++x < p->width)
 	{
 		p->c_r4 = p->mousex / 100 - 2.1;
-		p->z_r4 = x / p->zoom + p->x1;
-		p->z_i4 = y / p->zoom + p->y1;
+		p->z_r4 = (x - p->movex) / p->zoom + p->x1;
+		p->z_i4 = (y - p->movey) / p->zoom + p->y1;
 		i = -1;
 		while (p->z_r4 * p->z_r4 + p->z_i4 * p->z_i4 < 4 && ++i < p->imax)
 		{
