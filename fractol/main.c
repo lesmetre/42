@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/12 01:10:10 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 18:22:54 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 20:10:51 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void		init_param(t_fractolparam **addr_p, char *fractal)
 	if (!(p = (t_fractolparam*)malloc(sizeof(*p))))
 		exit(1);
 	p->fractal = fractal;
+	recon_fractal(p);
 	p->mlx = mlx_init();
 	p->zoom = 100;
 	p->x1 = -2.4;
@@ -86,8 +87,12 @@ int				main(int ac, char **av)
 			&& ft_strcmp(av[1], "burning_ship") && ft_strcmp(av[1], "multibrot")
 			&& ft_strcmp(av[1], "mandelbar") && ft_strcmp(av[1], "multibar")
 			&& ft_strcmp(av[1], "logbrot") && ft_strcmp(av[1], "mpressen")
-			&& ft_strcmp(av[1], "sierpinski_triangle")
-			&& ft_strcmp(av[1], "sierpinski_carpet")))
+			&& ft_strcmp(av[1], "sierpinski_triangle") && ft_strcmp(av[1], "1")
+			&& ft_strcmp(av[1], "sierpinski_carpet") && ft_strcmp(av[1], "2")
+			&& ft_strcmp(av[1], "3") && ft_strcmp(av[1], "5")
+			&& ft_strcmp(av[1], "4") && ft_strcmp(av[1], "6")
+			&& ft_strcmp(av[1], "7") && ft_strcmp(av[1], "8")
+			&& ft_strcmp(av[1], "10") && ft_strcmp(av[1], "9")))
 		return (ft_fractal_list());
 	init_param(&p, av[1]);
 	draw_pic(&p);

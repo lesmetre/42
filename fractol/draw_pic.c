@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 18:25:24 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/02 20:10:25 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,28 +49,26 @@ void		choose_color(int x, int y, t_fractolparam *p, int i)
 
 static void	draw_pic2(t_fractolparam *p)
 {
-	if (!ft_strcmp(p->fractal, "julia"))
+	if (p->nbfract == 8)
 		draw_julia(p);
-	else if (!ft_strcmp(p->fractal, "mandelbrot"))
+	else if (p->nbfract == 1)
 		draw_mandelbrot(p);
-	else if (!ft_strcmp(p->fractal, "mpressen"))
+	else if (p->nbfract == 7)
 		draw_mpressen(p);
-	else if (!ft_strcmp(p->fractal, "sierpinski_triangle"))
+	else if (p->nbfract == 9)
 		draw_sierpinski_triangle(p);
-	else if (!ft_strcmp(p->fractal, "sierpinski_carpet"))
+	else if (p->nbfract == 10)
 		draw_sierpinski_carpet(p);
-	else if (!ft_strcmp(p->fractal, "burning_ship"))
+	else if (p->nbfract == 5)
 		draw_burning_ship(p);
-	else if (!ft_strcmp(p->fractal, "logbrot"))
+	else if (p->nbfract == 6)
 		draw_logbrot(p);
-	else if (!ft_strcmp(p->fractal, "multibrot"))
+	else if (p->nbfract == 3)
 		draw_multibrot(p);
-	else if (!ft_strcmp(p->fractal, "mandelbar"))
+	else if (p->nbfract == 2)
 		draw_mandelbar(p);
-	else if (!ft_strcmp(p->fractal, "multibar"))
+	else if (p->nbfract == 4)
 		draw_multibar(p);
-	mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
-	mlx_destroy_image(p->mlx, p->img);
 }
 
 void		draw_pic(t_fractolparam **addr_p)
@@ -82,6 +80,8 @@ void		draw_pic(t_fractolparam **addr_p)
 	p->pic = (unsigned int *)mlx_get_data_addr(p->img,
 			&p->bpp, &p->sizeline, &p->endian);
 	draw_pic2(p);
+	mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
+	mlx_destroy_image(p->mlx, p->img);
 	draw_legend(p);
 }
 
