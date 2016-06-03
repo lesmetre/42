@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/02 18:15:57 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 20:00:49 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:13:01 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ int			key_hook(int keycode, t_fractolparam *p)
 		p->mandel = 1;
 	else if (keycode == 46 && p->mandel)
 		p->mandel = 0;
-	else if (keycode == 98 || keycode == 101)
-		change_fractal(keycode, p);
+	else if (keycode == 43 || keycode == 47)
+		change_fractal(keycode, &p);
 	expose_hook(p);
 	return (0);
 }

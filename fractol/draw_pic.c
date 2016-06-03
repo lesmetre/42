@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/02 20:10:25 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:32:58 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,4 @@ void		draw_pic(t_fractolparam **addr_p)
 	mlx_put_image_to_window(p->mlx, p->win, p->img, 0, 0);
 	mlx_destroy_image(p->mlx, p->img);
 	draw_legend(p);
-}
-
-void		mouse_hook2(int button, t_fractolparam *p)
-{
-	if (button == 5)
-	{
-		p->zoom *= 1.1;
-		if ((int)p->zoom % 2)
-			p->imax += 1;
-	}
-	else if (button == 4)
-	{
-		p->zoom *= 0.9;
-		if ((int)p->zoom % 2)
-			p->imax -= 1;
-	}
 }
