@@ -6,7 +6,7 @@
 /*   By: mpressen <mpressen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/05 19:43:33 by mpressen          #+#    #+#             */
-/*   Updated: 2016/06/03 13:32:58 by mpressen         ###   ########.fr       */
+/*   Updated: 2016/06/03 15:16:16 by mpressen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ void		choose_color(int x, int y, t_fractolparam *p, int i)
 	if (p->color == 1)
 		draw_pixel(x, y, p, (i == p->imax ? 0xffffff : 0x000000));
 	else if (p->color == 2)
-		draw_pixel(x, y, p, (p->imax - i) * 255 * 255);
+		draw_pixel(x, y, p, ((i + i) * i * i % 256) * 256 * 256 + ((i *
+		321 % 256) * i * i) % 256 + ((i * 1000 * i * i) % 256) * 256);
 	else if (p->color == 3)
 		draw_pixel(x, y, p, 0xff0000 - i * 256 + i + i * 255 * 255);
 	else if (p->color == 4)
