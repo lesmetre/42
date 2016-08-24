@@ -14,6 +14,9 @@
 
 int	*ft_map(int *tab, int length, int (*f) (int))
 {
+	
+	
+	
 	int	*ret;
 	int i;
 
